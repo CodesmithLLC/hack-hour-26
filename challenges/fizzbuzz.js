@@ -24,7 +24,7 @@ function fizzbuzz(num) {
         if (i % 5 === 0 && i % 3 === 0) {
             output.push('fizzbuzz');
         }
-        if (i % 5 === 0) {        // 
+        else if (i % 5 === 0) {        // 
             output.push('buzz')
         } else if (i % 3 === 0) {
             output.push('fizz');
@@ -34,6 +34,6 @@ function fizzbuzz(num) {
     } 
     return output;
 }
-// console.log(fizzbuzz(16));
+console.log(fizzbuzz(30));
 
 module.exports = fizzbuzz;
