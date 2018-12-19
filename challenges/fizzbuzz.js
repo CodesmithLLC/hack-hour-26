@@ -19,17 +19,18 @@
 
 function fizzbuzz(num) {
     // loop from 1 to num, every time divisible by 3, 'fizz, every time divisible by 5 and 3 'fizzbuzz',
+    const output = [];
     for ( let i = 1; i <= num; i+=1) {
         if (i % 5 === 0) {        // 'fizzbuzz' > 'fizz'
-            console.log('fizzbuzz');
+            output.push('fizzbuzz')
         } else if (i % 3 === 0) {
-            console.log('buzz');
+            output.push('buzz');
         } else {
-            console.log(i);
+            output.push(i);
         }
     } 
-
+    return output;
 }
-fizzbuzz(16);
+console.log(fizzbuzz(16));
 
 module.exports = fizzbuzz;
