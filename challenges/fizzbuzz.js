@@ -5,7 +5,7 @@
 //                     4,
 //                     'buzz',
 //                     'fizz',
-//                     7,
+//                     7,asdf
 //                     8,
 //                     'fizz',
 //                     'buzz',
@@ -17,7 +17,14 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
+  const returnArray = [];
+  for (let i = 1; i <= num; i += 1) {
+    if (i % 3 === 0 && i % 5 === 0) returnArray.push('fizzbuzz');
+    if (i % 3 === 0 && i % 5 !== 0) returnArray.push('fizz');
+    if (i % 5 === 0 && i % 3 !== 0) returnArray.push('buzz');
+    if (i % 3 !== 0 && i % 5 !== 0) returnArray.push(i);
+  }
+  return returnArray;
 }
 
 module.exports = fizzbuzz;
