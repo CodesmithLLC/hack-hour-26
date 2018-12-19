@@ -18,6 +18,35 @@
 
 function fizzbuzz(num) {
 
+  const buzzArray =[];
+
+  for (let i=1; i<num; i++) {
+    
+
+    //first check if its divisible by 3 && 5 (also divisible by 15)
+    if ((i%3===0)  &&(i%5 ===0)) {
+      buzzArray.push('fizzbuzz');
+    }
+
+    //if its divisible by 3% push fizz
+    else if (i%3 === 0) {
+       buzzArray.push('fizz');
+    }
+
+    //if its divisible by 3% push fizz
+    else if (i%5 ===0){
+      buzzArray.push('buzz');
+    }
+
+    else {
+      buzzArray.push(i);
+    }
+  }
+
+  return buzzArray;
 }
 
+let arr =31;
+
+console.log(fizzbuzz(arr));
 module.exports = fizzbuzz;
