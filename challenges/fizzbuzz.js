@@ -17,9 +17,6 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-  if (num < 0) {
-    return [];
-  }
   // declare a const, assign it an empty array
   const result = [];
   // increment by one up to num, starting at 1
@@ -36,5 +33,8 @@ function fizzbuzz(num) {
   }
   return result;
 }
+
+console.log(fizzbuzz(-16));
+console.log(fizzbuzz(-1));
 
 module.exports = fizzbuzz;
