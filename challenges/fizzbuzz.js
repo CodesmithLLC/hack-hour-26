@@ -17,7 +17,28 @@
 //                     16 ]
 
 function fizzbuzz(num) {
+//will return an array
+//iterate through num array
+//check for numbers divisible by 3 and 5 first; if true, push into array as fizzbuzz
+//numbers divisible by 5 to be pushed to array as buzz
+//numbers divisible by 3 to be pushed to array as fizz
+//all other numbers push into array
+//return array
 
+const result = []; 
+for (let i = 0; i < num; i++) {
+ if (i % 3 === 0 && i % 5 === 0) {
+     result.push('fizzbuzz'); 
+ } else if (i % 3 === 0) {
+     result.push('fizz'); 
+ } else if (i % 5 === 0) {
+     result.push('buzz'); 
+ } else {
+     result.push(i); 
+ }
 }
+return result; 
+}
+
 
 module.exports = fizzbuzz;
