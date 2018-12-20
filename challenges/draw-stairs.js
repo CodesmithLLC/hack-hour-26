@@ -14,8 +14,23 @@
 */
 
 function drawStairs(n) {
-
+    if(n < 1) return "";
+    let numAsterisk = 1; //keeps track of the num of asterisks needs to be printed
+    while(numAsterisk <= n){
+        let print = "";
+        //add n-#asterisk spaces, except if the numAsterisk = n
+        if(numAsterisk != n){
+            for(let i = 0; i < (n-numAsterisk); i++){
+                print = print.concat(" ");
+            }
+        }
+        //add numAsterisks
+        for(let j = 0; j < numAsterisk; j++ ){
+            print = print.concat("*");
+        }
+        console.log(print);
+        numAsterisk++;
+    }
 }
-
 
 module.exports = drawStairs;
