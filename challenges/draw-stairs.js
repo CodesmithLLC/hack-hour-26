@@ -15,17 +15,22 @@
 
 function drawStairs(n) {
   // intialize a str
-  for (let i = 0; i < n; i += 1) {
+  let stairs = '';
+  for (let i = 1; i <= n; i += 1) {
     let step = '';
     for (let j = 1; j <= n; j += 1) {
-      if (n - j > i) {
+      if (n - j >= i) {
         step += ' ';
       } else {
         step += '*';
       }
     }
-    console.log(step);
+    if (i <= n) {
+      step += '\n';
+      stairs += step;
+    }
   }
+  return stairs;
 }
 
 
