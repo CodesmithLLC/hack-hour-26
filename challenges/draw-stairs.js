@@ -25,7 +25,6 @@ function drawStairs(n) {
     }
     if (i !== 0) stair += '\n';
   }
-  console.log(stair);
 }
 
 drawStairs(6);
