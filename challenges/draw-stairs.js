@@ -14,12 +14,12 @@
 */
 
 function drawStairs(n) {
-  for (let i = 1; i <= n && i <= 100; i += 1) {
+  for (let i = 1; i <= n || i <= 100; i += 1) {
     const spaceString = ' ';
     const astriskString = '*';
     if (n - i > -1) {
       console.log(spaceString.repeat(n - i) + astriskString.repeat(i));
-    } else break;
+    } else return;
   }
 }
 
