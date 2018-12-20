@@ -15,7 +15,27 @@
 
 function drawStairs(n) {
 
+    const height = n;
+    const reverse = [];
+
+    for(let i=0; i<n; i++){
+
+        let str = '';
+
+        for(let k =n -i; k>=0; k--){
+            str += ' ';
+        }
+
+        for(let j=0; j<i; j++){
+            str += '*';
+        }
+
+        console.log(str);
+    }
+
 }
 
+
+drawStairs(10);
 
 module.exports = drawStairs;
