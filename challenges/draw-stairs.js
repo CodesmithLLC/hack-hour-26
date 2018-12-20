@@ -15,18 +15,15 @@
 
 function drawStairs(n) {
   if (n >= 1 && n <= 100) {
-    // create result string
-    let resultString = '';
     // loop from one to n
     for (let i = 1; i <= n; i += 1) {
-      // create a new line where spaces are repeated n - i times and stars are repeated i times
-      const newLine = `${' '.repeat(n - i)}${'*'.repeat(i)}\n`;
-      // concat new line to result string
-      resultString += newLine;
+      // log a new line where spaces are repeated n - i times and stars are repeated i times
+      console.log(`${' '.repeat(n - i)}${'*'.repeat(i)}`);
     }
-    return resultString;
   }
   return 'Input needs to be greater than 0 and less than or equal to 100';
 }
+
+drawStairs(6);
 
 module.exports = drawStairs;
