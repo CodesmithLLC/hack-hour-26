@@ -20,7 +20,7 @@ function drawStairs(n) {
 
         let str = '';
 
-        for(let k =n -i; k>=0; k--){
+        for(let k =n -i; k>0; k--){
             str += ' ';
         }
 
@@ -34,4 +34,5 @@ function drawStairs(n) {
 
 
 }
+
 module.exports = drawStairs;
