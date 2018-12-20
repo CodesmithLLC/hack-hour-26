@@ -18,22 +18,33 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-    const fbArray = [];
-    for(let i = 1; i <= num; i++){
-        if(i % 3 === 0 && i % 5 === 0){
-            fbArray.push('fizzbuzz');
-        }else if(i % 3 === 0) {
-            fbArray.push('fizz');
-        }else if(i % 5 === 0) {
-            fbArray.push('buzz');
-        }else{
-            fbArray.push(i);
-        }
-    }
-    return fbArray;
+    // const fbArray = [];
+    // for(let i = 1; i <= num; i++){
+    //     if(i % 3 === 0 && i % 5 === 0){
+    //         fbArray.push('fizzbuzz');
+    //     }else if(i % 3 === 0) {
+    //         fbArray.push('fizz');
+    //     }else if(i % 5 === 0) {
+    //         fbArray.push('buzz');
+    //     }else{
+    //         fbArray.push(i);
+    //     }
+    // }
+    // return fbArray;
+
+    const arr1 = new Array(num);
+    arr1.fill('x').map((e,i)=>console.log(i+1));
+
+    // const arr = [0,1,2];
+    // arr.length = 10;
+    // arr[7] = 'x';
+    // arr.map((e,i)=>{
+    //     console.log(i);
+    // });
+    // return arr;
 
     // This actually works for fun: 
-
+    //return Array.apply(Number.call, { length: num });
     // return Array.apply(null, { length: num }).map(Number.call, Number).map((el)=>{
     //  el++; if(el % 3 === 0 && el % 5 === 0) return 'fizzbuzz'; 
     //   if(el % 3 === 0) return 'fizz'; 
