@@ -16,8 +16,6 @@
 function drawStairs(n) {
 
     const height = n;
-    const reverse = [];
-
     for(let i=0; i<n; i++){
 
         let str = '';
@@ -34,8 +32,5 @@ function drawStairs(n) {
     }
 
 }
-
-
-drawStairs(10);
 
 module.exports = drawStairs;
