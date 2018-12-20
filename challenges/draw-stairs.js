@@ -16,7 +16,7 @@
 function drawStairs(n) {
 
     const height = n;
-    for(let i=0; i<n; i++){
+    for(let i=1; i<=n; i++){
 
         let str = '';
 
@@ -31,6 +31,8 @@ function drawStairs(n) {
         console.log(str);
     }
 
-}
 
+
+}
+drawStairs(3);
 module.exports = drawStairs;
