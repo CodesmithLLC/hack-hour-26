@@ -14,8 +14,27 @@
 */
 
 function drawStairs(n) {
+    //counter = n
+    //spaces = 0
+    //print n "*"
+    //while loop -- 
+    //while (counter > 0) 
+    //print spaces + counter "*"
+    //counter--
+    //
+
+    let counter = 1;
+    let spaces = n-1;
+
+    while(counter <= n){
+        console.log(" ".repeat(spaces) + "*".repeat(counter))
+        counter++
+        spaces--
+    }
 
 }
 
 
 module.exports = drawStairs;
+
+drawStairs(6)
