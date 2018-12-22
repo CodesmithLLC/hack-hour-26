@@ -20,31 +20,31 @@
 
 function fizzbuzz(num) {
     //declare a constant newArray, and set equal to an empty array
-    const numArray = [];
+    //const numArray = [];
     //declare a constant fizzBuzzyArray, and set equal to an empty array
     const fizzBuzzyArray = [];
     //use a for loop to generate an array from 1 - num
-    for (let i = 1; i < num + 1; i++) {
-        //push each number into newArray
-        numArray.push(i);
-    }
+    // for (let i = 1; i < num + 1; i++) {
+    //     //push each number into newArray
+    //     numArray.push(i);
+    // }
     //use a for loop to to access each element in newArray
-    for (let j = 0; j < numArray.length; j++) {
+    for (let j = 0; j < num + 1; j++) {
         //if numbers divisible by both 3 and 5
-        if ((numArray[j] % 3 === 0) && (numArray[j] % 5 === 0)) {
+        if ((j % 3 === 0) && (j % 5 === 0)) {
             //push fizzbuzz to newArray
             fizzBuzzyArray.push("fizzbuzz");
         //else, if numbers divisible by 3
-        } else if (numArray[j] % 3 === 0) {
+        } else if (j % 3 === 0) {
             // push "fizz"
             fizzBuzzyArray.push("fizz");
         //else if numbers divisible by 5
-        } else if (numArray[j] % 5 === 0) {
+        } else if (j % 5 === 0) {
             //push buzz
             fizzBuzzyArray.push("buzz");
         } else {
             //else, push element
-            fizzBuzzyArray.push(numArray[j]);
+            fizzBuzzyArray.push(j);
         }
     }
     //return fizzBuzzyArray
