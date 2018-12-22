@@ -19,10 +19,19 @@
 function Node(val) {
   this.value = val;
   this.next = null;
-}
+ }
 
 function kthToLastNode(k, head) {
-
+  // loop over each value of the linked list, storing the values in an array
+  let currentNode = head;
+  const values = [];
+  while (currentNode !== null) {
+    values.push(currentNode.value);
+    currentNode = currentNode.next
+  }
+  // return the kth to last element of the array
+  return values[values.length - k];
 }
+
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
