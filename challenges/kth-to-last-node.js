@@ -21,8 +21,6 @@ function Node(val) {
   this.next = null;
 }
 
-d;
-
 function kthToLastNode(k, head) {
   let listPos = 0;
   let cur = head;
