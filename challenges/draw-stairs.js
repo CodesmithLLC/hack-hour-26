@@ -14,9 +14,8 @@
 */
 
 function drawStairs(n) {
-  let stair;
+  let stair = '';
   for (let i = n - 1; i >= 0; i--) {
-    stair = '';
     for (let s = 0; s <= n - 1; s++) {
       if (i > s) {
         stair += ' ';
@@ -24,7 +23,7 @@ function drawStairs(n) {
         stair += '*';
       }
     }
-    console.log(stair);
+    if (i !== 0) stair += '\n';
   }
 }
 
