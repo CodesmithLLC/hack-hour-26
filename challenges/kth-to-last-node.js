@@ -23,6 +23,36 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
 
+  let vals =[];
+  let curr = head;
+
+  while(curr.next != null){
+    vals.push(curr.value);
+    curr = curr.next;
+  }
+
+  let index = vals.length -k;
+
+  if(index<=0){
+    return -1;
+  }
+
+  else{
+    return vals[index];
+  }
+
 }
+
+/*let Node1 = new Node('1');
+let Node2 = new Node('2');
+let Node3 = new Node('3');
+let Node4 = new Node('4');
+
+Node1.next = Node2;
+Node2.next = Node3;
+Node3.next = Node4;
+
+console.log(kthToLastNode(1,Node1));*/
+
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
