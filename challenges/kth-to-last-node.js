@@ -34,7 +34,7 @@ function kthToLastNode(k, head) {
     if(nodeTracker.length > k) nodeTracker.shift();
     curr = curr.next;
   }
-  console.log(nodeTracker)
+  // console.log(nodeTracker)
   if(count < k) return "K value larger than linked list size";
   return nodeTracker[0].value;
 
