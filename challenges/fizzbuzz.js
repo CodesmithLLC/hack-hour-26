@@ -30,7 +30,11 @@ function fizzbuzz(num) {
       output.push(i);
     }
   }
-  return output;
+  // return output;
 }
 
 module.exports = fizzbuzz;
+
+
+console.log('hey there');
+
