@@ -38,6 +38,6 @@ function addStars(num) {
     return newStr;
 }
 
-// console.log(drawStairs(6))
+console.log(drawStairs(6))
 
 module.exports = drawStairs;
