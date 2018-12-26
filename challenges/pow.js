@@ -3,7 +3,13 @@
  */
 
 function pow(base, power) {
-
-}
+    //BASE CASE: if power is equal to 0
+    if (power === 0) {
+      //return 1
+      return 1;
+    }
+    //return base multiplied by the pow function passed the params of base and power minus 1
+    return base * pow(base, power - 1);
+  }
 
 module.exports = pow;
