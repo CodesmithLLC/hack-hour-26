@@ -20,7 +20,8 @@ function Node(val) {
   this.value = val;
   this.next = null;
 }
-
+// every time i intialize head(curr()) to a node after b, 'a' can no longer be accessed...
+// head will always have to be 'a' if we want to acccount for it.
 function kthToLastNode(k, head) {
   let result;
   let curr = head;
@@ -50,11 +51,11 @@ b.next = c;
 c.next = d;
 d.next = e;
 
-console.log(kthToLastNode(2, a));
-console.log(kthToLastNode(3, a));
-console.log(kthToLastNode(4, a));
-console.log(kthToLastNode(5, a));
-console.log(kthToLastNode(6, a));
+console.log(kthToLastNode(2, b));
+console.log(kthToLastNode(3, b));
+console.log(kthToLastNode(4, b));
+console.log(kthToLastNode(5, b));
+console.log(kthToLastNode(6, b));
 
 
 module.exports = { Node, kthToLastNode };
