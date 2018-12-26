@@ -8,10 +8,10 @@ function pow(base, power) {
   } else if (power === 1) {
     return base;
   }
-  return base * Math.pow(base, power - 1);
+  for (let i = 0; i < power; i += 1) {
+    return base * pow(base, power - 1);
+  }
 }
-
-console.log(pow(2, 3));
 
 
 module.exports = pow;
