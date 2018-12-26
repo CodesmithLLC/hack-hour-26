@@ -3,6 +3,9 @@
  */
 
 function pow(base, power) {
+  if (power === 0) return 1;
+
+  // this computation will calculate positive exponents
   if (power > 0) {
     power -= 1;
     if (power === 0) {
@@ -10,6 +13,8 @@ function pow(base, power) {
     }
     return base * pow(base, power);
   }
+
+  // this computation will calculate negative exponents
   if (power < 0) {
     power += 1;
     if (power === 0) {
