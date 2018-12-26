@@ -1,3 +1,4 @@
+// console.log('draw-stairs!')
 /* Write a function that console logs a staircase of any given height where 1 <= N <= 100.
  The staircase must climb up from left to right. The last line should only consist of asterisks,
  without any leading/trailing spaces.
@@ -15,31 +16,32 @@
 
 /**
    I: num
-   O: a printout of asterisks (string) arranged in an isoseles triangle where the base is the length in asterisks
+   O: a printout of asterisks (string) arranged in an isosceles triangle where the base is the length in asterisks
    strict equals num and the top (last printout) equals one asterisk
  * 
  * 
  * / */
 
-
- function drawStairs(n) {
-    // iterate
-    //Array()
-    let step = Array(7).fill(' ');
-    //console.log(step.length)
-    for (let i = step[step.length - 1]; i > 0; i -= 1) {
-      step.pop();
-      step.push('*')
-      console.log(step.join(''))
-    }
-    
-      // init var at 1
-      // stop condition < equal to n
-      // increment var
-   // ea iteration, add 1
-  
-   //
+const drawStairs = (n) => {
+  const step = Array(n).fill(' ');
+  let i = n;
+  while (i >= 0) {
+    step.splice(i, 1, '*');
+    console.log(step.join(''));
+    i -= 1;
   }
+};
+
+// drawStairs(16);
+
+// const reduceStairs = (n) => { 
+//   const step = Array(n).fill(' ');
+//   return step.reduceRight((stairCase, i) => {
+//     step.splice(i, 1, '*');
+//     stairCase += step.join('') + \n;
+//     return stairCase;
+//   }, '');
+// }
 
 
 module.exports = drawStairs;
