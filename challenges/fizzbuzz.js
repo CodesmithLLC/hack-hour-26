@@ -19,7 +19,6 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-  let int = 0;
   const output = [];
   for (let i = 1; i < num + 1; i += 1) {
     output.push(i);
