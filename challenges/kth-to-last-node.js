@@ -21,29 +21,29 @@ function Node(val) {
   this.next = null;
 }
 
-// function kthToLastNode(k, head) {
-//   let current = head;
-//   let holder = [];
-//   while(current !== null){
-//     holder.push(current.value);
-//     if(holder.length > k){
-//       holder.shift()
-//     }
-//     current = current.next;
-//   }
-//   return holder[0];
-
-// }
-
-function kthToLastNode(k, head){
-  let current = 'head';
-  let next = '.next'.repeat(k);
-  while(eval(current+next) !== null){
-    current = current+'.next';
+function kthToLastNode(k, head) {
+  let current = head;
+  let holder = [];
+  while(current !== null){
+    holder.push(current.value);
+    if(holder.length > k){
+      holder.shift()
+    }
+    current = current.next;
   }
-
-  return eval(current).value;
+  return holder[0];
 
 }
+
+// function kthToLastNode(k, head){
+//   let current = 'head';
+//   let next = '.next'.repeat(k);
+//   while(eval(current+next) !== null){
+//     current = current+'.next';
+//   }
+
+//   return eval(current).value;
+
+// }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
