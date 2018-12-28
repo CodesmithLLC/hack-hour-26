@@ -22,13 +22,11 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  if(head.next === null) return 'end';
-    let count = 0; 
-    
-  
-  // let countFromStart = 0;
-  console.log(count);
-  return  count +  kthToLastNode(k, head.next);
+  let count = 0; 
+  while (head.next !== null) {
+    count++;
+    return count;
+  }  
     
 
 }
