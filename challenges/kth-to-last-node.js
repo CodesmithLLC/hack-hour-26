@@ -21,6 +21,7 @@ function Node(val) {
   this.next = null;
 }
 
+/*
 function kthToLastNode(k, head) {
 
   let vals =[];
@@ -41,6 +42,23 @@ function kthToLastNode(k, head) {
     return vals[index];
   }
 
+}*/
+
+function kthToLastNode(k,head) {
+  let index =0;
+  let curr = head;
+  let kthNode = head;
+
+  for(let i=0; i<k; i++){
+    curr = curr.next;
+  }
+
+  while(curr.next != null){
+    curr = curr .next;
+    kthNode = kthNode.next;
+  }
+
+  return kthNode.value;
 }
 
 /*let Node1 = new Node('1');
