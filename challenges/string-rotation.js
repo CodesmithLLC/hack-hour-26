@@ -16,7 +16,17 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+  // test for edge cases
+  if (typeof s1 !== "string" && typeof s2 !== "string") return false;
+  if (s1.length !== s2.length) return false;
+  if (s1 === s2) return true;
+  for (let i = 0; i < s2.length; i += 1) {
+    s1 = s1.slice(1).concat(s1.charAt(0));
+    if (s1 === s2) {
+      return isSubstring(s1, s2);
+    }
+  }
+  return false;
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
