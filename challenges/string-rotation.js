@@ -16,7 +16,19 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+  // edge case
+  if (typeof s1 !== 'string' && typeof s2 !== 'string') return undefined;
+  // find the index where the first char of string one is in string two
+  let firstLI = s2.indexOf(s1[0]);
+  // slice from beginning letter of s1, found in s2
+  let newStr = s2.substring(firstLI);
+  // append the rest of s2 to new str
+  if (firstLI !== 0) {
+    newStr += s2.substring(0, firstLI);
+  }
+  // make a call to isSubstring
+  return isSubstring(s1, newStr);
 }
+console.log(stringRotation('hello', 'ellho'));
 
-module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
+module.exports = { isSubstring: isSubstring, stringRotation: stringRotation };
