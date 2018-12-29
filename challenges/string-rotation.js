@@ -16,7 +16,28 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
+  // check if a part of the second string is contained in the first string
+  // usesubstring to check that
+  // recurse a substring of the already checked string
+  // edge cases
+  if (s1.length !== s2.length) return false;
+  if (isSubstring(s1, s2)) return true;
 
+  const arr = s2.split('');
+  for (let i = 0; i < arr.length; i += 1) {
+    arr.unshift(arr[arr.length - 1]);
+    arr.pop();
+    const s3 = arr.join('');
+    if (isSubstring(s1, s3)) return true;
+  }
+
+  return false;
 }
 
-module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
+console.log(stringRotation('hello', 'hello'));
+console.log(stringRotation('hello', 'llohe'));
+console.log(stringRotation('hello', 'he'));
+console.log(stringRotation('hello', 'olleh'));
+
+
+module.exports = { isSubstring, stringRotation };
