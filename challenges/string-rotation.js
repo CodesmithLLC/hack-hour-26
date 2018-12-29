@@ -26,20 +26,21 @@ function stringRotation(s1, s2) {
 
   let halfOne = ''
   let halfTwo = ''
+  
 
   for (let i = 0; i < s2.length; i++) {
     if (s2[i] === s1Char) {
       halfTwo += s2[i];
       j++
       s1Char = s1[j]
-    } else {
+    } else if (s2[i] != s1Char) {
+      halfTwo = '';
       halfOne += s2[i]
-    }
+    } 
   }
-
   let concatAndReversed = [halfTwo].concat([halfOne]).join('');
 
-  return isSubstring(s1, concatAndReversed)
+  return s1 === concatAndReversed
 }
 
 // find same char;
