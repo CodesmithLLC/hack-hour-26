@@ -28,7 +28,7 @@ function reverseInPlace(array) {
 
 }
 
-let a = ['h','e','l','l','o'];
-console.log(reverseInPlace(a));
+// let a = ['h','e','l','l','o'];
+// console.log(reverseInPlace(a));
 
 module.exports = reverseInPlace;
