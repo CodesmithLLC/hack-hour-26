@@ -32,4 +32,16 @@ for (let i = 1; i < n + 1; i++) {
 }
 }
 
+function drawStairs(n) {
+   for (let i = 0; i < n; i++) {
+      const spaces = " ".repeat(n-i);
+      const stars = "*".repeat(i);
+      console.log(spaces + stars);
+   }
+}
+
+
+
+
+
 module.exports = drawStairs;
