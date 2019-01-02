@@ -24,8 +24,44 @@
  *
  */
 
-function balancedParens(input){
-
+function balancedParens(input) {
+    let square = 0;
+    let paren = 0;
+    let curly = 0;
+    let counter = 0;
+    let balanced = true
+    input.split('').forEach((char) => {
+        if (char === '[') {
+            counter += 1;
+            square = counter;
+        } else if (char === ']') {
+            if (counter !== square) {
+                balanced = false;
+            }
+            counter -= 1;
+            square = counter
+        } else if (char === '(') {
+            counter += 5;
+            paren = counter;
+        } else if (char === ')') {
+            if (counter !== paren) {
+                balanced = false;
+            }
+            counter -= 5;
+            paren = counter;
+        } else if (char === '{') {
+            counter += 12;
+            curly = counter;
+        } else if (char === '}') {
+            if (counter !== curly) {
+                balanced = false;
+            }
+            counter -= 12;
+            curly = counter;
+        }
+    });
+    return balanced;
 }
+
 
 module.exports = balancedParens;
