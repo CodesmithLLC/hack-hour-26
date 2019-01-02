@@ -26,6 +26,67 @@
 
 function balancedParens(input){
 
+  let parensStack = [];
+  let bracketStack = [];
+  let curlyStack = [];
+
+  for(let i=0; i<input.length; i++){
+    console.log(input.charAt(i))
+    switch(input.charAt(i)){
+      
+      case '[':
+      bracketStack.push('[');
+      break;
+
+      case ']':
+
+      if(bracketStack.length ===0){
+        return false;
+      }
+
+      bracketStack.pop();
+
+      break;
+
+      case '{':
+      curlyStack.push('{');
+      break;
+
+      case '}':
+      if(curlyStack.length===0){
+        return false;
+      }
+
+      curlyStack.pop();
+      break;
+
+      case '(':
+      parensStack.push('(');
+      break;
+
+      case ')':
+      if(parensStack.length===0){
+        return false;
+      }
+
+      parensStack.pop();
+      break;
+
+      default:
+      break;
+    }
+  }
+
+  if(bracketStack.length>0 && curlyStack.length>0 && parensStack.length>0) {
+    return false;
+  }
+
+  return true;
+
+
+
 }
+console.log(balancedParens('[][]{]}'));
+
 
 module.exports = balancedParens;
