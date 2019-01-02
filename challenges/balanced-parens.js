@@ -76,7 +76,7 @@ const balancedParens = (str) => {
     return false;
   }
 
-  return false;
+  return true;
 };
 
 module.exports = balancedParens;
