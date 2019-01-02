@@ -36,4 +36,6 @@ function stringRotation(s1, s2) {
   return false;
 }
 
+hellohello
+
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
