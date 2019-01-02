@@ -16,12 +16,15 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-  // check if a part of the second string is contained in the first string
-  // usesubstring to check that
-  // recurse a substring of the already checked string
-  // edge cases
+  // if (s1.length !== s2.length) return false;
+  // return isSubstring(s1 + s1, s2);
+
   if (s1.length !== s2.length) return false;
-  return isSubstring(s1 + s1, s2);
+  const head = s2.indexOf(s1[0]);
+
+  const s3 = s2.slice(head, s2.length) + s2.slice(0, head);
+
+  return isSubstring(s1, s3);
 }
 
 console.log(stringRotation('hello', 'hello'));
