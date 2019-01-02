@@ -4,6 +4,7 @@
 
 function pow(base, power, acc = base) {
   if (power === 1) return acc;
+  // if (power === 0) return 1;
 
   return pow(base, power - 1, acc * base);
 }

@@ -24,8 +24,59 @@
  *
  */
 
-function balancedParens(input){
+ /**
+  * I - string
+  * O - boolean -> '()' true / ')' or ')(' false
+  * C
+  * E
+  * 
+  * '[({})]'
+  *  '[
+  *   (()((())))
+  * S make new string that filters out all chars except ()
+  *   begin at first index of newstring
+  *   if char equals '(' and next char does not equal )
+  *     return false
+  *   if char equals ) and next char does not equal (
+  *     return false
+  *   otherwise
+  *     recurse
+  * 
+  * @param {*} str 
+  */
 
-}
+
+// function balancedParens(str) {
+//   // 
+
+// }
+
+// let str = '()ghard)d'
+
+const balancedParens = (str) => {
+  const bracketTypes = {
+    '(': 0,
+    ')': 0,
+    ']': 0,
+    '[': 0,
+    '{': 0,
+    '}': 0,
+  };
+
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === '(') bracketTypes['('] += 1;
+    if (str[i] === ')') bracketTypes[')'] += 1;
+    if (str[i] === '[') bracketTypes['['] += 1;
+    if (str[i] === ']') bracketTypes[']'] += 1;
+    if (str[i] === '{') bracketTypes['{'] += 1;
+    if (str[i] === '}') bracketTypes['}'] += 1;
+  }
+
+  if (bracketTypes['('] !== bracketTypes[')'] || bracketTypes['['] !== bracketTypes[']'] || bracketTypes['{'] !== bracketTypes['}']) {
+    return false;
+  }
+
+  return false;
+};
 
 module.exports = balancedParens;

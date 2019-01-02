@@ -21,7 +21,7 @@
   * O: val at kth to last node in LL
   */
 
-console.log('kth!');
+//console.log('kth!');
 
 function Node(val) {
   this.value = val;
