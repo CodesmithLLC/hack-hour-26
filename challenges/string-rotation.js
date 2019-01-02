@@ -32,7 +32,8 @@ function stringRotation(s1, s2) {
       secondSlice = s2.slice(0,i); // slice from beggining of string to first character;
     }
   }
-  if (firstSlice+secondSlice === s1) return true;
+  if(isSubstring(s1,firstSlice) && isSubstring(s1,secondSlice)) return true;
+  // if (firstSlice+secondSlice === s1) return true;
   return false
 }
 
