@@ -24,8 +24,61 @@
  *
  */
 
-function balancedParens(input){
+let bracketTracker;
 
+function balancedParens(input){
+    bracketTracker = [];
+    for(let i = 0; i < input.length; i++){
+        if(input[i] === '('|| input[i] === '[' || input[i] === '{'){
+            bracketTracker.push(input[i]);
+        }
+        else if(input[i] === ')' || input[i] === ']' || input[i] === '}'){
+            checkOpp(input[i]);
+        }
+
+    }
+    return checkBalanced();
 }
 
+function checkOpp(input){
+    let endIndex = bracketTracker.length -1;
+    switch(input){
+        case ')':
+            if(bracketTracker[endIndex] === '(') bracketTracker.pop();
+            else return false;
+            break;
+        case ']':
+            if(bracketTracker[endIndex] === '[') bracketTracker.pop();
+            else return false;
+            break;
+
+        case '}':
+            if(bracketTracker[endIndex] === '{')bracketTracker.pop();
+            else return false;
+            break;
+
+        default:
+            break;
+    }
+}
+
+
+
+function checkBalanced(){
+    let keys = Object.values(bracketTracker);
+    // console.log(keys);
+    for(let i = 0; i < keys.length; i++){
+        if(keys[i].length > 0) return false;
+    }
+    return true;
+}
+console.log(balancedParens('('));  // false
+console.log(balancedParens('()')); // true
+console.log(balancedParens(')('));  // false
+console.log(balancedParens('(())'));  // true
+console.log(balancedParens('[](){}')); // true
+console.log(balancedParens('[({})]'));   // true
+console.log(balancedParens('[(]{)}')); // false
+console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }')); // true
+console.log(balancedParens(' var hubble = function() { telescopes.awesome();')); // false
 module.exports = balancedParens;
