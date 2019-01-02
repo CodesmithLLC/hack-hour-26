@@ -77,7 +77,7 @@ function balancedParens(input){
     }
   }
 
-  if(bracketStack.length>0 && curlyStack.length>0 && parensStack.length>0) {
+  if(bracketStack.length>0 || curlyStack.length>0 ||parensStack.length>0) {
     return false;
   }
 
@@ -86,7 +86,6 @@ function balancedParens(input){
 
 
 }
-console.log(balancedParens('[][]{]}'));
 
 
 module.exports = balancedParens;
