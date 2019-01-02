@@ -25,7 +25,58 @@
  */
 
 function balancedParens(input){
+    // make a cache of bracket types and an array of counts for each
+    const cache = { 
+        '{': true,
+        '[': true,
+        '(': true,
+        };
+    // loop over the string, looking for bracket types
+    // incrementing counts as we go
+    input.split('').forEach((char) => {
+        // if it is currently closed, then change to not closed
+        if (cache[char]) {
+            cache[char] = false;
+        }
+        // if a closing, check to see if it isn't closed
+        // if it is not closed, then change to closed
+        switch(char) {
+            case ')':
+                if (cache['('] === false) cache['('] = true;
+                break;
+            case ']':
+                if (cache['['] === false) cache['['] = true;
+                break;
+            case '}':
+                if (cache['{'] === false) cache['{'] = true;
+                break;
+        }
+    });
+
+    // after the string, if bracket types are equal.
+    // if they are ever not, then return false
+    if (cache['{'] === false) return false;
+    if (cache['('] === false) return false;
+    if (cache['['] === false) return false;
+    // otherwise return true
+    return true;
 
 }
+
+// console.log(balancedParens('('));  // false
+// console.log(balancedParens('()')); // true
+// console.log(balancedParens(')('));  // false
+// console.log(balancedParens('(())'));  // true
+
+// console.log('++++++++++++')
+
+// console.log(balancedParens('[](){}')); // true
+// console.log(balancedParens('[({})]'));   // true
+// console.log(balancedParens('[(]{)}')); // false
+
+// console.log('++++++++++++')
+
+// console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }')); // true
+// console.log(balancedParens(' var hubble = function() { telescopes.awesome();')); // false
 
 module.exports = balancedParens;
