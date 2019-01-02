@@ -25,7 +25,47 @@
  */
 
 function balancedParens(input){
+    let parens = '()[]{}';
+    let balance = [];
+    for (let i = 0; i < input.length; i++) {
+        console.log(parens.indexOf(input[i]))  //indexOf returns -1 if not in array or the location of the character in parens.  ;
+        if(parens.indexOf(input[i]) !== -1){
+            if (input[i] == ')') {
+                console.log(input[i])
+                for (let j = 0; j < balance.length; j++) {
+                    if(balance[j] === '('){
+                        balance.splice(j,1);
+                    } 
+                } 
+            }
+            else if (input[i] == '}') {
+                console.log(input[i])
+                for (let j = 0; j < balance.length; j++) {
+                    if(balance[j] === '{'){
+                        balance.splice(j,1);
+                    } 
+                } 
+            }
+            else if (input[i] == ']') {
+                console.log(input[i])
+                for (let j = 0; j < balance.length; j++) {
+                    if(balance[j] === '['){
+                        balance.splice(j,1);
+                    } 
+                } 
+            } else {
+                balance.push(input[i]);
+
+            }
+        console.log(balance);
+    }
+    }
+    console.log(balance);
+    if (balance.length === 0) return true;
+    else return false;
 
 }
+console.log(balancedParens('hello'));
+
 
 module.exports = balancedParens;
