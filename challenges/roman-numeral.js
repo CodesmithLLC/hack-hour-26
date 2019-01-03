@@ -18,7 +18,19 @@
  */
 
 function romanNumeral(n) {
-
+    let output = '';
+    // const sNum = '' + n;
+    // have 2 different variables that align with eachother
+    let integers = [1000,900,500,400,100,90,50,40,10,9,5,4,1];
+    let roman = ['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I']
+    for(let i = 0; i < roman.length; i++) {
+        while(n >= integers[i]) { // if number is greater than current I value, add the roman number, subtract from number the associated integer.
+            output += roman[i];
+            n -= integers[i];
+        }
+    }
+    return output;
+    
 }
-
+console.log(romanNumeral(994));
 module.exports = romanNumeral;
