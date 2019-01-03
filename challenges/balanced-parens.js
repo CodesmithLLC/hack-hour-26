@@ -39,7 +39,7 @@ function balancedParens(input){
                 } 
             }
             else if (input[i] == '}') {
-                console.log(input[i])
+                // console.log(input[i])
                 for (let j = 0; j < balance.length; j++) {
                     if(balance[j] === '{'){
                         balance.splice(j,1);
@@ -47,7 +47,7 @@ function balancedParens(input){
                 } 
             }
             else if (input[i] == ']') {
-                console.log(input[i])
+                // console.log(input[i])
                 for (let j = 0; j < balance.length; j++) {
                     if(balance[j] === '['){
                         balance.splice(j,1);
@@ -57,7 +57,6 @@ function balancedParens(input){
                 balance.push(input[i]);
 
             }
-        console.log(balance);
     }
     }
     console.log(balance);
@@ -65,7 +64,7 @@ function balancedParens(input){
     else return false;
 
 }
-console.log(balancedParens('hello'));
+console.log(balancedParens('hel{(){}{{}}[]}}lo'));
 
 
 module.exports = balancedParens;
