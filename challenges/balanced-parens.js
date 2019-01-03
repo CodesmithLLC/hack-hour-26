@@ -62,22 +62,37 @@ function balancedParens(input){
             } 
             // if closing char, and opening char in obj, then delete opening char
             if (key === ")" && obj['(']) {
-                delete obj['(']
+                if (obj['('] === 1) {
+                    delete obj['(']
+                }
+                obj['('] -= 1
+                
             } 
             if (key === "]" && obj['[']) {
-                delete obj['[']
+                if (obj['['] === 1) {
+                    delete obj['[']
+                }
+                obj['['] -= 1
             } 
             if (key === "}" && obj['{']) {
-                delete obj['{']
+                if (obj['{'] === 1) {
+                    delete obj['{']
+                }
+                obj['{'] -= 1
             } 
             // else if opening char, then add to obj
+            if (obj[key]) {
+                obj[key]++
+            }
             else {
-                obj[key] = true;
+                obj[key] = 1;
             }
     }
     return true
 }
 
+// console.log(balancedParens('(())'))
 // console.log(balancedParens('[({})]'))
-
+// console.log(balancedParens('[](){}'))
+console.log(balancedParens('[(]{)}'))
 module.exports = balancedParens;
