@@ -51,8 +51,14 @@ function romanNumeral(n) {
     }
   }
 
+  if(startingVal === -1){
+    romanVal = 'M';
+    startingVal=1000;
+  }
+
 
   return romanVal + romanNumeral(n-startingVal);
 }
 
+console.log(romanNumeral(5000));
 module.exports = romanNumeral;
