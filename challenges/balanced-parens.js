@@ -26,84 +26,38 @@
 function balancedParens(input) {
   //compare symbols and check if returned object is even
   let arr = [];
-  let obj = [];
-  let parent = [];
+
   let newPut = [...input];
   newPut = newPut.toString().match(/[\{\}\[\]\(\)]/g);
 
-  for (let i = 0; i <= newPut.length; i++) {
-    console.log(newPut);
-    //arr check
-    // if(newPut[i] === '[' && !arr.includes('[')) {
-    //   arr.push(newPut[i])
-    // }
-    if (newPut[i] === "[" && !arr.includes("[")) {
+  for (let i = 0; i < newPut.length; i++) {
+    // push values until I reach a closing bracket
+    if (newPut[i] === "{" || newPut[i] === "[" || newPut[i] === "(") {
       arr.push(newPut[i]);
-      if (newPut[i + 1] !== "]" || newPut[newPut.length - 1] !== "]") {
-        return false;
-      }
-      if (newPut[i + 1] === "]") {
-        arr.push(newPut[i]);
-        arr.push(newPut[i + 1]);
-        arr.splice(0, 2);
-      }
-      if (newPut[newPut.length - 1] === "]") {
-        arr.push(newPut[i]);
-        arr.push(newPut[newPut.length - 1]);
-        arr.splice(0, 1);
-      }
     }
-    //obj
-    if (newPut[i] === "{" && !arr.includes("{")) {
-      arr.push(newPut[i]);
-      if (newPut[i + 1] !== "}" || newPut[newPut.length - 1] !== "}") {
-        return false;
-      }
-      if (newPut[i + 1] === "}") {
-        arr.push(newPut[i]);
-        arr.push(newPut[i + 1]);
-        arr.splice(0, 2);
-      }
-      if (newPut[newPut.length - 1] === "}") {
-        arr.push(newPut[i]);
-        arr.push(newPut[newPut.length - 1]);
-        arr.splice(newPut.length - 1, 1);
-      }
+    if (newPut[i] === "}" && arr[arr.length - 1] === "{") {
+      arr.pop();
+    } else if (newPut[i] === "]" && arr[arr.length - 1] === "[") {
+      arr.pop();
+    } else if (newPut[i] === ")" && arr[arr.length - 1] === "(") {
+      arr.pop();
     }
-    //parent
-    if (newPut[i] === "(" && !arr.includes("(")) {
-      arr.push(newPut[i]);
-      if (newPut[i + 1] !== ")" || newPut[newPut.length - 1] !== ")") {
-        return false;
-      }
-      if (newPut[i + 1] === ")") {
-        arr.push(newPut[i]);
-        arr.push(newPut[i + 1]);
-        arr.splice(0, 2);
-      }
-      if (newPut[newPut.length - 1] === ")") {
-        arr.push(newPut[i]);
-        arr.push(newPut[newPut.length - 1]);
-        arr.splice(0, 1);
-        arr.splice(newPut.length - 1, 1);
-      }
-    }
-    console.log(newInput);
-  }
-  if (obj.length > 0 && obj.length % 2 !== 0) {
-    return false;
-  }
-  if (arr.length > 0 && arr.length % 2 !== 0) {
-    return false;
-  }
-  if (parent.length > 0 && parent.length % 2 !== 0) {
-    return false;
+    // when a closing bracket is reached
+    // compare to last item in array
+    // if it matches then pop both items off
+    //if not return false
   }
 
-  return true;
+  return arr.length === 0;
+
+  // return true if array is empty
 }
 
 // balancedParens(" var wow  = { yo: thisIs[]Awesome() }");
-balancedParens("[(]{)}");
+console.log(balancedParens("[](){}")); // true
+console.log(balancedParens("[({})]")); // true
+console.log(balancedParens("[(]{)}")); // false
+console.log(balancedParens(" var wow  = { yo: thisIsAwesome() }")); // true
+console.log(balancedParens(" var hubble = function() { telescopes.awesome();")); // false
 
 module.exports = balancedParens;
