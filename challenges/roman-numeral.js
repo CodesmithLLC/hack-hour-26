@@ -45,13 +45,11 @@ function romanNumeral(n) {
             return result;
         } 
         else{
-            if((n-intervals[pos] >= 0)){
-                // console.log(conversions[intervals[pos]]);
+            while((n-intervals[pos] >= 0)){
                 result = result.concat(conversions[intervals[pos]]);
                 n-=intervals[pos];
-                return makeString(n,pos);
             }
-            else return makeString(n,pos-1);
+            return makeString(n,pos-1);
         }
     }
 
