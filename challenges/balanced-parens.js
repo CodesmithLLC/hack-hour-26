@@ -87,5 +87,5 @@ function balancedParens(input){
 
 }
 
-
+console.log(balancedParens('( ) ( ( ) ) ) ( [ ] ( ) { } [ ( { } ) ] [ ( ] { ) } v a r w o w = { y o : t h i s I s A w e s o m e ( ) } v a r h u b b l e = f u n c t i o n ( ) { t e l e s c o p e s . a w e s o m e ( )'));
 module.exports = balancedParens;
