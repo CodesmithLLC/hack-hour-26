@@ -33,17 +33,18 @@ function balancedParens(input) {
     let tempVariable;
     //use a for loop starting at the end of input to deterine which bracket to start with
     for (let j = tempArray.length-1; j >= 0; j--) {
-      //if the variable = ")"
       if (tempArray[j] === ")") {
         bracket = "(";
         reverseBracket =")";
       } else if (tempArray[j] === "}") {
         bracket = "{";
         reverseBracket ="}";
-      } else {
+      } else if (tempArray[j] === "]"){
         bracket = "[";
         reverseBracket ="]";
       }
+      console.log("input: ", input, "tempArray[j] : ", tempArray[j], "bracket: ", bracket)
+      
       if (tempArray[j] === bracket) {
           return false;
         }
