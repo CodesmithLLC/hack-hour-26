@@ -16,9 +16,35 @@
  *      1000  ->    M
  * 
  */
-
-function romanNumeral(n) {
-
+const romans = Object.entries({
+    'I' : 1,
+    'IV' : 4,
+    'V': 5,
+    'IX': 9,
+    'X': 10,
+    'XL': 40,
+    'L': 50,
+    'XC': 90,
+    'C': 100,
+    'CD': 400,
+    'D': 500,
+    'CM': 900,
+    'M': 1000, 
+});
+let result = '';
+function romanNumeral(n, pos=12) {
+    while (n >= romans[pos][1]) {
+        result += romans[pos][0];
+        n -= romans[pos][1];
+    }
+    if (pos <= 0) {
+        return result;
+    }
+    return romanNumeral(n, pos - 1);
 }
+
+
+
+console.log(romanNumeral(3000));
 
 module.exports = romanNumeral;

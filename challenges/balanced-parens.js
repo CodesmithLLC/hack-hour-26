@@ -24,44 +24,63 @@
  *
  */
 
-function balancedParens(input){
-    // make a cache of bracket types and an array of counts for each
-    const cache = { 
-        '{': true,
-        '[': true,
-        '(': true,
-        };
-    // loop over the string, looking for bracket types
-    // incrementing counts as we go
-    input.split('').forEach((char) => {
-        // if it is currently closed, then change to not closed
-        if (cache[char]) {
-            cache[char] = false;
-        }
-        // if a closing, check to see if it isn't closed
-        // if it is not closed, then change to closed
-        switch(char) {
-            case ')':
-                if (cache['('] === false) cache['('] = true;
-                break;
-            case ']':
-                if (cache['['] === false) cache['['] = true;
-                break;
-            case '}':
-                if (cache['{'] === false) cache['{'] = true;
-                break;
-        }
-    });
+// function balancedParens(input){
+//     // make a cache of bracket types, setting initially to return true for closed.
+//     const cache = { 
+//         '{': true,
+//         '[': true,
+//         '(': true,
+//         };
+//     // loop over the string, looking for bracket types
+//     input.split('').forEach((char) => {
+//         // if bracket type is found and currently closed, then change to not closed
+//         if (cache[char]) {
+//             cache[char] = false;
+//         }
+//         // if a closing bracket, check to see if it isn't closed
+//         // if it is not closed, then change to closed
+//         switch(char) {
+//             case ')':
+//                 if (cache['('] === false) cache['('] = true;
+//                 break;
+//             case ']':
+//                 if (cache['['] === false) cache['['] = true;
+//                 break;
+//             case '}':
+//                 if (cache['{'] === false) cache['{'] = true;
+//                 break;
+//         }
+//     });
 
-    // after the string, if bracket types are equal.
-    // if they are ever not, then return false
-    if (cache['{'] === false) return false;
-    if (cache['('] === false) return false;
-    if (cache['['] === false) return false;
-    // otherwise return true
-    return true;
-
+//     // after the string, if bracket types are equal.
+//     // if they are ever not, then return false
+//     if (cache['{'] === false) return false;
+//     if (cache['('] === false) return false;
+//     if (cache['['] === false) return false;
+//     // otherwise return true
+//     return true;
+// }
+const open = ['(', '{', '['];
+const match = {
+    '}': '{',
+    ']': '[',
+    ')': '(',
 }
+function balancedParens(input, brackets=[]) {
+    if (input.length === 0) {
+        if (brackets.length === 0) return true;
+        return false;
+    }
+    const char = input.slice(0,1);
+    const newInput = input.slice(1);
+    if (open.includes(char)) brackets.push(char);
+    if (match[char] && brackets.pop() !== match[char]) {
+        return false;
+    }
+    return balancedParens(newInput, brackets);
+}
+
+
 
 // console.log(balancedParens('('));  // false
 // console.log(balancedParens('()')); // true
