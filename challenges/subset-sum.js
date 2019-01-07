@@ -8,26 +8,39 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
-function subsetSum(array, target) {
-    // loop over the array
-    for (let i = 0; i < array.length; i++) {
-        // loop over the array starting at the next value
-        for (let j = i + 1; j < array.length; j++) {
-            // set the sum to be the first value plus the second
-            let sum = array[i] + array[j];
-            // let the counter be the third value
-            let counter = j + 1;
-            // while the sum is less than the target and the counter is less the array length
-            while (sum < target && counter < array.length) {
-                // keep adding to the sum
-                sum += array[counter];
-                counter++;
-            }
-            if (sum === target) return true;
-        }
+// function subsetSum(array, target) {
+//     if (array[0] === target) return true;
+//     // loop over the array
+//     for (let i = 0; i < array.length; i++) {
+//         // loop over the array starting at the next value
+//         for (let j = i + 1; j < array.length; j++) {
+//             // set the sum to be the first value plus the second
+//             let sum = array[i] + array[j];
+//             // let the counter be the third value
+//             let counter = j + 1;
+//             // while the sum is less than the target and the counter is less the array length
+//             while (sum < target && counter < array.length) {
+//                 // keep adding to the sum
+//                 sum += array[counter];
+//                 counter++;
+//             }
+//             if (sum === target) return true;
+//         }
+//     }
+//     // otherwise return false
+//     return false;
+// }
+
+function subsetSum(array, target, i=0) {
+    if (target === 0) return true;
+    if (i > array.length) return false;
+
+    const apply = subsetSum(array, target, i + 1)
+    const noApply = subsetSum(array, target - array[i], i + 1);
+    if (apply || noApply) {
+        return true;
     }
-    // otherwise return false
-    return false;
+    return false
 }
 
 console.log(subsetSum([3, 7, 4, 2], 5))
