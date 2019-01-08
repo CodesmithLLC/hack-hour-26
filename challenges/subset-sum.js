@@ -9,7 +9,21 @@
  */
 
 function subsetSum(array, target) {
-
+    let currentNum;
+    let runningSum;
+    for (let i = 0; i < array.length; i++) {
+        currentNum = array[i];
+        if (currentNum === target) return true;
+        runningSum = currentNum;
+        for (let j = i + 1; j < array.length; j++) {
+            runningSum += array[j];
+            if (runningSum === target) return true;
+            if (runningSum > target) runningSum -= array[j];
+        }
+    }
+    return false;
 }
+
+console.log(subsetSum([3, 34, 4, 12, 5, 12], 32));
 
 module.exports = subsetSum;
