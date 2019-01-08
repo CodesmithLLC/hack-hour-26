@@ -29,4 +29,11 @@ console.log('pow(3, 3), => 27:', pow(3, 3));
 console.log('pow(1, -1), => 1:', pow(1, -1));
 console.log('pow(16, -1), => 0.0626:', pow(16, -1));
 console.log('pow(2, -3), => 0.125:', pow(2, -3));
+console.log('pow(0, -1), => 1:', pow(0, -1));
+console.log('pow(-1, 0), => 1:', pow(-1, 0));
+console.log('pow(-1, 0), => 1:', pow(-1, 0));
+console.log('pow(-1, 2), => 1:', pow(-1, 2));
+console.log('pow(-1, 3), => 1:', pow(-1, 3));
+console.log('pow(-1, -2), => 1:', pow(-1, -2));
+
 // console.log('pow(10000, -3), => 10:', pow(10000, -3));

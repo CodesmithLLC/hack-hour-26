@@ -74,15 +74,6 @@ function romanNumeral(n) {
 
 // * combinations * //
 // console.log(`3 -> III : ${romanNumeral(3)}`);
-// console.log(`8 -> VIII : ${romanNumeral(8)}`);
-// console.log(`18 -> XVIII : ${romanNumeral(18)}`);
-// console.log(`19 -> XIX : ${romanNumeral(19)}`);
-// console.log(`24 -> XXIV : ${romanNumeral(24)}`);
-// console.log(`29 -> XXIX : ${romanNumeral(29)}`);
-// console.log(`146 -> CXLVI : ${romanNumeral(146)}`);
-// console.log(`693 -> DCXCIII : ${romanNumeral(693)}`);
-// console.log(`1987 -> MCMLXXXVII : ${romanNumeral(1987)}`);
-// console.log(`2018 -> MMXVIII : ${romanNumeral(2018)}`);
 
 // console.log(`5000 -> MMMMM : ${romanNumeral(5000)}`);
 module.exports = romanNumeral;
