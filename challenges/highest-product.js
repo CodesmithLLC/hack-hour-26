@@ -3,6 +3,8 @@
  */
 
 function highestProduct(array) {
+  if(!Array.isArray(array)) return 0;
+  if(array.length < 3) return 0;
   array.sort(sortAlg);
   console.log(array);
   return array[0]*array[1]*array[2];
@@ -12,8 +14,8 @@ function highestProduct(array) {
 function sortAlg(a,b){
   return b-a;
 }
-let arr = [0,10,15,7,2];
-console.log(highestProduct(arr));
+// let arr = [1,-10,-15,-7,-2,-1];
+// console.log(highestProduct(arr));
 
 
 module.exports = highestProduct;
