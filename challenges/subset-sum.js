@@ -10,6 +10,18 @@
 
 function subsetSum(array, target) {
 
+   console.log("target starts at: ", target)
+    
+   for (let i = 0; i < array.length; i += 1){
+       while (target > 0){
+           target -= array[i];
+           console.log("Current element is: ", array[i])
+           console.log("Target at this moment is: ", target);
+       }
+    }
 }
+
+subsetSum([3, 7, 4, 2], 5) // - > true, 3 + 2 = 5
+
 
 module.exports = subsetSum;
