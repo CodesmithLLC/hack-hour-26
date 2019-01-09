@@ -4,14 +4,17 @@
 
 function highestProduct(array) {
 
-  if(array.length < 3 || !(Array.isArray(array))){
+  if(array.length < 3){
+    return 0;
+  }
+
+  if(!(Array.isArray(array))){
     return 0;
   }
 
 
 
   const sorted = array.sort(function(a, b){return b-a});
-  //console.log(sorted);
   let product =1;
   for(let i =0; i<=2; i++){
     product = product * [sorted[i]];
@@ -21,7 +24,5 @@ function highestProduct(array) {
 
 
 }
-
-//console.log(highestProduct([10,9,4,9,-1,4,-100,100]));
 
 module.exports = highestProduct;
