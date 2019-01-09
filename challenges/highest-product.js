@@ -3,8 +3,18 @@
  */
 
 function highestProduct(array) {
-
+    //sort it from biggest to smallest. 
+    let numbers = array;
+    numbers.sort((a, b) => b - a);
+    //grab the first three values.
+    let product = numbers[0] * numbers[1] * numbers[2]
+    //multiply them and return the product. 
+    return product
 }
 
 
+
 module.exports = highestProduct;
+
+// console.log(highestProduct([4,2,3,10]))
+
