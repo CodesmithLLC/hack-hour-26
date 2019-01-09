@@ -11,7 +11,19 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+    let white = str.toLowerCase().split(/([_\W])/);
+    console.log(white);
+    let onlyWords = [];
+    for(let i = 0; i < white.length; i++){
+        if (white[i].length > 1 ){
+            onlyWords.push(white.splice(i,1));
+        }
+    }
+    console.log(onlyWords);
 
+    console.log(onlyWords[0][0])
+    console.log(lowerWords);
 }
+matchWord('__end_()dne__-');
 
 module.exports = matchWord;
