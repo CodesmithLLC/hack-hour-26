@@ -19,18 +19,19 @@ function matchWord(str) {
         }
     });
     if (workingArr.length % 2 !== 0) return false;
-    console.log(workingArr);
-    for (let i = 0; i < workingArr.length; i += 2) {
-
-        console.log(workingArr.length);
-
-        if (workingArr[i] !== workingArr[workingArr.length - i - 1].split('').reverse().join('')) {
+    for (let i = 0; i < workingArr.length; i += 0) {
+        if (workingArr[i] === workingArr[workingArr.length - i - 1].split('').reverse().join('')) {
+            workingArr.pop();
+            workingArr.splice(0, 1);
+        } else if (workingArr[i] === workingArr[i + 1].split('').reverse().join('')) {
+            workingArr.splice(0, 2);
+        } else {
             return false;
         }
     }
     return true;
 }
 
-console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
+// console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
 
 module.exports = matchWord;
