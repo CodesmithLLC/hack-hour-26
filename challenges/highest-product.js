@@ -4,7 +4,7 @@
 // [1,2,3,4,5,6]
 function highestProduct(array) {
   // check for array of length 0
-  if (array.length === 0) return 0;
+  if (array.length > 3 || Array.isArray(array) === false) return 0;
   // sort the array from largest to smallest integer value
   array.sort((a, b) => b - a);
   // multiply the first three elements together
@@ -12,6 +12,7 @@ function highestProduct(array) {
   for (let i = 0; i < 3; i++) {
     product *= array[i];
   }
+  if (product < 0) product *= -1;
   return product;
 }
 
