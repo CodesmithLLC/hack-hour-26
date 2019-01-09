@@ -11,7 +11,26 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+    const workingArr = [];
+    const workingStr = str.replace(/[^A-Za-z0-9]/g, ' ');
+    workingStr.split(' ').forEach(e => {
+        if (e !== '') {
+            workingArr.push(e.toLowerCase());
+        }
+    });
+    if (workingArr.length % 2 !== 0) return false;
+    console.log(workingArr);
+    for (let i = 0; i < workingArr.length; i += 2) {
 
+        console.log(workingArr.length);
+
+        if (workingArr[i] !== workingArr[workingArr.length - i - 1].split('').reverse().join('')) {
+            return false;
+        }
+    }
+    return true;
 }
+
+console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
 
 module.exports = matchWord;
