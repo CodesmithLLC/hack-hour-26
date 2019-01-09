@@ -3,10 +3,11 @@
  */
 
 function highestProduct(array) {
+    if(!Array.isArray(array)){return 0;}
+    if(array.length > 3){return 0;}
     array.sort(function(a, b) {
       return a - b;
     });
-  
     if(array[0] > 0 && array.length >= 3){
         return array.pop() * array.pop() * array.pop()
     }
