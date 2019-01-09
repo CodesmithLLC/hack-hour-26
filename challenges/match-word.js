@@ -10,7 +10,32 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
+/**
+ * while
+ * try
+ * yrt
+ * for
+ * if
+ * 
+ */
+
+/**
+ * I - string - comprised of n words
+ * O - boolean
+ * C - words must be separated by space or punctuation
+ * E
+ * 
+ *
+ * 
+ * 
+ * 
+ * 
+ * @param {*} str 
+ */
+
 function matchWord(str) {
+  // split str
+    
 
 }
 
