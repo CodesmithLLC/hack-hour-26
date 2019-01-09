@@ -23,7 +23,16 @@
  *
  *
  */
-
+function balanced(input) {
+  let paren;
+  if (input.indexOf('(') === -1 && input.indexOf('(') === -1) {
+    return true;
+  }
+  if (input.indexOf('(') >= 0 && input.indexOf('(') >= 0) {
+    paren = input.slice(input.indexOf('(') + 1, input.lastIndexOf(')'));
+  }
+  return balanced(paren);
+}
 function balancedParens(input) {
   const obj = { paren: true, brack: true, curl: true };
 
@@ -56,7 +65,7 @@ console.log('------ just paren -------');
 console.log(balancedParens('(')); // false
 console.log(balancedParens('()')); // true
 console.log(balancedParens(')(')); // false
-console.log(balancedParens('(())')); // true
+console.log(balanced('((sd))')); // true
 console.log('------ all types -------');
 console.log(balancedParens('[](){}')); // true
 console.log(balancedParens('[({})]')); // true
