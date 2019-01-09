@@ -13,13 +13,21 @@ function highestProduct(array) {
             second = first;
             first = array[i];
     }
+        else if (array[i] > second) {
+            third = second;
+            second = array[i]
+        }
+        else if (array[i] > third) {
+            third = array[i];
+        }
 }
-    // console.log(first);
-    // console.log(second);
-    // console.log(third);
+    console.log(first);
+    console.log(second);
+    console.log(third);
     return (first*second*third);
 }
-highestProduct([1,5,4,3,6,7,8,11,5]);
+// highestProduct([1,5,4,3,6,7,8,11,5]);
+console.log(highestProduct([1,25,5,4,3,6,7,8,11,5]));
 
 
 module.exports = highestProduct;

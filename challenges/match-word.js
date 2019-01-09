@@ -19,10 +19,16 @@ function matchWord(str) {
             onlyWords.push(white.splice(i,1));
         }
     }
-    console.log(onlyWords);
+    let words = onlyWords.map(el => el[0]); // was returning an array inside of an array
 
-    console.log(onlyWords[0][0])
-    console.log(lowerWords);
+    console.log(words);
+    for(let i = 0; i < words.length; i++) {
+        console.log(words[i])
+        let reversed = words[i];
+        reversed.split('').reverse().join('');
+        console.log(reversed)
+    }
+    
 }
 matchWord('__end_()dne__-');
 
