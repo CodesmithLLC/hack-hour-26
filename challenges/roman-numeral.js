@@ -41,8 +41,11 @@ function romanNumeral(n) {
 
   const keys = Object.keys(mapping);
 
+  //set starting values
   let startingVal = -1;
   let romanVal ='';
+
+  //greedily find the biggest value that fits in n
   for(let i=0; i< keys.length; i++){
     if(keys[i]>n){
       romanVal = mapping[keys[i-1]];
@@ -51,12 +54,14 @@ function romanNumeral(n) {
     }
   }
 
+  //case for n is greater than 1000
   if(startingVal === -1){
     romanVal = 'M';
     startingVal=1000;
   }
 
 
+  //recursively concatenate the rest of n
   return romanVal + romanNumeral(n-startingVal);
 }
 
