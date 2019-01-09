@@ -24,48 +24,80 @@
  *
  */
 
+
 function balancedParens(input) {
-    //declare a variable tempArray and set equal to str.split("") method
-    const tempArray = input.split("");
-    let booleanToReturn;
-    let bracket;
-    let reverseBracket;
-    let tempVariable;
-    //use a for loop starting at the end of input to deterine which bracket to start with
-    for (let j = tempArray.length-1; j >= 0; j--) {
-      if (tempArray[j] === ")") {
-        bracket = "(";
-        reverseBracket =")";
-      } else if (tempArray[j] === "}") {
-        bracket = "{";
-        reverseBracket ="}";
-      } else if (tempArray[j] === "]"){
-        bracket = "[";
-        reverseBracket ="]";
-      }
-      console.log("input: ", input, "tempArray[j] : ", tempArray[j], "bracket: ", bracket)
-      
-      if (tempArray[j] === bracket) {
-          return false;
-        }
-        //if an element is equal to reverseBracket
-        if (tempArray[j] === reverseBracket) {
-          //set a tempVariable parensIndex equal to the index of heh bracket
-          tempVariable = tempArray.indexOf(bracket);
-          //if tempVariable is less than 0
-          if (tempVariable < 0) {
-              //return false
-              return false;
-          } else {
-          //else, use the delete operator to remove the ( as that index
-          delete tempArray[tempVariable];
-          }
-      }
-      }
-      //return true
-    booleanToReturn = true;
-    return booleanToReturn
+  //create open/close constants
+  const parensMatch = {
+    '{': '}',
+    '[': ']',
+    '(': ')'
   }
+
+  const closers = '}])';
+  //create a simple stack (vertical array), using push/pop only
+  const bracketStack = [];
+
+  //iterate through input
+  for (let i = 0; i < input.length; i++) {
+    //create a constant, currentChar and set equal to the current elemet
+    const currentChar = input[i];
+    //check your parensMatch object to see if the element is an opener
+    if (parensMatch[currentChar]) {
+      //if so, add it's analogue to the bracketStack
+      bracketStack.push(parensMatch[currentChar]);
+    //otherwise, check if the current character is a closer using the includes method on closers
+    } else if (closers.includes(currentChar)) {
+      //if so, return false
+      return false;
+    }
+  }
+}
+//if hte stack is empty, return true; otherwise, there was an extra parens somewhere
+return !bracketStack.length;
+}
+
+// function balancedParens(input) {
+//     //declare a variable tempArray and set equal to str.split("") method
+//     const tempArray = input.split("");
+//     let booleanToReturn;
+//     let bracket;
+//     let reverseBracket;
+//     let tempVariable;
+//     //use a for loop starting at the end of input to deterine which bracket to start with
+//     for (let j = tempArray.length-1; j >= 0; j--) {
+//       if (tempArray[j] === ")") {
+//         bracket = "(";
+//         reverseBracket =")";
+//       } else if (tempArray[j] === "}") {
+//         bracket = "{";
+//         reverseBracket ="}";
+//       } else if (tempArray[j] === "]"){
+//         bracket = "[";
+//         reverseBracket ="]";
+//       }
+//       console.log("input: ", input, "tempArray[j] : ", tempArray[j], "bracket: ", bracket)
+      
+//       if (tempArray[j] === bracket) {
+//           return false;
+//         }
+//         //if an element is equal to reverseBracket
+//         if (tempArray[j] === reverseBracket) {
+//           //set a tempVariable parensIndex equal to the index of heh bracket
+//           tempVariable = tempArray.indexOf(bracket);
+//           //if tempVariable is less than 0
+//           if (tempVariable < 0) {
+//               //return false
+//               return false;
+//           } else {
+//           //else, use the delete operator to remove the ( as that index
+//           delete tempArray[tempVariable];
+//           }
+//       }
+//       }
+//       //return true
+//     booleanToReturn = true;
+//     return booleanToReturn
+//   }
   
   
   
