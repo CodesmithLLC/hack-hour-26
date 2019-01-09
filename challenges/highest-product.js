@@ -9,8 +9,7 @@ function highestProduct(array) {
   newArray.sort((a, b) => {
     return b - a;
   });
-  return newArray[0] * newArray[1] * newArray[2];
+  return (newArray[0] * newArray[1] * newArray[2]);
 }
-
 
 module.exports = highestProduct;
