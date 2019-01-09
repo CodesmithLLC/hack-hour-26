@@ -22,7 +22,7 @@ function quickSort(array) {
 }
 
 function highestProduct(array) {
-  if (array.length < 3) return undefined;
+  if (array.length < 3 || !Array.isArray(array)) return 0;
   if (array.length === 3) return array[0] * array[1] * array[2];
 
   const arr = quickSort(array);
@@ -31,6 +31,7 @@ function highestProduct(array) {
 
 module.exports = highestProduct;
 
+console.log(highestProduct({ 1: 2 }));
 console.log(highestProduct([1, 2]));
 console.log(highestProduct([1, 2, 3]));
-console.log(highestProduct([4, 5, 6, 10, 2, 9, 8, 3]));
+console.log(highestProduct([4, -5, 6, -10, 2, 9, 8, 3]));
