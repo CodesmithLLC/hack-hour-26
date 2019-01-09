@@ -11,7 +11,27 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
-}
+    if(str.trim().length === 0){return true};
+  
+    let lowered = str.toLowerCase();
+    let stripped = lowered.replace(/\W+/g," ");
+    let nounderScore = stripped.replace(/_/g, " ").trim();
+    let wrdArray = nounderScore.split(" ");
+  
+    while(wrdArray.length > 0){
+      if(wrdArray.length === 1){return false};
+      if(wrdArray[0] === wrdArray[1].split('').reverse().join('')){
+        wrdArray.shift();
+        wrdArray.shift();
+      }else if(wrdArray[0] === wrdArray[wrdArray.length - 1].split('').reverse().join('')){
+        wrdArray.shift();
+        wrdArray.pop();
+      }else{
+        return false;
+      }
+    }
+    return true;
+  
+  }
 
 module.exports = matchWord;
