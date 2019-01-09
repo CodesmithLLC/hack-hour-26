@@ -27,6 +27,4 @@ function highestProduct(array) {
         });
 }
 
-// console.log(highestProduct([-2, -4, -5]));
-
 module.exports = highestProduct;
