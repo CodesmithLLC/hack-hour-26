@@ -40,5 +40,4 @@ const highestProduct = (arr) => {
   return topThree.first * topThree.second * topThree.third;
 };
 
-
-// module.exports = highestProduct;
+module.exports = highestProduct;
