@@ -18,12 +18,14 @@ function zip(l1, l2) {
   let curr2 = l2.head;
   let temp;
   let temp2;
-  while (curr.next !== null) {
+  while (curr !== null) {
     temp = curr.next;
     if (curr2 !== null) {
       curr.next = curr2;
       temp2 = curr2.next;
-      curr2.next = temp;
+      if (temp !== null) {
+        curr2.next = temp;
+      }
     }
     curr = temp;
     curr2 = temp2;
