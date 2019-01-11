@@ -11,8 +11,11 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-  // check that both l1 and l2 are not null
-  if (l1 === null || l2 === null) return null;
+  // check that both l1 and l2 are not undefined
+  if (l1 === undefined || l2 === undefined) {
+    if (l1 === undefined) return l2;
+    if (l2 === undefined) return l1;
+  }
   // create a pointer for l1 head and l2 head
   let p1 = l1;
   let p2 = l2;
@@ -20,21 +23,23 @@ function zip(l1, l2) {
   // declare a counter starting a 0
   let counter = 0;
   // loop while p1 & p2 are not null
-  while (currNode) {
+  while (currNode.next) {
     // if counter is even, then set p1.next to p2
     if (counter % 2 === 0) {
-      // set p2 to p2.next
+      // move p1 to the next node
       p1 = p1.next;
-      // set l1.next to l2
+      // currNode.next points to p2
       currNode.next = p2;
+      // move currNode to next node (what was p2)
       currNode = currNode.next;
     }
     // if conter is odd, then set p2.next to p1
     if (counter % 2 !== 0) {
-      // set p2 to p2.next
+      // move p2 to the next node
       p2 = p2.next;
-      // set 12.next to p1
+      // point currNode to p1
       currNode = p1;
+      // move currNode to the next node
       currNode = currNode.next;
     }
   }
