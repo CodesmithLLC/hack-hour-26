@@ -11,6 +11,11 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-};
+  const first = new Node(l1);
+  const second = new Node(l2);
 
-module.exports = {Node: Node, zip: zip};
+  first.next = second.val;
+  second.next = first.val;
+}
+
+module.exports = { Node, zip };
