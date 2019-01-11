@@ -10,10 +10,10 @@ function Node(val) {
   this.next = null;
 }
 
-function zip(l1, l2) {
+function zip(l1 = null, l2 = null) {
   // edge cases?
   if (l1.val === null || l2.val === null) {
-    return l1.val !== null ? l1 : l2;
+    return l1 !== null ? l1 : l2;
   }
 
   // grab nodes:
