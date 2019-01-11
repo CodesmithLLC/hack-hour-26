@@ -9,7 +9,8 @@
  */
 
 function subsetSum(array, target) {
-
+    // sort array
+    // 
 }
 
 module.exports = subsetSum;
