@@ -27,23 +27,47 @@ function zip(l1, l2) {
     // if counter is even, then set p1.next to p2
     if (counter % 2 === 0) {
       // move p1 to the next node
-      p1 = p1.next;
+      if (p1.next !== null) p1 = p1.next;
       // currNode.next points to p2
       currNode.next = p2;
       // move currNode to next node (what was p2)
       currNode = currNode.next;
+      counter++;
+      console.log(l1);
     }
     // if conter is odd, then set p2.next to p1
     if (counter % 2 !== 0) {
       // move p2 to the next node
-      p2 = p2.next;
+      if (p2.next !== null) p2 = p2.next;
       // point currNode to p1
-      currNode = p1;
+      currNode.next = p1;
       // move currNode to the next node
       currNode = currNode.next;
+      counter++;
+      console.log(l1);
     }
   }
   return l1;
+}
+
+const a = new Node('a');
+const b = new Node('b');
+const c = new Node('c');
+a.next = b;
+b.next = c;
+
+const e = new Node('e');
+const f = new Node('f');
+const g = new Node('g');
+e.next = f;
+f.next = g;
+
+let zipped = zip(a, e);
+
+let currzip = zipped;
+while (currzip) {
+  console.log(currzip.value);
+  currzip = currzip.next;
 }
 
 module.exports = { Node: Node, zip: zip };
