@@ -12,17 +12,18 @@ function highestProduct(array) {
     return 0;
   }
 
+  const sorted = array.sort(function(a, b){return b-a})
+  const smallestOne = sorted[sorted.length-1];
+  const smallestTwo = sorted[[sorted.length-2]];
 
-
-  const sorted = array.sort(function(a, b){return b-a});
-  let product =1;
-  for(let i =0; i<=2; i++){
-    product = product * [sorted[i]];
-  }
+  const secondLargest =sorted[1];
+  const thirdLargest =[sorted[2]];
 
   return product;
 
 
 }
+
+highestProduct([-10,-100,3,69,100,14]);
 
 module.exports = highestProduct;
