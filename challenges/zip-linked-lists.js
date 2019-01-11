@@ -11,6 +11,7 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  if (arguments.length === 1) return arguments[0];
   // create a current position node for each 
   let currentNodeList1 = l1.head;
   let currentNodeList2 = l2.head;
