@@ -12,8 +12,8 @@ function Node(val) {
 
 function zip(l1 = null, l2 = null) {
   // edge cases?
-  if (l1.val === null || l2.val === null) {
-    return l1 !== null ? l1 : l2;
+  if (l1 === null || l2 === null) {
+    return l2 === null ? l1 : l2;
   }
 
   // grab nodes:
@@ -64,17 +64,45 @@ function zip(l1 = null, l2 = null) {
 
 module.exports = { Node, zip };
 
-const odds = new Node(1);
-const evens = new Node(2);
+const a = new Node('a');
+const b = new Node('b');
+const c = new Node('c');
+a.next = b;
+b.next = c;
 
-// odds.next = new Node(3);
-// odds.next.next = new Node(5);
-// odds.next.next.next = new Node(7);
-// odds.next.next.next.next = new Node(9);
 
-evens.next = new Node(4);
+const e = new Node('e');
+const f = new Node('f');
+const g = new Node('g');
+e.next = f;
+f.next = g;
+
+
+const zipped = zip(a, e);
+
+let currzip = zipped;
+while (currzip) {
+  console.log(currzip.value);
+  currzip = currzip.next;
+}
+
+// const odds = new Node(1);
+// const evens = new Node(2);
+
+// // odds.next = new Node(3);
+// // odds.next.next = new Node(5);
+// // odds.next.next.next = new Node(7);
+// // odds.next.next.next.next = new Node(9);
+
+// evens.next = new Node(4);
 // evens.next.next = new Node(6);
 // evens.next.next.next = new Node(8);
 // evens.next.next.next.next = new Node(10);
 
-console.log(zip(odds, evens));
+// console.log(zip(odds, evens));
+// let result = zip(odds, evens);
+// const current = result;
+// while (current) {
+//   console.log(result.val);
+//   result = result.next;
+// }
