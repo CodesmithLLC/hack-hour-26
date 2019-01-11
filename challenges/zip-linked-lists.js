@@ -20,7 +20,7 @@ function zip(l1, l2) {
   // declare a counter starting a 0
   let counter = 0;
   // loop while p1 & p2 are not null
-  while (currNode) {
+  while (currNode.next) {
     // if counter is even, then set p1.next to p2
     if (counter % 2 === 0) {
       // set p2 to p2.next
