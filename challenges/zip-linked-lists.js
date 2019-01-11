@@ -10,7 +10,16 @@ function Node(val) {
   this.next = null;
 }
 
-function zip(l1, l2) {
-};
+
+function zip(l1, l2){
+  let newHead = l2;
+  let theGuy = l1;
+  while(theGuy !== undefined){
+    let oldnext = theGuy.next;
+    theGuy.next = newHead;
+    newHead.next = oldnext;
+    theGuy = newHead.next;
+  }
+}
 
 module.exports = {Node: Node, zip: zip};
