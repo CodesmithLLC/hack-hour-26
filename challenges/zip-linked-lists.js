@@ -23,24 +23,13 @@ function zip(l1, l2) {
   let currl2 = l2.head;
   let counter = 1;
   while (currl1 !== null || currl2 !== null) {
-    console.log(counter);
-    if (counter % 2 === 0) {
-      currL = currl2;
-    } else {
-      currL = currl1;
-    }
     if (counter === 1) {
-      newLL.head = currL;
-      newLL.tail = currL;
-    } else {
-      newLL.tail = currL;
+      currl1.next = currL2;
     }
     if (counter % 2 === 0) {
-      currl2 = currl2.next;
-    } else {
-      currl1 = currl1.next;
+      currl1.next = currl2;
     }
-    counter++;
+    counter += 1;
   }
   return newLL;
 
@@ -67,6 +56,6 @@ ll2.push('boom');
 ll2.push('bip');
 ll2.push('ayyy');
 
-console.log(zip(ll1, ll2))
+console.log(zip(ll1, ll2));
 
 module.exports = { Node: Node, zip: zip };
