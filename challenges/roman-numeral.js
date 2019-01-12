@@ -109,8 +109,7 @@ function romanNumeral(n) {
   return arr.join("");
 }
 
-console.log(romanNumeral(2774)); //'MMDCCLXXIV'
-
+console.log(romanNumeral(2774))
 console.log(romanNumeral(2729)); //MMDCCXXIX
 
 module.exports = romanNumeral;
