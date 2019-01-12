@@ -12,11 +12,16 @@ function Node(val) {
 
 function zip(l1, l2) {
 
+  //make sure l1 is a linked list
   if(l1){
+
+    //if l2 is empty, jsut return l1
     if(!l2){
       return l1;
     }
 
+
+    //we need pointers for both l1 and l2's currents and next values
     let currL1 = l1;
     let currL2 = l2;
     let currL1Next;
@@ -43,7 +48,7 @@ function zip(l1, l2) {
         currL2Next = currL2.next;
       }
 
-      //we've reached the end of L2
+      //we've reached the end of L2. add the current node to the list
       else{
         currL1.next = currL2;
         currL2.next = currL1Next;
@@ -51,19 +56,24 @@ function zip(l1, l2) {
       }
 
      
+      //insert l2's node in between l1's current and l2s next
       currL1.next = currL2;
       currL2.next = currL1Next;
 
+
+      //update both currents for l1 and l2
       currL1 = currL1Next;
       currL2 = currL2Next;
 
 
     }
 
+    //return the zipped list
     return l1;
 
   }
 
+  //l1 was empty. return l2
   return l2;
 
 };
@@ -71,15 +81,15 @@ function zip(l1, l2) {
 const a = new Node('a');
 const b = new Node('b');
 const c = new Node('c');
-a.next = b;
-b.next =c ;
+// a.next = b;
+// b.next =c ;
 
 
 const e = new Node('e');
 const f = new Node('f');
 const g = new Node('g');
-// e.next = f;
-// f.next = g;
+e.next = f;
+f.next = g;
 
 
 let zipped = zip(a,e);
