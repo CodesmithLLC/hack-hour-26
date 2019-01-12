@@ -3,7 +3,6 @@
  */
 
 function highestProduct(array) {
-    // highest product from 3 numbers within an array
     let first = 0; // storing the highest to 3rd highest values
     let second = 0;
     let third = 0;
@@ -26,8 +25,7 @@ function highestProduct(array) {
     console.log(third);
     return (first*second*third);
 }
-// highestProduct([1,5,4,3,6,7,8,11,5]);
-console.log(highestProduct([1,25,5,4,3,6,7,8,11,5]));
+console.log(highestProduct([1,25,5,17,4,3,6,27,7,8,,11,5]));
 
 
 module.exports = highestProduct;
