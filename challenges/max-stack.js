@@ -8,6 +8,29 @@
 
 function Stack() {
   // body...
+  let arr = [];
+  let value;
+  let currentMax;
+  let result;
+
+  push(val){
+    arr.push(val)
+    value = val;
+    result = this.arr.length;
+  }
+
+  pop(){
+    result= this.arr.pop()
+  }
+  
+  
+  getMax(){
+    if (!currentMax || value > currentMax){
+      currentMax = value;
+      result = currentMax;
+    }
+  }
+  return result;
 }
 
 module.exports = Stack;
