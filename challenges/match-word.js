@@ -11,7 +11,46 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+    let stack = [];
+    let subStr = '';
+    // for words
+    for (let i = 0; i < str.length; i++) {
+        let char = str[i];
 
+        if (isLetter(char)) {
+            subStr += char
+        } else if (!isLetter(char) && subStr.length >0) {
+            stack.push(subStr);
+            subStr = '';
+        }
+    }
+
+    for (let j = 0; j < stack.length; j++) {
+        let wordReversed = reverseStr(stack[i])
+        // you're here. check if there is reversed version of string in stack ...
+    }
+    return stack
 }
+
+function isLetter(c) {
+  return c.toLowerCase() != c.toUpperCase();
+}
+
+function reverseStr(str) {
+    if (str.length === 0) {
+        return '';
+    }
+    let reversedStr = '';
+
+    for (let i = str.length - 1; i >= 0; i-=1) {
+        reversedStr += str[i]
+    }
+    return reversedStr
+}
+
+let thisStr = '__END_DNE-----';
+console.log(reverseStr(''))
+console.log(matchWord(thisStr))
+
 
 module.exports = matchWord;
