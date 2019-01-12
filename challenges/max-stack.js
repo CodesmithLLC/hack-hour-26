@@ -8,6 +8,36 @@
 
 function Stack() {
   // body...
+  this.max = Number.MIN_SAFE_INTEGER;
+  this.stack = [];
+
+  this.push = function(a){
+    this.stack.push(a);
+
+    if(this.max<a){
+      this.max = a;
+    }
+
+    return this.stack.length;
+  }
+
+  this.pop = function(){
+    if(this.stack.length>0){
+      this.stack.pop();
+    }
+  }
+
+  this.getMax = function(){
+    return this.max;
+  }
+
+
 }
+
+// let stack = new Stack();
+// console.log(stack.push(1));
+// console.log(stack.push(2));
+// console.log(stack.push(3));
+// console.log(stack.getMax())
 
 module.exports = Stack;
