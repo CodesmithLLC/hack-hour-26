@@ -28,7 +28,6 @@ function Stack() {
   this.pop = function(){
     if(this.stack.length>0){
       let popped = this.stack.pop();
-      console.log('popped',popped);
       this.max = this.stack[this.stack.length-1].max;
       return popped;
     }
@@ -44,15 +43,15 @@ function Stack() {
 
 }
 
-let stack = new Stack();
-console.log(stack.push(1));
-console.log(stack.push(2));
-console.log(stack.push(3));
-stack.push(100);
-stack.pop();
-console.log(stack.getMax());
-stack.push(50);
-console.log(stack.getMax());
+// let stack = new Stack();
+// console.log(stack.push(1));
+// console.log(stack.push(2));
+// console.log(stack.push(3));
+// stack.push(100);
+// stack.pop();
+// console.log(stack.getMax());
+// stack.push(50);
+// console.log(stack.getMax());
 
 
 
