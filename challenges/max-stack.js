@@ -24,6 +24,7 @@ const Stack = {
   getMax: arr => {
     return Math.max(...arr);
   }
+  //object
 };
 console.log(Stack.pop([1, 2, 3, 4, 5, 6, 9, 10, 11, 16, 12]));
 console.log(Stack.push([1, 2, 3, 4, 5, 6, 9, 10, 11, 16, 12]));
