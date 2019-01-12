@@ -17,7 +17,7 @@
  * 
  */
 
- let num = 56
+ 
 
 function romanNumeral(n, comboArr = []) {
     // base case
@@ -57,6 +57,8 @@ function romanNumeral(n, comboArr = []) {
 
     return romanNumeral(n - romanNumArr[i], comboArr)
 }
+
+// let num = 56
 // console.log('IX' === romanNumeral(9))
 // console.log('LVI' === romanNumeral(56))
 // console.log('DXXXVII' === romanNumeral(537))
