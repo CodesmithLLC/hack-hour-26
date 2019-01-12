@@ -47,6 +47,8 @@ function zip(l1, l2) {
       console.log(l1);
     }
   }
+  //assign currNode.next to the last node in l2, since the loop breaks before this happens
+  currNode.next = p2;
   return l1;
 }
 
@@ -69,5 +71,7 @@ while (currzip) {
   console.log(currzip.value);
   currzip = currzip.next;
 }
+
+// a-e-b-f-c-g
 
 module.exports = { Node: Node, zip: zip };
