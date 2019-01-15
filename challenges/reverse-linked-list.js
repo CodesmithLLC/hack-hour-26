@@ -14,6 +14,7 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+  if (head === null) return head;
   // check if head.next is null
   if (head.next === null) return head;
   // create three pointers, p1, p2 and p3
@@ -36,12 +37,12 @@ function reverseLinkedList(head) {
   return p2;
 }
 
-const a = new Node('a');
-const b = new Node('b');
-const c = new Node('c');
-a.next = b;
-b.next = c;
+// const a = new Node('a');
+// const b = new Node('b');
+// const c = new Node('c');
+// a.next = b;
+// b.next = c;
 
-console.log(reverseLinkedList(a));
+// console.log(reverseLinkedList(a));
 
 module.exports = { Node: Node, reverseLinkedList: reverseLinkedList };
