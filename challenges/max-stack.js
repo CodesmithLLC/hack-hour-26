@@ -43,15 +43,25 @@ function Stack() {
 
 }
 
-// let stack = new Stack();
-// console.log(stack.push(1));
-// console.log(stack.push(2));
-// console.log(stack.push(3));
-// stack.push(100);
-// stack.pop();
-// console.log(stack.getMax());
-// stack.push(50);
-// console.log(stack.getMax());
+let stack = new Stack();
+console.log(stack.push(1));
+console.log(stack.push(2));
+console.log(stack.push(3));
+stack.push(100);
+stack.pop();
+console.log(stack.getMax());
+stack.push(50);
+console.log(stack.getMax());
+stack.pop();
+console.log(stack.getMax());
+stack.pop();
+console.log(stack.getMax());
+stack.pop();
+console.log(stack.getMax());
+stack.pop();
+console.log(stack.getMax());
+
+
 
 
 
