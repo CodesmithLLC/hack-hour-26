@@ -43,6 +43,7 @@ function reverseLinkedList(head) {
     
     }
 
+    return null;
 
     
 
