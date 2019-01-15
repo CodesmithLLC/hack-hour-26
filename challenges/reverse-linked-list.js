@@ -13,7 +13,8 @@ function Node(value) {
   this.next = null;
 }
 
-function reverseLinkedList(head) {
+function reverseLinkedList(head = null) {
+  if (head === null) return undefined;
   // initialize 3 pointers:
   let reversed = null;
   let current = head;
