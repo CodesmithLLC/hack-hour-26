@@ -14,7 +14,20 @@
  */
 
 function reverseInPlace(array) {
-
+  const end = array[array.length];
+  // take the first element in array, send it to end
+  for (let i = array.length; i > 0; i -= 1) {
+    if (array[i] === end) {
+      return array
+    } else {
+      array.push(array[i]);
+    }
+  }
 }
+
+// start at back of array, iterate backwards
+
+const arrayOfChars = ['a', 'b', 'c', 'd']
+console.log(reverseInPlace(arrayOfChars))
 
 module.exports = reverseInPlace;

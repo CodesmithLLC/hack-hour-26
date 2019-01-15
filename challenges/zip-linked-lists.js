@@ -11,6 +11,15 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  // create new linked list with node.this.value being l1, 
+  this.head = l1;
+  this.tail = l2;
+  // loop through the l1 list and reassign 
+  while (this.tail.next !== null) {
+    // for every iteration over l1, this.value should be updated to l1.next
+    // and this.next && this.tail should be updated to l2.next
+    this.tail.next = l1.next
+  }
 };
 
 module.exports = {Node: Node, zip: zip};

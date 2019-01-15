@@ -25,7 +25,48 @@
  */
 
 function balancedParens(input){
+  // const balanced = {
+    //   '(': ')',
+    //   '{': '}',
+    //   '[': ']'
+    // };
+  // have an array of items to check
+  const parens = ['(', ')'];
+  const brackets = ['[', ']'];
+  const curly = ['{', '}'];
 
+  const firsts = [];
+  const lasts = []
+  // iterate through the array and check for opening/closing parens
+  for (let i = 0; i < input.length; i += 1) {
+    if (input[i] == parens[0]) {
+      firsts.push(input[i]);
+    } else if (input[i] === parens[1]) {
+      lasts.push(input[i])
+    }
+    if (input[i] == brackets[0]) {
+      firsts.push(input[i]);
+    } else if (input[i] === brackets[1]) {
+      lasts.push(input[i])
+    }
+    if (input[i] == curly[0]) {
+      firsts.push(input[i]);
+    } else if (input[i] === curly[1]) {
+      lasts.push(input[i])
+    }
+  }
+  if (firsts.length === lasts.length) {
+    // return true
+    return true;
+  }
+  // if not found, return false
+  return false;
 }
 
 module.exports = balancedParens;
+
+console.log(balancedParens('[](){}')); // true
+console.log(balancedParens('[({})]'));   // true
+console.log(balancedParens('[(]{)}')); // false
+console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }')); // true
+console.log(balancedParens(' var hubble = function() { telescopes.awesome();')); // false

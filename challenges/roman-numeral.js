@@ -18,7 +18,21 @@
  */
 
 function romanNumeral(n) {
-
+  if (n > 3999) return undefined;
+  if (n === 0) return undefined;
+  // compare numbers to numerals in an object or arrays?
+  let comparisons = {
+    1: I,
+    5: V,
+    10: X,
+    50: L,
+    100: C,
+    500: D,
+    1000: M,
+  };
+  // compare numbers less than or greater than a new symbol? like <9, <40, <90, <400
+  // use modulo to find a remainder less than 4?
+  // create 
 }
 
 module.exports = romanNumeral;

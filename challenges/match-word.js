@@ -11,7 +11,14 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  // iterate through string
+    // if string is empty return true
+    // use regex to only compare letters
+    // save first word to new array (first letter encountered, ending when a non-letter is hit)
+  // now iterate backwards through string
+    // 
 }
+
+console.log(matchWord('__END_DNE-----'));
 
 module.exports = matchWord;
