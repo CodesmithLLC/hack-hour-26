@@ -10,41 +10,30 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-  let tracker1 = l1.head;
-  let tracker2 = l2.head;
+  if (!l1) return l2;
+  if (!l2) return l1;
 
-  while (tracker1 && tracker2) {
-    tracker1 = tracker1.next
+  const head = l1;
+  let tracker = l1;
 
+  l1 = l1.next;
 
+  while (l1 && l2) {
+    tracker.next = l2;
+    l2 = l2.next;
+    tracker = tracker.next;
+    tracker.next = l1;
+    l1 = l1.next;
+    tracker = tracker.next;
   }
 
-
-
-  
-  let tracker1 = new Node(l1.head);
-  tracker1.next = l1.head.next;
-  let tracker2 = new Node(l2.head);
-  tracker2.next = l2.head.next;
-  let tempNode1 = l1.head;
-  while (tempNode1 && tempNode2) {
-    tempNode = tempNode.next;
-
+  if (l2) {
+    tracker.next = l2;
+  } else {
+    tracker.next = l1;
   }
 
-  //change the value of the tracker1 node's next to be l2
-  l1.head.next.next = l2.head.next;
-
-
-  //set the next value of currentNode.next to equal the first node in l2
-  tempNode1.next = l2.head.next;
-
-
-
-
-
-  
-
-};
+  return head;
+}
 
 module.exports = {Node: Node, zip: zip};
