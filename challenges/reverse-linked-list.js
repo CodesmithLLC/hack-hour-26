@@ -14,7 +14,29 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+    //while the next value is not null, loop over the list storing each value in an array. (An array of values)
+    //once you get to the end, ie where next is null, begin looping over the values array in reverse and setting each's next to be the next object.
+    let arr =[];
+    let newObj={};
+    let oldObj;
 
+    while(head.next != null){
+        arr.push(head.value)
+        head = head.next
+    }
+    for(let i =0; i<arr.length; i++){
+        newObj.value = arr[i];
+        if((i-1)<0){
+            newObj.next = null;
+            oldObj = newObj;
+        }else{
+            newObj.next = oldObj;
+            oldObj = newObj;
+        }
+        
+    }
+    return oldObj;   
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
+
