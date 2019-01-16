@@ -37,7 +37,7 @@ function bestProfit(prices) {
       min.price = price;
       min.index = index;
     }
-    const profitVsMin = price - min.profit;
+    const profitVsMin = price - min.price;
     const profitVsPrevBuy = price - cache.profit;
 
     // calculate profit vs cached min
