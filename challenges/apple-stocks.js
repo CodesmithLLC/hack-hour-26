@@ -13,7 +13,19 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+  let currentHighest = 0;
+  for (let i = 0; i < stock_prices_yesterday.length; i++) {
+    if (!Array.isArray(stock_prices_yesterday)) return 0;
+    for (let j = i + 1; j < stock_prices_yesterday.length - i; j++) {
+      const currentCalc = stock_prices_yesterday[j] - stock_prices_yesterday[i];
+      if (currentCalc > currentHighest) currentHighest = currentCalc;
+    }
+  }
+  if (currentHighest < 0) return 0;
+  if (currentHighest >= 0) return currentHighest;
 }
+
+// console.log(bestProfit([200, 250, 150, 325, 500, 50, 160, 300, 310]));
+
 
 module.exports = bestProfit;
