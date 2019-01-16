@@ -12,8 +12,53 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
+function bestProfit(prices) {
+  // handle invalid inputs
+  if (!Array.isArray(prices) || prices.length <= 0) return 0;
+  // initialize objects, min, cache
+  // min = { index: 0 and value: prices[0] }
+  // cache stores profit: 0, and indexes for the prices that made that profit;
+  const min = {
+    price: prices[0],
+    index: 0,
+  };
 
+  const cache = {
+    buyAt: 0,
+    sellAt: 0,
+    profit: 0,
+  };
+
+
+  // traverse the all elements in the array
+  prices.forEach((price, index) => {
+    // track current minimum price
+    if (price < min.price) {
+      min.price = price;
+      min.index = index;
+    }
+    const profitVsMin = price - min.profit;
+    const profitVsPrevBuy = price - cache.profit;
+
+    // calculate profit vs cached min
+    //   better profit? -> update cached values
+    if (profitVsPrevBuy > cache.profit) {
+      cache.profit = profitVsPrevBuy;
+      cache.sellAt = index;
+    }
+    // caculate profit vs current min
+    //   better profit? -> update cached values, reset min to current value/ix
+    if (profitVsMin > cache.profit) {
+      cache.profit = profitVsMin;
+      cache.setAt = index;
+      cache.buyAt = min.index;
+      min.price = price;
+      min.index = index;
+    }
+  });
+
+  // return cached profit
+  return cache.profit;
 }
 
 module.exports = bestProfit;
