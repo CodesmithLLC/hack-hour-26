@@ -14,8 +14,8 @@
 
 function bestProfit(stock_prices_yesterday) {
   let currentHighest = 0;
+  if (!Array.isArray(stock_prices_yesterday)) return 0;
   for (let i = 0; i < stock_prices_yesterday.length; i++) {
-    if (!Array.isArray(stock_prices_yesterday)) return 0;
     for (let j = i + 1; j < stock_prices_yesterday.length - i; j++) {
       const currentCalc = stock_prices_yesterday[j] - stock_prices_yesterday[i];
       if (currentCalc > currentHighest) currentHighest = currentCalc;
@@ -25,7 +25,7 @@ function bestProfit(stock_prices_yesterday) {
   if (currentHighest >= 0) return currentHighest;
 }
 
-// console.log(bestProfit([200, 250, 150, 325, 500, 50, 160, 300, 310]));
+console.log(bestProfit(10));
 
 
 module.exports = bestProfit;
