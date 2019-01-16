@@ -15,6 +15,10 @@
 function bestProfit(arr) {
     let profit = 0;
 
+    if (!Array.isArray(arr)) {
+        return 0;
+    }
+
     for (let i = 0; i < arr.length; i++) {
         const price = arr[i];
         
@@ -28,10 +32,10 @@ function bestProfit(arr) {
             }
         }
     }
-    return profit;
+    return profit
 }
 
-const arr = [1, 17, 35, 70, 5, 900];
+const arr = [1000, 1, 35, 70, 5, 900];
 
 console.log(bestProfit(arr)) 
 
