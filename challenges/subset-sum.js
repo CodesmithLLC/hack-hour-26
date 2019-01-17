@@ -34,13 +34,7 @@
 function subsetSum(array, target, i=0) {
     if (target === 0) return true;
     if (i > array.length) return false;
-
-    const apply = subsetSum(array, target, i + 1)
-    const noApply = subsetSum(array, target - array[i], i + 1);
-    if (apply || noApply) {
-        return true;
-    }
-    return false
+    return subsetSum(array, target, i + 1) || subsetSum(array, target - array[i], i + 1);
 }
 
 console.log(subsetSum([3, 7, 4, 2], 5))
