@@ -39,7 +39,7 @@ function reverseLinkedList(head) {
     
         // STEP 4: move forard in the linked list
         return reverseLinkedList(currNext);
-    
+  
     
     }
 
