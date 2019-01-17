@@ -15,25 +15,33 @@
 
 function mergeArrays(arr1, arr2) {
     const mergeArr = [];
-    let i = 0;
+    let i1 = 0;
+    let i2 = 0;
     const maxLength = arr1.length >= arr2.length ? arr1.length : arr2.length;
 
-    while (i < maxLength) {
-        if (!arr1[i]) mergeArr.push(arr2[i]);
-        else if (!arr2[i]) mergeArr.push(arr1[i]);
-        else if (arr1[i] < arr2[i]) {
-            mergeArr.push(arr1[i]);
-            mergeArr.push(arr2[i]);
-        } else if (arr2[i] < arr1[i]) {
-            mergeArr.push(arr2[i]);
-            mergeArr.push(arr1[i]);
+    while (i1 < maxLength || i2 < maxLength) {
+        if (!arr1[i1]) {
+            mergeArr.push(arr2[i2]);
+            i2 += 1;
         }
-        i += 1;
+        else if (!arr2[i2]) {
+            mergeArr.push(arr1[i1]);
+            i1 += 1;
+        }
+
+        while (arr1[i1] < arr2[i2]) {
+            mergeArr.push(arr1[i1]);
+            i1 += 1
+        }
+        while (arr2[i2] < arr1[i1]) {
+            mergeArr.push(arr2[i2]);
+            i2 += 1;
+        }
     }
     return mergeArr;
 }
 
-const arr1 = [3, 4, 6, 10, 11, 15, 21];
+const arr1 = [3, 4, 6, 10, 11, 15];
 const arr2 = [1, 5, 8, 12, 14, 19];
 
 console.log(mergeArrays(arr1, arr2));
