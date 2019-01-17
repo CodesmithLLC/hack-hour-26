@@ -14,7 +14,30 @@
  */
 
 function mergeArrays(arr1, arr2) {
-
+  const result = [];
+  // while arr1 or arr2 have a length greater than 0
+  while (arr1.length > 0 || arr1.length > 0) {
+    // find the lowest first value from either array and push it into the resultant array
+    if (arr1[0] > arr2[0]) result.push(arr2.shift());
+    else result.push(arr1.shift());
+  }
+  // if there is anything left in arr1 or arr2 add the rest to result
+  if (arr1.length > 0) {
+    arr1.forEach((val) => {
+      result.push(val);
+    });
+  }
+  if (arr2.length > 0) {
+    arr2.forEach((val) => {
+      result.push(val);
+    });
+  }
+  return result;
 }
+
+// const myArray = [3, 4, 6, 10, 11, 15, 21, 30, 40];
+// const anotherArray = [1, 5, 8, 12, 14, 19, 100, 200, 300];
+
+// console.log(mergeArrays(myArray, anotherArray));
 
 module.exports = mergeArrays;
