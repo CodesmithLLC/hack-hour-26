@@ -13,21 +13,29 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+    const stockPrices = stock_prices_yesterday;
     let maxProfit = 0;
-    stock_prices_yesterday.forEach((e, i) => {
-        const curItem = e;
-        for (let j = i + 1; j < stock_prices_yesterday.length; j++) {
-            const checkItm = stock_prices_yesterday[j];
-            if ((checkItm - curItem) > maxProfit) maxProfit = (checkItm - curItem);
+    let checkProfit = 0;
+    let minI = 0;
+
+    for (let i = 1; i < stockPrices.length; i++) {
+        if (stockPrices[i] < stockPrices[minI]) {
+            minI = i;
+            checkProfit = 0;
+        } else if (stockPrices[i] > stockPrices[i - 1]) {
+            checkProfit = stockPrices[i] - stockPrices[minI];
         }
-    });
-    return maxProfit;
+        if (checkProfit > maxProfit) {
+            maxProfit = checkProfit;
+        }
+        console.log(maxProfit)
+    }
+    return maxProfit
 }
 
 const stocks = [
-    100, 170, 0, 80, 7, 2
+    10, 12, 18, 45, 20, 5, 23, 49, 59, 70, 50, 30, 2
 ];
 
-console.log(bestProfit(stocks));
 
 module.exports = bestProfit;
