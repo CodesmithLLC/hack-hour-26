@@ -14,14 +14,15 @@
 
 function bestProfit(stock_prices_yesterday) {
     let maxProfit = 0;
-    stock_prices_yesterday.forEach((e, i) => {
-        const curItem = e;
-        for (let j = i + 1; j < stock_prices_yesterday.length; j++) {
-            const checkItm = stock_prices_yesterday[j];
-            if ((checkItm - curItem) > maxProfit) maxProfit = (checkItm - curItem);
-        }
-    });
-    return maxProfit;
+    let checkProfit = 0;
+    let minI = 0;
+
+    for(let i = 0; i < stock_prices_yesterday; i++){
+
+        
+
+    }
+
 }
 
 const stocks = [
