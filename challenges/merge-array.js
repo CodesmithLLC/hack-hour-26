@@ -27,6 +27,14 @@ function mergeArrays(arr1, arr2) {
                 shift = arr2spl.shift();
                 mergedArray.push(shift);
       }
+      if(arr1spl.length === 0){
+        shift = arr2spl.shift();
+        mergedArray.push(shift);
+      }
+      if(arr2spl.length === 0){
+        shift = arr1spl.shift();
+        mergedArray.push(shift);
+      }
     }
     return mergedArray;
 }
