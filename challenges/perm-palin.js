@@ -14,7 +14,6 @@ function permPalin(str) {
   
   let charArray = str.split('');
 
-
   for(let i =0; i<charArray.length; i++) {
     if(charCount[charArray[i]]) {
       charCount[charArray[i]] += 1;
@@ -31,7 +30,6 @@ function permPalin(str) {
   let pivot = 0;
 
   for(let j=0; j<entries.length; j++ ) {
-    console.log(entries[j][1])
     if(entries[j][1] % 2){
       pivot += 1;
     }
@@ -43,8 +41,6 @@ function permPalin(str) {
 
   return true;
 
-
 }
-
 
 module.exports = permPalin;
