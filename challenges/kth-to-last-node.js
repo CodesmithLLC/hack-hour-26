@@ -15,6 +15,27 @@
  *
  * kthToLastNode(2, a); -> returns 'D' (the value on the second to last node)
  */
+/*function kthToLastNode(k, head) {
+  if (!head) return undefined;
+  let lead = head;
+  let trail = head;
+  let length = 0;
+  while (lead) {
+    length += 1;
+    lead = lead.next;
+  }
+  if (k > length) return undefined;
+  lead = head;
+  for (let i = 0; i < k && lead; i += 1) {
+    lead = lead.next;
+  }
+  while (lead && trail) {
+    trail = trail.next;
+    lead = lead.next;
+  }
+  return trail.value;
+}
+*/
 
 function Node(val) {
   this.value = val;

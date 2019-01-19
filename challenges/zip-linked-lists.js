@@ -3,6 +3,27 @@
  * Implement the linked list using only a Node class. No need for a wrapper LinkedList class
  *
  * BONUS: Do this in place
+ * function zip (listOne, listTwo) {
+ if (!listOne) return listTwo;
+ if (!listTwo) return listOne;
+​
+ const head = listOne;
+ let temp = listOne;
+ 
+ listOne = listOne.next;
+ 
+ while (listTwo && listOne) {
+  temp.next = listTwo;
+  listTwo = listTwo.next;
+  temp = temp.next;
+  temp.next = listOne;
+  listOne = listOne.next;
+  temp = temp.next;
+ }
+ 
+ temp.next = listTwo ? listTwo : listOne;
+ return head;
+}
  */
 
 function Node(val) {
