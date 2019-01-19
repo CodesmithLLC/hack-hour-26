@@ -36,7 +36,7 @@ function permPalin(str) {
 
 module.exports = permPalin;
 
-console.log(permPalin('abab'));
-console.log(permPalin('cabab'));
-console.log(permPalin('cbac'));
-console.log(permPalin('a'));
+// console.log(permPalin('abab'));
+// console.log(permPalin('cabab'));
+// console.log(permPalin('cbac'));
+// console.log(permPalin('a'));
