@@ -23,13 +23,15 @@ function mergeArrays(arr1, arr2) {
     return arr1;
   }
 
-  if(arr1[0]>arr2[0]){
-    return [arr2[0]].concat(mergeArrays(arr1,arr2.slice(1)));
-  }
+ return ((arr1[0] > arr2[0] ? [arr2[0]].concat(mergeArrays(arr1,arr2.slice(1))) :[arr1[0]].concat(mergeArrays(arr1.slice(1),arr2))));
 
-  else{
-    return [arr1[0]].concat(mergeArrays(arr1.slice(1),arr2));
-  }
+  // if(arr1[0]>arr2[0]){
+  //   return [arr2[0]].concat(mergeArrays(arr1,arr2.slice(1)));
+  // }
+
+  // else{
+  //   return [arr1[0]].concat(mergeArrays(arr1.slice(1),arr2));
+  // }
 
 
 }
