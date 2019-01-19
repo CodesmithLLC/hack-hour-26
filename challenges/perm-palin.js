@@ -9,8 +9,20 @@
  *
  */
 
-function permPalin(str) {
-	
-}
+const getOddPropertyVals = obj => Object.values(obj).filter(n => n % 2 === 1);
+
+const permPalin = (str) => {
+  const charCounts = [...str].reduce((memo, char) => {
+    if (memo[char]) {
+      memo[char] += 1;
+    } else {
+      memo[char] = 1;
+    }
+
+    return memo;
+  }, {});
+
+  return getOddPropertyVals(charCounts).length < 2;
+};
 
 module.exports = permPalin;
