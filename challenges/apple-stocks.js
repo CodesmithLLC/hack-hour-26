@@ -10,6 +10,25 @@
  *  and 1 sale of 1 Apple stock yesterday
  *
  *  Return 0 if no profit is possible OR if input is invalid.
+ * function bestProfit(stockPricesYesterday) {
+  let maxProfit = 0;
+  let possibleProfit = 0;
+  let minI = 0;
+  if (stockPricesYesterday) {
+    for (let i = 0; i < stockPricesYesterday.length; i++) {
+      if (stockPricesYesterday[i] < stockPricesYesterday[minI]) {
+        minI = i;
+      }
+
+      possibleProfit = stockPricesYesterday[i] - stockPricesYesterday[minI];
+
+      if (possibleProfit > maxProfit) {
+        maxProfit = possibleProfit;
+      }
+    }
+  }
+  return maxProfit;
+}
  */
 
 function bestProfit(stock_prices_yesterday) {
