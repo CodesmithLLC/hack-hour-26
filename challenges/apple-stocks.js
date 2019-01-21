@@ -18,6 +18,8 @@ function bestProfit(stock_prices_yesterday) {
     let checkProfit = 0;
     let minI = 0;
 
+    if (!stock_prices_yesterday || Array.isArray(stock_prices_yesterday)) return 0;
+
     for (let i = 1; i < stockPrices.length; i++) {
         if (stockPrices[i] < stockPrices[minI]) {
             minI = i;
@@ -30,7 +32,7 @@ function bestProfit(stock_prices_yesterday) {
         }
         console.log(maxProfit)
     }
-    return maxProfit
+    return maxProfit > 0 ? maxProfit : 0;
 }
 
 const stocks = [
