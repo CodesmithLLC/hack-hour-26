@@ -3,6 +3,7 @@
  */
 
 
+// LIFO; push, pop
 function Stack() {
 
 }
@@ -12,7 +13,7 @@ function Stack() {
 * Queue Class
 */
 
-
+// FIFO; enqueue, dequeue
 function Queue() {
 
 }

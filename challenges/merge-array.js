@@ -19,24 +19,28 @@ function mergeArrays(arr1, arr2) {
   let p2 = 0;  // for another_array
 
   if (arr1.length < arr2.length) {
-    while (arr1[p1] !== undefined) {
+    while (arr2) {
       if (arr1[p1] < arr2[p2]) {
         newArray.push(arr1[p1]);
         p1++ 
-      } else {
+      } else if (arr1[p1] > arr2[p2]) {
         newArray.push(arr2[p2]);
         p2++
-      };
+      // } else {
+      //   newArray.push(arr2);
+      }
     }
   } else {
-    while (arr2[p2] !== undefined) {
+    while (arr1) {
       if (arr1[p1] < arr2[p2]) {
         newArray.push(arr1[p1]);
         p1++ 
-      } else {
+      } else if (arr1[p1] > arr2[p2]) {
         newArray.push(arr2[p2]);
         p2++
-      };
+      // } else {
+      //   newArray.push(arr1);
+      }
     }
   }
   return newArray;
@@ -48,3 +52,4 @@ const another_array = [1,5,8,12,14,19];
 console.log(mergeArrays(my_array, another_array));
 
 module.exports = mergeArrays;
+// SO CLOSE!

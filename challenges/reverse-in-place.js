@@ -28,6 +28,6 @@ function reverseInPlace(array) {
 // start at back of array, iterate backwards
 
 const arrayOfChars = ['a', 'b', 'c', 'd']
-console.log(reverseInPlace(arrayOfChars))
+console.log(reverseInPlace(arrayOfChars));
 
 module.exports = reverseInPlace;

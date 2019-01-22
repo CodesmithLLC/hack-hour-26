@@ -12,6 +12,7 @@ function Stack() {
 };
 
 Stack.prototype.push = (value) => {
+  console.log(this.theStack[this.count]);
   this.theStack[this.count] = value;
   this.count += 1;
 };
@@ -21,6 +22,7 @@ Stack.prototype.pop = () => {
   this.count -= 1;
 };
 
-console.log(Stack.push(7));
+let stacc = new Stack();
+console.log(stacc.push(7));
 
 module.exports = Stack;

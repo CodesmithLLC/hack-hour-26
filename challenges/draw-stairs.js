@@ -22,3 +22,4 @@ drawStairs(6);
 
 
 module.exports = drawStairs;
+// COMPLETED

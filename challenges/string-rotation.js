@@ -71,3 +71,4 @@ console.log(stringRotation(s1, s5));
 // }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
+// COMPLETED
