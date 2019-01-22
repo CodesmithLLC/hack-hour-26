@@ -33,7 +33,7 @@ function Queue() {
     this.Inbox = new Stack();
 }
 
-Queue.prototype.eneque = function(val) {
+Queue.prototype.enqueue = function(val) {
     this.Inbox.push(val)
 }
 
@@ -45,9 +45,9 @@ Queue.prototype.dequeue = function() {
 }
 
 // const myQueue = new Queue()
-// myQueue.eneque(1)
-// myQueue.eneque(2)
-// myQueue.eneque(3)
+// myQueue.enqueue(1)
+// myQueue.enqueue(2)
+// myQueue.enqueue(3)
 // myQueue.dequeue()
 // myQueue.dequeue()
 // myQueue.dequeue()
