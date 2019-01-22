@@ -30,8 +30,6 @@ function rotateGrid(grid, n) {
                 console.log(`${i} ,${j}`);
                 let stored;
                         // going to start with corners
-                if(){
-
                 }
             }
 
