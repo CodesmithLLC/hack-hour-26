@@ -4,7 +4,6 @@
 
 
 function Stack() {
-
     this.Stack = [];
     this.length = 0;
 }
@@ -25,12 +24,6 @@ function Stack() {
     return lastVal;
   }
 
-  const myStack = new Stack()
-  myStack.push(2)
-  myStack.pop()
-
-  console.log(myStack)
-
 /**
 * Queue Class
 */
@@ -38,8 +31,6 @@ function Stack() {
 
 function Queue() {
     this.Inbox = new Stack();
-    this.Outbox = new Stack();
-
 }
 
 Queue.prototype.eneque = function(val) {
@@ -47,22 +38,21 @@ Queue.prototype.eneque = function(val) {
 }
 
 Queue.prototype.dequeue = function() {
-    let outboxArr = this.Inbox.Stack.reverse()
 
-    this.Outbox.Stack = outboxArr
-    this.Outbox.pop()
-
+  this.Inbox.Stack = this.Inbox.Stack.reverse()
+  this.Inbox.pop();
+  this.Inbox.Stack = this.Inbox.Stack.reverse()
 }
 
-const myQueue = new Queue()
-myQueue.eneque(1)
-myQueue.eneque(2)
-myQueue.eneque(3)
-myQueue.dequeue()
-myQueue.dequeue()
-myQueue.dequeue()
+// const myQueue = new Queue()
+// myQueue.eneque(1)
+// myQueue.eneque(2)
+// myQueue.eneque(3)
+// myQueue.dequeue()
+// myQueue.dequeue()
+// myQueue.dequeue()
 
-console.log(myQueue.Outbox.Stack)
+// console.log(myQueue)
 
 
 module.exports = {Stack: Stack, Queue: Queue};
