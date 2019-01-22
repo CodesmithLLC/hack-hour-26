@@ -34,7 +34,7 @@ function Queue() {
 
 
   return {
-    add: (element) => {
+    enqueue: (element) => {
       // shift all elements from output to temp
       for (let i = output.length(); i > 0; i -= 1) {
         const shifted = output.pop();
@@ -50,7 +50,7 @@ function Queue() {
         output.push(shifted);
       }
     },
-    remove: () => output.pop(),
+    dequeue: () => output.pop(),
     length: () => output.length(),
   };
 }
