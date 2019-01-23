@@ -13,6 +13,10 @@ function pow(base, power) {
   if (power === 1) return base * power;
   // else recursively call base * pow(base * power - 1)
   return base * pow(base, power -= 1);
-}
+};
+
+console.log(pow(2, 3));
+console.log(pow(4, 8));
 
 module.exports = pow;
+// COMPLETED
