@@ -3,7 +3,15 @@
  */
 
 function twoSum(arr, n) {
+  const compSet = new Set();
 
+  for(let i = 0; i < arr.length; i++){
+      if(compSet.has(arr[i])){
+          return true
+      }
+      compSet.add(n - arr[i])
+  }
+  return false;
 }
 
 module.exports = twoSum;
