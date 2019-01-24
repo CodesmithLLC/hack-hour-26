@@ -14,46 +14,71 @@ function BinaryTree(val) {
 
 function validBST(tree) {
 
-    let leftValidation, rightValidation;
+//     let leftValidation, rightValidation;
 
-    //check left
-    if(tree.left) {
-        // console.log('checkeing left: ',tree.left.value, tree.value)
-        if (tree.left.value > tree.value) {
-            // console.log('should be false')
-            return false;     
-        } else {
-            leftValidation = validBST(tree.left);
-        }
+//     //check left
+//     if(tree.left) {
+//         console.log('checkeing left: ',tree.left.value, tree.value)
+//         if (tree.left.value > tree.value) {
+//             console.log('should be false')
+//             return false;     
+//         } else {
+//             leftValidation = validBST(tree.left);
+//         }
+//     }
+
+//     // check right
+//     if(tree.right) {
+
+//         console.log('checkeing right: ',tree.right.value, tree.value)
+
+//         if (tree.right.value < tree.value) {
+//             console.log('should be false')
+//             return false;
+//         } else {
+//              rightValidation = validBST(tree.right);
+//         }
+//     }
+
+//     if(leftValidation === false || rightValidation ===false){
+//         return false;
+//     }
+
+//     return true;
+// 
+
+let sorted = [];
+
+//helper function
+function inorderTraversal(node){
+    if(node){
+       inorderTraversal(node.left);
+       sorted.push(node.value);
+       inorderTraversal(node.right);
     }
+ }
 
-    // check right
-    if(tree.right) {
+ //do an in order traversal which gives you a sorted array of the nodes
 
-        // console.log('checkeing right: ',tree.right.value, tree.value)
+ inorderTraversal(tree);
 
-        if (tree.right.value < tree.value) {
-            // console.log('should be false')
-            return false;
-        } else {
-             rightValidation = validBST(tree.right);
-        }
-    }
+for (let i=0; i<sorted.length-1; i++) {
+   if(sorted[i]>sorted[i+1]){
+       return false;
+   }
+}
 
-    if(leftValidation === false || rightValidation ===false){
-        return false;
-    }
+return true;
 
-    return true;
 }
 
 // let a = new BinaryTree(5);
 // let b = new BinaryTree(3);
 // let c = new BinaryTree(8);
-// let d = new BinaryTree(2);
+// let d = new BinaryTree(20);
 // let e = new BinaryTree(4);
-// let f = new BinaryTree(63442);
-// let g = new  BinaryTree(8);
+// let f = new BinaryTree(7);
+// let g = new  BinaryTree(9);
 
 // a.left = b;
 // b.left = d;
