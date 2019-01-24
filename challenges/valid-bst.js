@@ -31,11 +31,12 @@ function BinaryTree(val) {
 
 
 function validBST(tree) {
-    if (tree.left === null) return true;
-    if (tree.right === null) return true;
+    if (tree.left === null) return;
+    if (tree.right === null) return;
     if (tree.value < tree.right.value) return validBST(tree.right);
     if (tree.value > tree.left.value) return validBST(tree.left);
-    return false;
+    if (tree.value > tree.right.value || tree.value < tree.left.value) return false;
+    return true;
 }
 
 // console.log(bst);
