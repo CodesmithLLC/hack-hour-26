@@ -8,7 +8,7 @@
  */
 
 function gcd(a, b) {
-  const start = (a < b) ? Math.floor(a / 2) : Math.floor(b / 2);
+  const start = (a > b) ? Math.floor(a / 2) : Math.floor(b / 2);
   //   console.log(start);
   for (let i = start; i > 0; i -= 1) {
     // console.log(a % i);
