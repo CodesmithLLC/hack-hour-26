@@ -12,6 +12,7 @@ function Stack() {
 }
 
 Stack.prototype.push = function(val) {
+  console.log('length',this.length);
   this.stack.push(val);
   this.length++;
   return this.length;
