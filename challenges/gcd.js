@@ -13,14 +13,14 @@ function gcd(a, b) {
   if (a === b) return a;
   if (a > b) {
     let moo = 1;
-    for (let i = 0; i < b; i += 1) {
+    for (let i = 0; i < b + 1; i += 1) {
       if (a % i === 0 && b % i === 0) moo = i;
     }
     return moo;
   }
   if (a < b) {
     let moo = 1;
-    for (let i = 0; i < a; i += 1) {
+    for (let i = 0; i < a + 1; i += 1) {
       if (a % i === 0 && b % i === 0) moo = i;
     }
     return moo;
