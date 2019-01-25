@@ -8,6 +8,19 @@
  */
 
 function gcd(a, b) {
+    if(a === b ) return a;
+
+    let divisor;
+
+    if (a >= b){
+        divisor = b
+    }else {
+        divisor = a
+    }
+
+    for (divisor; divisor >= 1; divisor--){
+        if(a % divisor === 0 && b % divisor === 0) return divisor
+    }
 
 }
 
