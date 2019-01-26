@@ -12,8 +12,26 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
+/**
+ * Stock prices is an array. We will want to iterate over the array,
+ * always looking for the global minimum and storing that value.
+ * for each iteration, we need to check if the difference between the current value
+ * and the global minimum is greater then the previous maximum profit that was found
+ *  If it is then we should update the maximum profit. At the end of the iterate, we should then
+ * return the maximum profit
+ */
 
+function bestProfit(stockPrices) {
+  if (!Array.isArray(stockPrices)) return 0;
+  let maxProfit = 0;
+  let minPrice = 0;
+
+  stockPrices.forEach((price, i) => {
+    if (price - minPrice > maxProfit) {
+      maxProfit = price - minPrice;
+    }
+  });
+  return maxProfit;
 }
 
 module.exports = bestProfit;
