@@ -17,7 +17,6 @@ function twoSum(arr, n) {
     if (!arr[p2]) {
       p1 += 1;
       p2 = p1 + 1;
-      break;
     }
     if (arr[p1] + arr[p2] === n) {
       return true;
