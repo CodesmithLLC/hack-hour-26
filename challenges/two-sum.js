@@ -26,4 +26,12 @@ function twoSum(arr, n) {
   return false;
 }
 
-module.exports = twoSum;
+function twoSum2(arr, n) {
+  if (arr.indexOf(n - arr[0]) > 0) return true;
+  if (arr[0] === undefined) return false;
+  return twoSum2(arr.slice(1), n);
+}
+
+console.log(twoSum2([1, 8, 2, 10, 3, 5], 25));
+
+module.exports = twoSum2;
