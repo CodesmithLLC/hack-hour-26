@@ -11,6 +11,36 @@
 
 function countTwos(num) {
 
+  let counter = 0;
+
+  for(let i=0; i<= num; i++){
+
+    // console.log(i);
+    //convert to string. loop until empty
+    let current = i.toString();
+    
+    const helper = (substring) => {
+      if(!substring.length) {
+        return;
+      }
+      
+      if(substring.charAt(0) === '2'){
+        // console.log('found!');
+        counter++;
+      }
+
+      helper(substring.slice(1,substring.length))
+
+    }
+
+    helper(current);
+
+  }
+
+  return counter;
+
 }
+
+// console.log(countTwos(20));
 
 module.exports = countTwos;
