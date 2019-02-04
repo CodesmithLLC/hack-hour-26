@@ -45,7 +45,7 @@ function validBST(tree) {
 //     }
 
 //     return true;
-// 
+
 
 let sorted = [];
 
@@ -53,6 +53,7 @@ let sorted = [];
 function inorderTraversal(node){
     if(node){
        inorderTraversal(node.left);
+       console.log(node.value);
        sorted.push(node.value);
        inorderTraversal(node.right);
     }
@@ -72,22 +73,22 @@ return true;
 
 }
 
-// let a = new BinaryTree(5);
-// let b = new BinaryTree(3);
-// let c = new BinaryTree(8);
-// let d = new BinaryTree(20);
-// let e = new BinaryTree(4);
-// let f = new BinaryTree(7);
-// let g = new  BinaryTree(9);
+let a = new BinaryTree(5);
+let b = new BinaryTree(3);
+let c = new BinaryTree(8);
+let d = new BinaryTree(1);
+let e = new BinaryTree(4);
+let f = new BinaryTree(7);
+let g = new  BinaryTree(9);
 
-// a.left = b;
-// b.left = d;
-// b.right = e;
-// a.right = c;
-// c.left = f;
-// c.right = g;
+a.left = b;
+b.left = d;
+b.right = e;
+a.right = c;
+c.left = f;
+c.right = g;
 
 
-// console.log(validBST(a));
+console.log(validBST(a));
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
