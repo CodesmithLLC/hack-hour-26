@@ -10,7 +10,36 @@
 
 
 function countTwos(num) {
+    let n = 0;
+    let counter = 0;
+    while (n !== num){
+        n++;
+        n = n.toString();
+        if(n.includes("2")){
+            arr = n.split("");
+            for(let i =0; i<arr.length; i++){
+                if(arr[i]==="2"){
+                    counter++
+                }
+            }
+        }
+        //turn n back into a number
+        n = Number(n)
+    }
+    return counter
 
 }
 
 module.exports = countTwos;
+
+// console.log( countTwos(1))
+// console.log(countTwos(3))
+// console.log(countTwos(13))
+// console.log(countTwos(1000))
+// console.log(countTwos(11420))
+
+// let twos = "222";
+// console.log(twos.includes("2"))
+// twos=Number(twos)
+// console.log(typeof twos)
+//
