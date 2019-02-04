@@ -55,9 +55,4 @@ function countTwos(num, count = 0, result = 0) {
   return countTwos(num, count, result);
 }
 
-countTwos(1000);
-
-countTwos(11420);
-countTwos(22);
-
 module.exports = countTwos;
