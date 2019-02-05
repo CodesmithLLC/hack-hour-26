@@ -13,7 +13,6 @@ function countTwos(num) {
     let twoCount = 0;
     for(let i = 1; i < num; i+= 1) {
         let splitNum = i.toString().split('');
-        console.log(splitNum[1]);
         splitNum.forEach( el => {
             if(el == 2) twoCount += 1;
         });
