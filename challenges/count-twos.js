@@ -24,10 +24,9 @@ function countTwos(num) {
   for (let i = 0; i <= num; i++) {
     // * TURN TO STRING AND CHECK FOR THE CHAR 2
     let str = i.toString();
-    for (let j = 0; j < str.length; j++) {
-      if (str[j] === '2') counter += 1;
-    }
+    if (str.match(/2/g)) counter++;
   }
+
   return counter;
 }
 
