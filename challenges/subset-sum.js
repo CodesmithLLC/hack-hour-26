@@ -7,6 +7,8 @@
 //  * subsetSum([8, 2, 4, 12], 13) -> false
 //  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
 
+// ? Check out a concept called Dynamic Programming for the approach.
+// ? Recommended as an efficient approach to this kind of problem by Byron
 
 function subsetSum(array, target) {
   // BASE CASE: array length === 1 -> return array[0] === target;
