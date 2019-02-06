@@ -23,7 +23,6 @@ function superbalanced(tree) {
     if (currentDepth > maxDepth) maxDepth = currentDepth;
     if (!branch.left && !branch.right) return maxDepth;
     if (branch.left) maxDepth = howDeep(branch.left, (currentDepth += 1), maxDepth);
-    currentDepth -= 1;
     if (branch.right) maxDepth = howDeep(branch.right, (currentDepth += 1), maxDepth);
     return maxDepth;
   }
