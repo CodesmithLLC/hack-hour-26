@@ -14,7 +14,20 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
-
+  // have a left max depth counter
+  // have a right max depth counter
+  // have a current depth counter that will increment or decrement as it is going up and down the tree
+  // create one function that will traverse the tree and call it twice storing each result in left or right tree depth variable
+  if (!tree.left && !tree.right) return true;
+  function howDeep(branch, currentDepth = 1, maxDepth = 0) {
+    if (currentDepth > maxDepth) maxDepth = currentDepth;
+    if (!branch.left && !branch.right) return maxDepth;
+    if (branch.left) maxDepth = howDeep(branch.left, (currentDepth += 1), maxDepth);
+    currentDepth -= 1;
+    if (branch.right) maxDepth = howDeep(branch.right, (currentDepth += 1), maxDepth);
+    return maxDepth;
+  }
+  return Math.abs(howDeep(tree.left) - howDeep(tree.right)) <= 1;
 }
 
-module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
+module.exports = { BinaryTree, superbalanced };
