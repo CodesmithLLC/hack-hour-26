@@ -13,8 +13,48 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function superbalanced(tree) {
+function treeHeight(tree) {
+  let height = 1;
+  let left = 0;
+  let right = 0;
+  // base case
+  if (tree.left === null && tree.right === null) return height;
 
+  // update values for left or right
+  if (tree.left !== null) left = treeHeight(tree.left);
+  if (tree.right !== null) right = treeHeight(tree.right);
+
+  // update value for height base on what recurive call found
+  if (left > height) height = left;
+  if (right > height) height = right;
+
+  return 1 + height;
 }
 
-module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
+function superbalanced(tree) {
+  let leftHeight = 0;
+  let rightHeight = 0;
+
+  // base case
+  if (tree.left === null && tree.right === null) return true;
+
+  if (tree.left !== null) leftHeight = treeHeight(tree.left);
+  if (tree.right !== null) rightHeight = treeHeight(tree.right);
+
+  return (Math.abs(leftHeight - rightHeight) < 2);
+}
+
+const tree = new BinaryTree(1);
+tree.left = new BinaryTree(2);
+tree.right = new BinaryTree(3);
+
+console.log(`true: ${superbalanced(tree)}`);
+
+tree.left.left = new BinaryTree(4);
+console.log(`true: ${superbalanced(tree)}`);
+
+tree.left.left.left = new BinaryTree(5);
+console.log(`false: ${superbalanced(tree)}`);
+
+
+module.exports = { BinaryTree, superbalanced };
