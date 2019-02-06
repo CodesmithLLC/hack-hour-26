@@ -18,7 +18,38 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  let oneCurNode = l1;
+  let twoCurNode = l2;
+  const oneArr = [];
+  const twoArr = [];
+  while(oneCurNode || twoCurNode) {
+    if(oneCurNode.next){
+      oneArr.push(oneCurNode.value);
+    }else if(twoCurNode.next){
+      twoArr.push(twoCurNode.value);
+    }
+    oneCurNode = oneCurNode.next;
+    twoCurNode = twoCurNode.next;
+  }
 
+  const oneNum = Number(oneArr.reverse().join(''));
+  const twoNum = Number(twoArr.reverse().join(''));
+  const newNum = oneNum + twoNum;
+
+  newNum.split('').reverse();
+
+  
+
+  return newLL;
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+ll1 = new Node(2);
+ll1.next = new Node(1);
+ll1.next.next = new Node(5);
+ll2 = new Node(5);
+ll2.next = new Node(9);
+ll2.next.next = new Node(2);
+
+console.log(addLinkedList(ll1, ll2));
+
+module.exports = { Node: Node, addLinkedList: addLinkedList };
