@@ -13,8 +13,25 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function superbalanced(tree) {
-
+function minDepth(node) {
+  if (typeof node === 'undefined') {
+    return 0;
+  }
+  return 1 + Math.min(minDepth(node.left), minDepth(node.right));
 }
 
-module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
+function maxDepth(node) {
+  if (typeof node === 'undefined') {
+    return 0;
+  }
+  return 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
+}
+
+function superbalanced(tree) {
+  if (typeof tree === 'undefined') {
+    return undefined;
+  }
+  return maxDepth(tree) - minDepth(tree) <= 1;
+}
+
+module.exports = { BinaryTree: BinaryTree, superbalanced: superbalanced };
