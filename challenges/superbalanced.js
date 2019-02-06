@@ -44,17 +44,17 @@ function superbalanced(tree) {
   return (Math.abs(leftHeight - rightHeight) < 2);
 }
 
-const tree = new BinaryTree(1);
-tree.left = new BinaryTree(2);
-tree.right = new BinaryTree(3);
+// const tree = new BinaryTree(1);
+// tree.left = new BinaryTree(2);
+// tree.right = new BinaryTree(3);
 
-console.log(`true: ${superbalanced(tree)}`);
+// console.log(`true: ${superbalanced(tree)}`);
 
-tree.left.left = new BinaryTree(4);
-console.log(`true: ${superbalanced(tree)}`);
+// tree.left.left = new BinaryTree(4);
+// console.log(`true: ${superbalanced(tree)}`);
 
-tree.left.left.left = new BinaryTree(5);
-console.log(`false: ${superbalanced(tree)}`);
+// tree.left.left.left = new BinaryTree(5);
+// console.log(`false: ${superbalanced(tree)}`);
 
 
 module.exports = { BinaryTree, superbalanced };
