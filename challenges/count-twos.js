@@ -10,7 +10,20 @@
 
 
 function countTwos(num) {
-
+  // use a for loop to increment up to num
+  let twoCount = 0;
+  for (let i = 0; i < num; i += 1) {
+    // convert num to be a string and split into an array
+    let numString = i.toString();
+    // interate over the split string and increment two count by one for each 2
+    numString.split('').forEach((num) => {
+      if (num === '2') twoCount += 1;
+    });
+  }
+  // return the two count
+  return twoCount;
 }
+
+console.log(countTwos(11420));
 
 module.exports = countTwos;
