@@ -9,7 +9,7 @@
  * Do this in O(1) space
  *
  */
-
+// O(n) time, O(n) space
 // function repeatNumbers(array) {
 //   const unique = {};
 
@@ -30,12 +30,29 @@
 //   // return 'none found';
 // }
 
+// O(nlogn) time, O(1) space
+// function repeatNumbers(array) {
+//   array.sort(); //
+//   for (let i = 0; i < array.length; i += 1) {
+//     if (array[i] === array[i + 1]) return array[i];
+//   }
+// }
+
 function repeatNumbers(array) {
-  array.sort();
-  for (let i = 0; i < array.length; i += 1) {
-    if (array[i] === array[i + 1]) return array[i];
-  }
-  return undefined;
+  // find the sum of all numbers from 1 to n -> length = n;
+  const n = array.length - 1;
+
+  const sum = n * (n + 1) / 2;
+  let arraySum = 0;
+
+  array.forEach(num => arraySum += num);
+
+  return arraySum - sum;
+
+
+  // loop through the array, sum all numbers.
+
+  // subtract the two sums, return difference.
 }
 
 const array = [1, 2, 3, 3];
