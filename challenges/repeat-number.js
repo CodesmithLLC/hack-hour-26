@@ -11,7 +11,13 @@
  */
 
 function repeatNumbers(array) {
-
+    let numObj = {};
+    for(let i = 0; i < array.length; i++){
+        numObj[array[i]] = (numObj[array[i]]) ? numObj[array[i]] +=1 : 1;      
+        if (numObj[array[i]] > 1){
+            return array[i];
+        }
+    }
 }
 
 module.exports = repeatNumbers;
