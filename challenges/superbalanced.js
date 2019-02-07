@@ -33,28 +33,46 @@ function treeHeight(tree) {
 
 function superbalanced(tree) {
   let leftHeight = 0;
+  let leftBalanced = true;
+
   let rightHeight = 0;
+  let rightBalanced = true;
 
   // base case
   if (tree.left === null && tree.right === null) return true;
 
-  if (tree.left !== null) leftHeight = treeHeight(tree.left);
-  if (tree.right !== null) rightHeight = treeHeight(tree.right);
+  if (tree.left !== null) {
+    leftHeight = treeHeight(tree.left);
+    leftBalanced = superbalanced(tree.left);
+  }
 
+  if (tree.right !== null) {
+    rightHeight = treeHeight(tree.right);
+    rightBalanced = superbalanced(tree.right);
+  }
+
+
+  // return (Math.abs(leftHeight - rightHeight) < 2) && rightBalanced && leftBalanced;
+  // return rightBalanced && leftBalanced;
   return (Math.abs(leftHeight - rightHeight) < 2);
 }
 
-// const tree = new BinaryTree(1);
-// tree.left = new BinaryTree(2);
-// tree.right = new BinaryTree(3);
+const tree = new BinaryTree(1);
+tree.left = new BinaryTree(2);
+tree.right = new BinaryTree(3);
 
-// console.log(`true: ${superbalanced(tree)}`);
+console.log(`true: ${superbalanced(tree)}`);
 
-// tree.left.left = new BinaryTree(4);
-// console.log(`true: ${superbalanced(tree)}`);
+tree.left.left = new BinaryTree(4);
+console.log(`true: ${superbalanced(tree)}`);
 
-// tree.left.left.left = new BinaryTree(5);
-// console.log(`false: ${superbalanced(tree)}`);
+tree.left.left.left = new BinaryTree(5);
+console.log(`false: ${superbalanced(tree)}`);
+
+console.log(`true: ${superbalanced(tree.right)}`);
+console.log(`false: ${superbalanced(tree.left)}`);
+console.log(`true: ${superbalanced(tree.left.left)}`);
+console.log(`true: ${superbalanced(tree.left.left.left)}`);
 
 
 module.exports = { BinaryTree, superbalanced };
