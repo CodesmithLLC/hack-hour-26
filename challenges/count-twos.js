@@ -10,6 +10,18 @@
 
 
 function countTwos(num) {
+  let twoCount = 0;
+
+  while(num > 0){
+      let numString = num.toString();
+      for(let i = 0; i < numString.length; i++){
+          if (numString.charAt(i) === "2"){
+              twoCount += 1;
+          }
+      }
+      num -= 1;
+  }
+  return twoCount;
 
 }
 
