@@ -41,6 +41,6 @@ function countTwos(num) {
 
 }
 
-// console.log(countTwos(20));
+console.log(countTwos(1000));
 
 module.exports = countTwos;

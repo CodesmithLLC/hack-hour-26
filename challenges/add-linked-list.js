@@ -19,6 +19,44 @@ function Node(val) {
 
 function addLinkedList(l1, l2) {
 
+  let l1Arr =[];
+  let l2Arr =[];
+
+
+  while ( l1 ) {
+    l1Arr.push(l1.value);
+    l1 = l1.next;
+  }
+
+  while ( l2 ) {
+    l2Arr.push(l2.value);
+    l2 = l2.next;
+  }
+
+  const newL1 = parseInt(l1Arr.reverse().join(""),10);
+  const newL2 = parseInt(l2Arr.reverse().join(""),10);
+  const sum = (newL1 + newL2).toString();
+  console.log(sum);
+
+
+  let head = new Node(sum.substring(0, sum.length -1));
+  console.log(head);
+
 }
+
+const a1 = new Node(2);
+const a2 = new Node(1);
+const a3 = new Node(5);
+a1.next = a2;
+a2.next = a3;
+
+const b1 = new Node(5);
+const b2 = new Node(9);
+const b3 = new Node(2);
+b1.next = b2;
+b2.next = b3;
+
+
+addLinkedList(a1,b1);
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
