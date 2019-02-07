@@ -11,7 +11,12 @@
  */
 
 function repeatNumbers(array) {
-
+    const acc = new Set();
+    for (let i = 0; i < array.length; i++) {
+        if (acc.has(array[i])) return array[i];
+        acc.add(array[i]);
+    }
+    return 'no duplicates';
 }
 
 module.exports = repeatNumbers;
