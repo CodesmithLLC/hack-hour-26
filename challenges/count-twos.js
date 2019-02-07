@@ -11,12 +11,22 @@
 
 function countTwos(num) {
     let twoCount = 0;
-    for(let i = 1; i < num; i+= 1) {
+    for(let i = 1; i <= num; i+= 1) {
         let splitNum = i.toString().split('');
+        console.log(splitNum);
         splitNum.forEach( el => {
             if(el == 2) twoCount += 1;
         });
     }
+    return twoCount;
 }
 
+// try recursion on this
+
+// console.log(countTwos(1)); //  -> 0
+// console.log(countTwos(3)); //  -> 1
+// console.log(countTwos(13)); //  -> 2
+console.log(countTwos(40)); //  -> 13
+// console.log(countTwos(1000)); //  -> 300
+// console.log(countTwos(11420)); //  -> 4483
 module.exports = countTwos;
