@@ -21,7 +21,7 @@ function superbalanced(tree) {
   let node = tree;
 
   while(node) {
-    node = node.left
+    node = node.left;
     leftHeight += 1;
   }
 
@@ -36,9 +36,8 @@ function superbalanced(tree) {
 
   if (Math.abs(difference) === 0 || Math.abs(difference) === 1) {
     return true;
-  } else {
-    return false
-  }
+  } 
+  return false;
 }
 
 // const myTree1 = new BinaryTree(10)
