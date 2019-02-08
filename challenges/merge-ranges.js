@@ -16,15 +16,15 @@ function mergeRanges(array) {
     array.sort(function(a,b){
       return a[0] -b[0];
     });
-  
     condensedTime.push(array[0]);
     let j = 0;
     for(let i = 1; i < array.length; i++){
-      if(array[i][0] <= condensedTime[j][1]){
+      if(array[i][1] <= condensedTime[j][1]){
+      }else if(array[i][0] <= condensedTime[j][1]){
         condensedTime[j][1] = array[i][1];
       }else{
         condensedTime.push(array[i]);
-        j++
+        j++;
       }
   
     }
