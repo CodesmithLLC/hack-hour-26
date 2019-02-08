@@ -10,7 +10,13 @@
  */
 
 function permPalin(str) {
-	
+    if (str.length === 1) return true;
+    const wrkObj = {};
+    str.split('').forEach(letter => wrkObj[letter] ? wrkObj[letter] += 1 : wrkObj[letter] = 1);
+
+    return wrkObj;
 }
+
+console.log(permPalin('cbaba'));
 
 module.exports = permPalin;
