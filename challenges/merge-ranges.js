@@ -20,12 +20,12 @@ function mergeRanges(array) {
         }
         else mergedArr.push(array[i])
     }  
-    console.log("Merged array: ", mergedArr);
+    return mergedArr;
 }
 
 // Test your code
 let times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]];
-mergeRanges(times); // -> [[0, 1], [3, 8], [9, 12]]
+console.log(mergeRanges(times)); // -> [[0, 1], [3, 8], [9, 12]]
 
 
 module.exports = mergeRanges;
