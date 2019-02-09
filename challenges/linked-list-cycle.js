@@ -27,13 +27,26 @@
  *
  */
 
-var Node = function(value) {
+const Node = function (value) {
   this.value = value;
   this.next = null;
-}
+};
 
 function hasCycle(head) {
+  let cycle = false;
+  let curr = head;
+  let count = 0;
 
+  while (curr) {
+    count += 1;
+    if (count > 10000000) {
+      cycle = true;
+      break;
+    }
+    curr = curr.next;
+  }
+
+  return cycle;
 }
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+module.exports = { Node, hasCycle };
