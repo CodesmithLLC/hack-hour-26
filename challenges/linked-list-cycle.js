@@ -33,7 +33,7 @@ var Node = function(value) {
 }
 
 function hasCycle(head, nodeSet = new Set()) {
-  if (head.next === null){
+  if (head === null){
     return false;
   }else if(nodeSet.has(head)){
     return true;
