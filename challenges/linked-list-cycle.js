@@ -34,7 +34,7 @@ var Node = function(value) {
 
 function hasCycle(head) {
   // check for head
-  if (head === null) return undefined;
+  if (head === null) return false;
   // Define a fast and slow pointer
   let slow = head;
   let fast = head.next;
