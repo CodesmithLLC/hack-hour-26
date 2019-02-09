@@ -34,6 +34,7 @@ var Node = function (value) {
 
 function hasCycle(head) {
   const set = new Set();
+  if (head === null) return false;
   function recHelper(node) {
     if (set.has(node)) return true;
     if (node.next !== null) {
