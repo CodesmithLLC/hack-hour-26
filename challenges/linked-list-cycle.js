@@ -34,6 +34,42 @@ var Node = function(value) {
 
 function hasCycle(head) {
 
+  const visited = new Set();
+
+  const innerFunction = (node) => {
+    if(!node) {
+      return false;
+    } 
+
+    if(visited.has(node)) {
+      return true;
+    }
+
+    visited.add(node);
+    return false || innerFunction(node.next)
+
+  }
+
+  let ret = innerFunction(head);
+  // console.log(visited);
+  return ret;
+
 }
+
+// let b = new Node('b');
+// let y = new Node('y');
+// let r = new Node('r');
+// let o = new Node('o');
+// let n = new Node('n');
+
+// b.next=y;
+// y.next=r;
+// r.next=o;
+// o.next=n;
+// n.next=b;
+
+// console.log(hasCycle(b));
+
+
 
 module.exports = {Node: Node, hasCycle: hasCycle}
