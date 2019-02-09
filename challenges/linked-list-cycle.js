@@ -33,7 +33,35 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+  //loop through the list while next is null, adding each value to the object. 
+    //if an object's value is already there, return true.
+  //return false
+  let myObj = {};
+  let tempNode = head;
+  let myNewNode;
 
+  while(tempNode.next !== null){
+    if (myObj[tempNode.value]){
+      return true;
+    }else{
+      myObj[tempNode.value] = 1;
+      myNewNode = tempNode.next;
+      tempNode = myNewNode;
+    }
+  }
+  return false;
 }
+
+
+// var node1 = new Node('1');
+// var node2 = node1.next = new Node('2');
+// var node3 = node2.next = new Node('3');
+// var node4 = node3.next = new Node('4');
+// var node5 = node4.next = new Node('5');
+// console.log(hasCycle(node1)); 
+// // => false
+// node5.next = node2;
+// console.log(hasCycle(node1)); 
+// => true
 
 module.exports = {Node: Node, hasCycle: hasCycle}
