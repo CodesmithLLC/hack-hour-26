@@ -1,4 +1,5 @@
-/* You have two numbers represented by linked lists. Each node contains a single digit. The digits
+/* 
+ * You have two numbers represented by linked lists. Each node contains a single digit. The digits
  * are stored in reverse order, such that the 1's digit is at the head of the list. Write
  * a function that adds the two numbers and returns the sum as a linked list with the same
  * structure.
@@ -12,13 +13,28 @@
  *
  */
 
+
+// I - two linked lists
+// O - one new linked list
+// C - new linked list should reproduce the reverse order of the inputs
+// E - neg nums? 
+
 function Node(val) {
   this.value = val;
   this.next = null;
 }
 
 function addLinkedList(l1, l2) {
-
+  // iterate till end of first ll
+  let curr = l1;
+  while (l1) {
+    let curr = l1.value;
+    let next = l1.next;
+  }
+    // create a carry var
+    // create var sum - stored result of l1 val plus l2 val
+    // if sum > 9
+    // add it to the end of first ll
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};

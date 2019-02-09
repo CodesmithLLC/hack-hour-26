@@ -39,7 +39,13 @@ const highestProduct = (arr) => {
     return highest;
   }, { first: -Infinity, second: -Infinity, third: -Infinity });
 
-  return topThree.first * topThree.second * topThree.third;
+  //return Object.values()
+
+  return topThree;
+  // return topThree.first * topThree.second * topThree.third;
 };
+
+console.log(highestProduct([1, 2, 6]))
+
 
 module.exports = highestProduct;

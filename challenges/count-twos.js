@@ -10,7 +10,23 @@
 
 
 function countTwos(num) {
+  let twoCount = 0;
 
+  for (let i = 1; i < num + 1; i += 1) {
+    const curr = `${i}`;
+
+    let j = 0;
+    while (j < curr.length) {
+      if (curr[j] === '2') twoCount += 1;
+      j += 1;
+    }
+  }
+
+  return twoCount;
 }
+
+console.log(countTwos(20));
+
+// 2 12 2
 
 module.exports = countTwos;
