@@ -9,6 +9,9 @@
  * Do not assume the ranges are in order
  */
 
+// ? FIRST LOOK AT ALL OF THE RANGES THAT EXIST
+
+// ? GO BACK THROUGH ARRAY AND CONDENSE RANGES
 
 function mergeRanges(array) {
 

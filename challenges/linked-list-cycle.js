@@ -30,10 +30,31 @@
 var Node = function(value) {
   this.value = value;
   this.next = null;
-}
+};
 
 function hasCycle(head) {
-
+  // check for head
+  if (head === null) return undefined;
+  // Define a fast and slow pointer
+  let slow = head;
+  let fast = head.next;
+  // Loop over list while fast != null
+  while (fast !== null) {
+    // If slow = fast, LL is cylindrical
+    if (slow === fast) return true;
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  return false;
 }
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+// var node1 = new Node('1');
+// var node2 = (node1.next = new Node('2'));
+// var node3 = (node2.next = new Node('3'));
+// var node4 = (node3.next = new Node('4'));
+// var node5 = (node4.next = new Node('5'));
+// // console.log(hasCycle(node1)); // => false
+// node5.next = node2;
+// console.log(hasCycle(node1)); // => true
+
+module.exports = { Node: Node, hasCycle: hasCycle };
