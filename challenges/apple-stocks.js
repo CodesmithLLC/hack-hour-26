@@ -13,7 +13,24 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+  // check for valid input
+  if (Array.isArray(stock_prices_yesterday) === false) return 0;
 
+  // set a var to store curr max profit
+  let maxProfit = 0;
+
+  // set a var to store curr min value
+  let minValue = stock_prices_yesterday[0];
+  // loop over arr, updating max profit
+  for (let i = 1; i < stock_prices_yesterday.length; i++) {
+    minValue = Math.min(minValue, stock_prices_yesterday[i]);
+    maxProfit = Math.max(maxProfit, stock_prices_yesterday[i] - minValue);
+  }
+  // return max profit
+  return maxProfit;
 }
+
+const stockPrices = [3, 6, 1, 4, 8];
+console.log(bestProfit(stockPrices)); // -> 7
 
 module.exports = bestProfit;
