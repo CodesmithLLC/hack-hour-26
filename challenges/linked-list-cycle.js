@@ -33,6 +33,8 @@ const Node = function (value) {
 };
 
 function hasCycle(head) {
+  if (head instanceof Node === false) return false;
+
   const nodes = new Set();
   let current = head;
 
