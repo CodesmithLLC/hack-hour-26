@@ -17,14 +17,14 @@ function minDepth(node) {
   if (typeof node === 'undefined') {
     return 0;
   }
-  return 1 + Math.min(minDepth(node.left), minDepth(node.right));
+  return 1 + Math.min(node.left ? minDepth(node.left) : 0, node.right ? minDepth(node.right) : 0);
 }
 
 function maxDepth(node) {
   if (typeof node === 'undefined') {
     return 0;
   }
-  return 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
+  return 1 + Math.max(node.left ? maxDepth(node.left) : 0, node.right ? maxDepth(node.right) : 0);
 }
 
 function superbalanced(tree) {
@@ -33,5 +33,22 @@ function superbalanced(tree) {
   }
   return maxDepth(tree) - minDepth(tree) <= 1;
 }
+
+BinaryTree.prototype.add = function (val) {
+  if (this.value !== val) {
+    if (val > this.value && this.right !== null) return this.right.add(val);
+    if (val < this.value && this.left !== null) return this.left.add(val);
+
+    if (val > this.value && this.right === null) this.right = new BinaryTree(val);
+    if (val < this.value && this.left === null) this.left = new BinaryTree(val);
+  }
+}
+
+const bst = new BinaryTree(10);
+bst.add(6);
+bst.add(8);
+bst.add(12);
+bst.add(9);
+console.log(superbalanced(bst));
 
 module.exports = { BinaryTree: BinaryTree, superbalanced: superbalanced };
