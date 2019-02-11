@@ -12,11 +12,12 @@
 function permPalin(str) {
     if (str.length === 1) return true;
     const wrkObj = {};
-    str.split('').forEach(letter => wrkObj[letter] ? wrkObj[letter] += 1 : wrkObj[letter] = 1);
+    for (let i = 0; i < str.length; i++) {
+        wrkObj[str[i]] ? delete wrkObj[str[i]] : wrkObj[str[i]] = 1;
+    }
 
-    return wrkObj;
+    return Object.keys(wrkObj).length <= 1 ? true : false;
 }
 
-console.log(permPalin('cbaba'));
 
 module.exports = permPalin;
