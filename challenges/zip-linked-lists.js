@@ -36,4 +36,5 @@ function zip(l1, l2) {
   return head;
 }
 
-module.exports = {Node: Node, zip: zip};
+console.log("hello");
+

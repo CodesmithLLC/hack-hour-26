@@ -33,6 +33,10 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+  
+
+
+
 
 }
 
