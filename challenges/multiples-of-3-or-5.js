@@ -8,7 +8,7 @@
 
 function sumMultiples3Or5Below1000(){
   let sum = 0;
-  for (let i = 0; i <= 1000; i += 1){
+  for (let i = 0; i < 1000; i += 1){
     if( i % 3 === 0 || i % 5 === 0){
       sum += i;
     }
@@ -22,14 +22,14 @@ function sumMultiples3Or5Below1000(){
 // extension make it dynamic function that takes input x,y,z
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
-  let sum2 = 0;
-  for (let j = 0; j <= z; j += 1){
+  let sum = 0;
+  for (let j = 0; j < z; j += 1){
     if ( j % x === 0 || j % y === 0){
-      sum2 += j;
+      sum += j;
     }
   }
-  console.log("Dynamic sum is: ", sum2)
-  return sum2;
+  console.log("Dynamic sum is: ", sum)
+  return sum;
 }
 
 // Test your code
