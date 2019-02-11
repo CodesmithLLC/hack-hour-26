@@ -7,22 +7,32 @@
 
 function sumMultiples3Or5Below1000() {
   let sum = 0;
-
+  // ? LOOP UNTIL I IS 1000
+  for (let i = 0; i < 1000; i++) {
+    // ? IF VALUE IS DIVISIBLE BY 3 OR 5, ADD IT TO SUM
+    if (i % 3 === 0 || i % 5 === 0) sum += i;
+  }
   return sum;
 }
 
+// console.log(sumMultiples3Or5Below1000());
 
 // extension make it dynamic function that takes input x,y,z
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
   let sum = 0;
+  // ? LOOP UNTIL Z
+  for (let i = 0; i < z; i++) {
+    // ? ADD VALUES TO SUM THAT ARE DIVISIBLE BY X AND Y
+    if (i % x === 0 || i % y === 0) sum += i;
+  }
 
   return sum;
 }
 
 const objectToExport = {
   sumMultiples3Or5Below1000,
-  sumMultiplesXOrYBelowZ,
+  sumMultiplesXOrYBelowZ
 };
 
 module.exports = objectToExport;
