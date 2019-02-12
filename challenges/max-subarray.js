@@ -24,7 +24,7 @@ function maxSubarray(arr) {
     }
   }
 
-  return result;
+  return result.sum;
 }
 
 module.exports = maxSubarray;
