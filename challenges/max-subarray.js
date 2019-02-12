@@ -8,7 +8,7 @@
  */
 
 function maxSubarray(arr) {
-    let maxSum = 0;
+    let maxSum = arr[0];
     let partialSum = 0;
 
     for(item of arr){
