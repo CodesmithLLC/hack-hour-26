@@ -12,8 +12,22 @@
   * console.log(result); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
 
-function anagrams(string) {
-
+function anagrams(string, start = '') {
+  //base case
+  if (string.length == 1) {
+    return [start + string];
+  } else {
+    let returnResult = [];
+    for (let i = 0; i < string.length; i++) {
+      let result = anagrams(string.substr(0, i) + string.substr(i + 1), string[i]);
+      for (let j = 0; j < result.length; j++) {
+        returnResult.push(start + result[j]);
+      }
+    }
+    return returnResult;
+  }
 }
+
+//console.log(anagrams('abc'));
 
 module.exports = anagrams;
