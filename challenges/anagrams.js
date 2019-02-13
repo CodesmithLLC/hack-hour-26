@@ -14,7 +14,8 @@
 
 function anagrams(string, start = '') {
   //base case
-  if (string.length == 1) {
+
+  if (string.length <= 1) {
     return [start + string];
   } else {
     let returnResult = [];
@@ -28,6 +29,6 @@ function anagrams(string, start = '') {
   }
 }
 
-//console.log(anagrams('abc'));
+// console.log(anagrams('abcd'));
 
 module.exports = anagrams;
