@@ -13,7 +13,28 @@
   */
 
 function anagrams(string) {
+  const letters = string.split('');
+  const grams = new Set();
 
+  function buildAnagrams(lettersArr, str = '') {
+    if (lettersArr.length === 0) return grams.add(str);
+
+    lettersArr.forEach((letter, i) => {
+      // copy array, remove current letter from copy
+      const nextArr = lettersArr.slice();
+      nextArr.splice(i, 1);
+
+      // add current letter to string
+      const nextStr = str + letter;
+      return buildAnagrams(nextArr, nextStr);
+    });
+  }
+
+  buildAnagrams(letters);
+
+  return Array.from(grams);
 }
+
+console.log(anagrams('abc'));
 
 module.exports = anagrams;
