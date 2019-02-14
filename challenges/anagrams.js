@@ -35,6 +35,4 @@ function anagrams(string) {
   return Array.from(grams);
 }
 
-console.log(anagrams('abc'));
-
 module.exports = anagrams;
