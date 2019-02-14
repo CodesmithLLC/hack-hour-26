@@ -58,6 +58,9 @@ const node3 = node2.next = new Node('3');
 const node4 = node3.next = new Node('4');
 const node5 = node4.next = new Node('5');
 
+console.log(`false: ${null instanceof Node}`);
+console.log(`true: ${node1 instanceof Node}`);
+
 console.log(`false: ${hasCycle(node1)}`);
 
 node5.next = node2;
