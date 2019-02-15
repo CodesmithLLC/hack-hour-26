@@ -13,6 +13,16 @@
   */
 
 function anagrams(string) {
+  let anagramsArray = [];
+  let tempString = '';
+  for (let i = 0; i < string.length; i++) {
+    
+
+
+
+  }
+
+
 
 }
 
