@@ -1,4 +1,5 @@
-'use strict';
+
+
 /**
  * Make an EventEmitter that
  *
@@ -22,15 +23,29 @@
  */
 
 function EventEmitter() {
-
+  this.events = {};
 }
 
-EventEmitter.prototype.on = function(funcName, func) {
-
+EventEmitter.prototype.on = function a(funcName, func) {
+  if (!this.events[funcName]) {
+    this.events[funcName] = (...args) => func(...args);
+  }
 };
 
-EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+EventEmitter.prototype.trigger = function b(funcName, ...args) {
+  return this.events[funcName](...args);
 };
 
 module.exports = EventEmitter;
+
+
+const instance = new EventEmitter();
+let counter = 0;
+instance.on('increment', () => {
+  counter++;
+}); // counter should be 0
+instance.trigger('increment'); // counter should be 1
+console.log(counter);
+
+instance.trigger('increment'); // counter should be 2
+console.log(counter);
