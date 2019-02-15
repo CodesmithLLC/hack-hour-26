@@ -14,6 +14,14 @@
 
 function anagrams(string) {
 
+  const anagramList = [];
+
+
+  let theString = string.split("");
+  console.log(theString);
+
 }
+
+anagrams('abc');
 
 module.exports = anagrams;
