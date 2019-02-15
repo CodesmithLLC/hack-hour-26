@@ -25,15 +25,18 @@ function EventEmitter() {
 }
 
 EventEmitter.prototype.on = function (funcName, func) {
-    this[funcName] = func;
+    this[funcName] ? this[funcName].push(func) : this[funcName] = [func];
 };
 
 EventEmitter.prototype.trigger = function (funcName, ...args) {
-    this[funcName](...args);
+    this[funcName].forEach(f => f(...args));
 };
 
 // const inst = new EventEmitter();
 // let counter = 0;
+// inst.on('increment', function () {
+//     counter++;
+// }); // counter should be 0
 // inst.on('increment', function () {
 //     counter++;
 // }); // counter should be 0
