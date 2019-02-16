@@ -10,10 +10,8 @@
  * How would you solve this problem if a temporary buffer is not allowed?
  */
 
-
-
 function deleteDups(head) {
-
+    
 }
 
 module.exports = deleteDups;
