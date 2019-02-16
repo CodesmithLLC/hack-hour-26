@@ -43,11 +43,11 @@ ll.push(1);
 
 function deleteDups(head) {
     let curNode = head;
-    let buffer = new Set([curNode.value]);
-    while (curNode.next !== null) {
+    let buffer = new Set();
+    while (curNode !== null) {
         console.log(curNode.value);
         if (buffer.has(curNode.value)) {
-            curNode.value = curNode.next.value;
+            curNode.next = curNode.next.next;
         } else {
             buffer.add(curNode.next.value);
         }
