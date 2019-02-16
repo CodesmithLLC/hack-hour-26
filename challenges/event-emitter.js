@@ -30,15 +30,26 @@ function EventEmitter() {
 EventEmitter.prototype.on = function(funcName, func) {
 
   if(!this.events[funcName]) {
-    this.events[funcName] = func;
+    this.events[funcName] = [];
+    this.events[funcName].push(func);
   }
+
+  else {
+    this.events[funcName].push(func);
+  }
+
 
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
 
-  this.events[funcName](...args);
+  if(this.events[funcName]){
 
+    for(let i=0; i< this.events[funcName].length; i++){
+      this.events[funcName][i](...args);
+    }
+
+  }
 
 };
 
@@ -51,12 +62,17 @@ EventEmitter.prototype.trigger = function(funcName, ...args) {
 // })
 
 // a.on('log', function(word) {
-//   console.log(word);
+//   console.log('log1 fired:',word);
 // })
 
-// a.trigger('increment');
-// a.trigger('log','it works');
+// a.on('log',function(number){
+//   console.log('log2 fired: ',number + number);
+// })
 
 // console.log(counter);
+// a.trigger('increment');
+// console.log(counter);
+// a.trigger('log',5);
+
 
 module.exports = EventEmitter;
