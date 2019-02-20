@@ -10,6 +10,15 @@
  *
  */
 function uniqueNumber(array) {
+    let numObj = {};
+    for(let i = 0; i < array.length; i++){
+        if(numObj[array[i]]){
+            delete numObj[array[i]]
+        }else{
+            numObj[array[i]] = array[i]
+        }
+    }
+    return Object.values(numObj)[0];
 
 }
 
