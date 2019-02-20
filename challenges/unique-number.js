@@ -10,7 +10,15 @@
  *
  */
 function uniqueNumber(array) {
-
+  const unique = new Set();
+  for (let i in array) {
+    if (unique.has(array[i])) {
+      unique.delete(array[i]);
+    } else {
+      unique.add(array[i]);
+    }
+  }
+  return unique.values().next().value;
 }
 
 module.exports = uniqueNumber;
