@@ -29,7 +29,7 @@ function insertionSort(array) {
     let insertIndex = i;
 
     while (insertIndex > 0) {
-      if (element < array[insertIndex - 1]) insertIndex -= 1;
+      if (element <= array[insertIndex - 1]) insertIndex -= 1;
     }
 
     array.splice(insertIndex, 0, element);
@@ -38,11 +38,12 @@ function insertionSort(array) {
   return array;
 }
 
-const unsorted = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
+// const before = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
+const before = [1, 1, 13];
 
-const sorted = insertionSort(unsorted);
+const after = insertionSort(before);
 
-console.log(sorted);
+console.log(after);
 
 
 module.exports = insertionSort;
