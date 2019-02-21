@@ -9,8 +9,18 @@
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
 
-function getAllProducts(array) {
-
-}
+function getAllProducts(array) { 
+    const retArray = []
+    for(let i = 0; i<array.length; i++){
+        let val = 1;
+        for(let j = 0; j < array.length; j++){
+          if(j !== i){
+            val = val * array[j];
+          }
+        }
+        retArray.push(val);
+    }
+    return retArray;
+  }
 
 module.exports = getAllProducts;
