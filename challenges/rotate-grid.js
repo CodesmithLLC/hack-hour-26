@@ -34,7 +34,6 @@ function rotateGrid(grid, n) {
             }
 
         }
-    }
     console.log(grid);
 
 }
