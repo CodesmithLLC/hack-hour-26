@@ -13,7 +13,57 @@
  */
 
 function numToWords(num) {
+  const placed = {
+    3: 'Hundred',
+    4: 'Thousand',
+    7: 'Million',
+    10: 'Billion',
+    13: 'Trillion',
+    16: 'Quadrillion',
+  };
 
+  const numbers = {
+    1: 'one',
+    2: 'two',
+    3: 'three',
+    4: 'four',
+    5: 'five',
+    6: 'six',
+    7
+    8
+    9
+    10
+    11
+    12
+    13
+    14
+    15
+    16
+    17
+    18
+    19
+    20
+    30
+    40
+    50
+    60
+    70
+    80
+    90
+    100
+
+
+  };
+  let word = '';
+  (`${num}`).split('').map((number, index, array) => {
+    if (Object.hasOwnProperty.call(placed, `${array.length - index}`)) {
+      word += placed[`${array.length - index}`];
+    }
+  });
+  return word;
 }
 
 module.exports = numToWords;
+
+const num = 123;
+console.log(numToWords(603223434));

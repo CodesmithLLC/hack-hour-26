@@ -40,7 +40,7 @@ function balancedParens(input) {
     switch (input.charAt(i)) {
       case '(':
         obj.paren = false;
-        break;
+        break; 
       case ')':
         obj.paren = true;
         break;

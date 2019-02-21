@@ -9,10 +9,21 @@
  */
 
 function subsetSum(array, target) {
-  
+  const set = new Set();
+//   let target2 = target;
+  for (let i = 0; i < array.length; i += 1) {
+    if (set.has(array[i])) return true;
+    set.add(target - array[i]);
+    // target2 = target - array[i];
+  }
+//   if (target2 === 0) return true;
+  return false;
 }
 
 module.exports = subsetSum;
 
 
 console.log(subsetSum([3, 7, 4, 2], 5));
+console.log(subsetSum([3, 34, 4, 12, 5, 12], 32));
+console.log(subsetSum([8, 2, 4, 12], 13));
+console.log(subsetSum([8, -2, 1, -3], 6));

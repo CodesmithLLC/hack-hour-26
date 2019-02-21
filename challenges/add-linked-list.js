@@ -18,7 +18,40 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  const l3 = new Node(0);
+  let curr1 = l1;
+  let curr2 = l2;
+  let curr3 = l3;
 
+  while (curr1 !== null || curr2 !== null) {
+    let sum = curr3.value;
+    if (curr1 === null) {
+      sum += curr2.value;
+    } else if (curr2 === null) {
+      sum += curr1.value;
+    } else {
+      sum += curr1.value + curr2.value;
+    }
+
+    curr3.value = Math.floor(sum % 10);
+    curr3.next = new Node(Math.floor(sum / 10));
+    curr1 = (curr1 !== null) ? curr1.next : curr1;
+    curr2 = (curr2 !== null) ? curr2.next : curr2;
+    curr3 = curr3.next;
+  }
+  return l3;
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+module.exports = { Node, addLinkedList };
+
+const l1 = new Node(2);
+l1.next = new Node(1);
+l1.next.next = new Node(5);
+l1.next.next.next = new Node(7);
+
+const l2 = new Node(5);
+l2.next = new Node(9);
+l2.next.next = new Node(2);
+
+
+console.log(addLinkedList(l1, l2));
