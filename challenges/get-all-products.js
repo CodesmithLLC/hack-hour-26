@@ -8,9 +8,20 @@
  *
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
-
+/* eslint-disable */
 function getAllProducts(array) {
-
+  const result = [];
+  console.log('array', array);
+  for (let i in array) {
+    let product = 1;
+    for (let j in array) {
+      if (j === i) continue;
+      product *= array[j];
+    }
+    result.push(product);
+  }
+  console.log('result', result);
+  return result;
 }
 
 module.exports = getAllProducts;
