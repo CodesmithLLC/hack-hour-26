@@ -11,6 +11,8 @@
  */
 
 function getAllProducts(array) {
+  // * Check for valid input
+  if (array.length === 0) return [0];
   // * Create an output array
   const output = [];
   // * Loop over input array
@@ -31,6 +33,6 @@ function getAllProducts(array) {
   return output;
 }
 
-console.log(getAllProducts([1, 7, 3, 4]));
+// console.log(getAllProducts([1, 7, 3, 4]));
 
 module.exports = getAllProducts;
