@@ -10,6 +10,11 @@
  * How would you solve this problem if a temporary buffer is not allowed?
  */
 
+function Node(val) {
+  this.value = val;
+  this.next = null;
+}
+
 function deleteDups(head) {
   // * Create a storage array to add each value visited to
   const storageArr = [];
@@ -23,14 +28,25 @@ function deleteDups(head) {
   while (currNode !== null) {
     // * Check if value exists in arr already, delete if it does
     if (storageArr.includes(currNode.value)) {
-      // * Delete node
+      // * Delete node and advance currNode two places
       prevNode.next = currNode.next;
+      currNode = currNode.next;
     } else {
       // * If it doesn't exist, add currNode val to array
-      
+      storageArr.push(currNode.value);
+      currNode = currNode.next;
+      prevNode = prevNode.next;
     }
   }
+  return head;
   // * Return head
 }
+
+const newLL = new Node(1);
+newLL.next = new Node(2);
+newLL.next.next = new Node(3);
+newLL.next.next.next = new Node(3);
+
+console.log(deleteDups(newLL));
 
 module.exports = deleteDups;
