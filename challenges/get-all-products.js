@@ -10,7 +10,34 @@
  */
 
 function getAllProducts(array) {
+  const output = Array(array.length).fill(1);
 
+  array.forEach((num, i) => {
+    output.forEach((el, j) => {
+      if (i !== j) output[j] = num * el;
+    });
+  });
+
+  return output;
+
+  // let total = 1;
+
+  // array.forEach((num) => { total *= num; });
+
+  // const output = [];
+
+  // array.forEach((num, i) => {
+  //   if (num !== 0) output.push(total / num);
+  //   // if (num === 0) {
+  //   //   const nums = array.
+  //   // }
+  // });
+
+  // return output;
 }
+
+// const arr = [2, 3, 4, 5];
+// console.log(getAllProducts(arr));
+
 
 module.exports = getAllProducts;
