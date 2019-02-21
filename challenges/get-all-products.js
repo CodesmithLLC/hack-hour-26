@@ -11,6 +11,7 @@
 /* eslint-disable */
 function getAllProducts(array) {
   const result = [];
+  if (!array.length) return [0];
   console.log('array', array);
   for (let i in array) {
     let product = 1;
