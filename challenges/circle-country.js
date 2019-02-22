@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /**
  *  Circle Country is a country that contains several circular-shaped districts.
  *  Some districts may be situated inside other districts, but their borders do not intersect or touch.
@@ -23,7 +24,30 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  // use the distance formula to determine whether points are inside or outside of circles.
 
+  const startingCircles = new Set();
+  const endingCircles = new Set();
+  // determine how many and WHICH circles Tyus begins inside (store in set)
+  for (let i = 0; i < r.length; i += 1) {
+    // start inside cicrle? -> yes -> add i to startingCircles
+    const startDistance = (((x[i] - start_x) ** 2) + ((y[i] - start_y) ** 2)) ** (1 / 2);
+    if (startDistance < r[i]) startingCircles.add(i);
+
+    // end inside cicrle? -> yes -> add i to endingCircles
+    const endDistance = (((x[i] - end_x) ** 2) + ((y[i] - end_y) ** 2)) ** (1 / 2);
+    if (endDistance < r[i]) endingCircles.add(i);
+  }
+
+  // determine how many and WHICH circles Tyus ends inside (store in set)
+  let count = startingCircles.size + endingCircles.size;
+
+  // combine the two collections of circles, removing any cirlces that occur in both sets (meaning he never passed outside of that circle)
+  startingCircles.forEach((circle) => {
+    if (endingCircles.has(circle)) count -= 2;
+  });
+
+  return count;
 }
 
 module.exports = circleCountry;
