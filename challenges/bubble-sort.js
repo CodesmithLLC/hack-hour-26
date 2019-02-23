@@ -4,7 +4,7 @@
 
 function bubbleSort(array) {
   // check for valid input
-  if (!Array.isArray(array) || array.length === 0) return undefined;
+  if (!Array.isArray(array) || array.length === 0) return [];
   // declare var to track if array is sorted
   let elementsOutOfOrder = 0;
 
