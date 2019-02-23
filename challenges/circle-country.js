@@ -23,7 +23,46 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+    
+    //find the distance between the point and the center of EVERY circle
+    //if the point is not is inside the circle, that means there is a way to get to the destination without crossing in.
+
+    //loop over the arrays, finding the distance between destination and the center of the circle
+    //The point is inside the circle if d<r. Increment the counter.
+    //The point is on the circle if d=r. Increment the counter.
+    // Outside the circle if d>r. 
+
+    //Compare the start point to all the circles.
+    //Compare the end point to all the circles. 
+
+    let counter = 0;
+
+    for(let i=0; i<x.length; i++){
+        let distance = Math.sqrt(((start_x - x[i])**2) + ((start_y - y[i])**2))
+        if (distance <= r[i]){
+            counter++
+        }
+    }
+    for(let j=0; j<x.length; j++){
+        let endDistance = Math.sqrt(((end_x - x[j])**2) + ((end_y - y[j])**2))
+        if (endDistance <= r[j]){
+            counter++
+        }
+    }
+
+    
+    return counter
 
 }
+
+
+//APPROACH 1
+    //find equation of the line
+    //plug in the the points along the curve of the circle to see if there is an intersection
+
+    //calculus?
+
+
+// console.log(circleCountry([4,2,0], [0,1,-4], [1,1,8], 4, 3, -3, 0))
 
 module.exports = circleCountry;
