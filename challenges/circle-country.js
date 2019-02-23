@@ -25,10 +25,12 @@
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
     let circleCount = 0;
     for(let i = 0; i < x.length; i++){
-        if((start_x - x[i]) * (start_x - x[i]) + (start_y - y[i]) * (start_y - y[i]) <=  r[i]*r[i]){
+        if(((start_x - x[i]) * (start_x - x[i]) + (start_y - y[i]) * (start_y - y[i]) <=  r[i]*r[i]) &&
+        ((end_x - x[i]) * (end_x - x[i]) + (end_y - y[i]) * (end_y - y[i]) <=  r[i]*r[i])){}
+        else if((start_x - x[i]) * (start_x - x[i]) + (start_y - y[i]) * (start_y - y[i]) <=  r[i]*r[i]){
             circleCount++;
         }
-        if((end_x - x[i]) * (end_x - x[i]) + (end_y - y[i]) * (end_y - y[i]) <=  r[i]*r[i]){
+        else if((end_x - x[i]) * (end_x - x[i]) + (end_y - y[i]) * (end_y - y[i]) <=  r[i]*r[i]){
           circleCount++;
       }
      
