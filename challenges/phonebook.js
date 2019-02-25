@@ -33,25 +33,23 @@ function findName(jazbook, name) {
 }
 
 // return an object literal representing the jazbook
-class PhoneBook {
-  constructor(jazbookObj) {
-    this.phoneBook = jazbookObj;
-  }
-  addPerson(name, phoneNumber) {
-    this.phoneBook[name] = phoneNumber;
-  }
-  removePerson(name) {
-    delete this.phoneBook[name];
-  }
-}
 
 function makePhoneBookObject(jazbook) {
-  const jazbookObj = jazbook.reduce((pb, arr) => {
-    pb[arr[0]] = arr[1];
-    return pb;
-  }, {});
 
-  return new PhoneBook(jazbookObj);
+  function PhoneBook(book) {
+    this.phoneBook = book.reduce((pb, arr) => {
+      pb[arr[0]] = arr[1];
+      return pb;
+    }, {});
+    this.addPerson = function (name, phoneNumber) {
+      this.phoneBook[name] = phoneNumber;
+    }
+    this.removePerson = function (name) {
+      delete this.phoneBook[name];
+    }
+  };
+
+  return new PhoneBook(jazbook);
 }
 
 jazbook = [
