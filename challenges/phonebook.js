@@ -41,11 +41,11 @@ function makePhoneBookObject(jazbook) {
       pb[arr[0]] = arr[1];
       return pb;
     }, {});
-    this.addPerson = function (name, phoneNumber) {
-      this.phoneBook[name] = phoneNumber;
+    this.phoneBook.addPerson = function (name, phoneNumber) {
+      this[name] = phoneNumber;
     }
-    this.removePerson = function (name) {
-      delete this.phoneBook[name];
+    this.phoneBook.removePerson = function (name) {
+      delete this[name];
     }
   };
   const newPhoneBook = new PhoneBook(jazbook);
@@ -62,7 +62,7 @@ jazbook = [
 ];
 
 const thePb = makePhoneBookObject(jazbook);
-
+thePb.addPerson('jay', '555-5555');
 console.log(thePb);
 
 
