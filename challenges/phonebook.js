@@ -36,14 +36,18 @@ function findName(jazbook, name) {
 // return an object literal representing the jazbook
 function makePhoneBookObject(jazbook) {
   function Phonebook() {
-    this.phonebook = {};
+    this.add = function add(name, number) { this[name] = number; };
+    this.remove = function remove(name) { delete this[name]; };
+    this.lookUp = function lookUp(name) {
+      return this[name] ? this[name] : false;
+    };
   }
 
-  Phonebook.prototype.add = function add(name, number) { this.phonebook[name] = number; };
-  Phonebook.prototype.remove = function remove(name) { delete this.phonebook[name]; };
-  Phonebook.prototype.lookUp = function lookUp(name) {
-    return this.phonebook[name] ? this.phonebook[name] : false;
-  };
+  // Phonebook.prototype.add = function add(name, number) { this[name] = number; };
+  // Phonebook.prototype.remove = function remove(name) { delete this[name]; };
+  // Phonebook.prototype.lookUp = function lookUp(name) {
+  //   return this[name] ? this[name] : false;
+  // };
 
   const newBook = new Phonebook();
 
@@ -70,10 +74,10 @@ const jazbook = [
 
 const phonebook = makePhoneBookObject(jazbook);
 
-// phonebook.add('joel', '314-691-4759');
-// console.log(`314-691-4759: ${phonebook.lookUp('joel')}`);
-// phonebook.remove('joel');
-// console.log(`false: ${phonebook.lookUp('joel')}`);
+phonebook.add('joel', '314-691-4759');
+console.log(`314-691-4759: ${phonebook.lookUp('joel')}`);
+phonebook.remove('joel');
+console.log(`false: ${phonebook.lookUp('joel')}`);
 
 
 module.exports = objectToExport;
