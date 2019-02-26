@@ -17,8 +17,51 @@
  * 	 
  */
 
-function newIntersections(x, y){
+function newIntersections(x, y) {
+    let intCount = 0;
+    let xObj = {};
+    let yObj = {};
+    x.forEach((coor, i) => {
+        if (yObj[coor]) {
+            yObj[coor].push(y[i]);
+        } else {
+            yObj[coor] = [y[i]];
+        }
+    });
 
+    Object.keys(yObj).forEach(key => {
+        if (yObj[key].length < 2) delete yObj[key];
+    });
+
+    y.forEach((coor, i) => {
+        if (xObj[coor]) {
+            xObj[coor].push(x[i]);
+        } else {
+            xObj[coor] = [x[i]];
+        }
+    });
+
+    Object.keys(xObj).forEach(key => {
+        if (xObj[key].length < 2) delete xObj[key];
+    });
+
+    Object.keys(xObj).forEach(xKey => {
+        Object.keys(yObj).forEach(yKey => {
+            if (xKey < Math.max(...yObj[yKey]) &&
+                xKey > Math.min(...yObj[yKey]) &&
+                yKey < Math.max(...xObj[xKey]) &&
+                yKey > Math.min(...xObj[xKey])) {
+                intCount += 1;
+            }
+        });
+    })
+
+    return intCount;
 }
+
+// const x = [3, 8, 5, 1, 10, 5];
+// const y = [5, 3, 7, 3, 6, 1];
+
+console.log(newIntersections(x, y));
 
 module.exports = newIntersections;
