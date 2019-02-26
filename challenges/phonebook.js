@@ -26,17 +26,33 @@
 
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
-
+  // Check for valid input
+  if (!Array.isArray(jazbook) || jazbook.length === 0) return false;
+  // loop over array
+  for (let i = 0; i < jazbook.length; i++) {
+    // compare name with current element at [0]
+    if (jazbook[i][0] === name) return jazbook[i][1];
+  }
+  // if no match is found return false
+  return false;
 }
 
 // return an object literal representing the jazbook
-function makePhoneBookObject(jazbook){
-
+function makePhoneBookObject(jazbook) {
+  // * CHECK FOR VALID INPUT
+  if (!Array.isArray(jazbook) || jazbook.length === 0) return {};
+  // * DECLARE EMPTY OBJECT
+  const jazbookObject = {};
+  // * LOOP OVER JAZBOOK AND ADD NAME AS KEY AND NUMBER AS VALUE
+  for (let i = 0; i < jazbook.length; i++) {
+    jazbookObject[jazbook[i][0]] = jazbook[i][1];
+  }
+  return jazbookObject;
 }
 
 const objectToExport = {
   findName,
-  makePhoneBookObject,
+  makePhoneBookObject
 };
 
 module.exports = objectToExport;
