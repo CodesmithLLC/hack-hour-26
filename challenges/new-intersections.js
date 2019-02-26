@@ -19,6 +19,26 @@
 
 function newIntersections(x, y){
 
+  const xMin = Math.min(...x)
+  const yMin = Math.min(...y)
+  const xMax = Math.max(...x);
+  const yMax = Math.max(...y);
+
+
+  let counter =0;
+  for(let i=xMin; i<= xMax; i++){
+    for(let j= yMin; j<=yMax; j++){
+       counter++;
+    }
+  }
+
+  // console.log(counter);
+  return counter;
+
 }
+
+const x = [-2,0,0,2]
+const y = [0,2,-2,2];
+newIntersections(x,y);
 
 module.exports = newIntersections;
