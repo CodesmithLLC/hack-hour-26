@@ -33,20 +33,26 @@ const Node = function (value) {
 };
 
 function hasCycle(head) {
-  let cycle = false;
   let curr = head;
-  let count = 0;
-
-  while (curr) {
-    count += 1;
-    if (count > 10000000) {
-      cycle = true;
-      break;
+  let rabbit = head.next;
+  while (rabbit) {
+    if (curr === rabbit) {
+      return true;
     }
     curr = curr.next;
+    rabbit = rabbit.next.next;
   }
-
-  return cycle;
+  return false;
 }
 
 module.exports = { Node, hasCycle };
+
+
+const node1 = new Node('1');
+const node2 = node1.next = new Node('2');
+const node3 = node2.next = new Node('3');
+const node4 = node3.next = new Node('4');
+const node5 = node4.next = new Node('5');
+console.log(hasCycle(node1)); // => false
+node5.next = node2;
+console.log(hasCycle(node1)); // => true
