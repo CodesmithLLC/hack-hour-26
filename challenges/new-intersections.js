@@ -62,6 +62,6 @@ function newIntersections(x, y) {
 // const x = [3, 8, 5, 1, 10, 5];
 // const y = [5, 3, 7, 3, 6, 1];
 
-console.log(newIntersections(x, y));
+// console.log(newIntersections(x, y));
 
 module.exports = newIntersections;
