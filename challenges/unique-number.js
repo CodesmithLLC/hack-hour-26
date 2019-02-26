@@ -10,20 +10,13 @@
  *
  */
 function uniqueNumber(array) {
-  const set = new Set();
+  let result = 0;
   for (let i = 0; i < array.length; i += 1) {
-    if (set.has(array[i])) {
-      set.delete(array[i]);
-    } else {
-      set.add(array[i]);
-    }
+    result ^= array[i];
   }
-  if (set.size) {
-    return set.values();
-  }
-  return false;
+  return result;
 }
 
 module.exports = uniqueNumber;
 
-console.log(uniqueNumber([1, 2, 3, 1, 3]));
+console.log(uniqueNumber([1, 1, 3, 1, 3]));
