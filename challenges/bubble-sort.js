@@ -37,6 +37,6 @@ function bubbleSort(array) {
   return array;
 }
 
-console.log(bubbleSort([5, 4, 3, 2, 1]));
+console.log(bubbleSort([ 4, 5, 3, 2, 1]));
 
 module.exports = bubbleSort;
