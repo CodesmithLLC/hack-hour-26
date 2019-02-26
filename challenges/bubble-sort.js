@@ -13,10 +13,10 @@ function bubbleSort(array) {
       }
     }
   }
+  return array;
 }
 
 module.exports = bubbleSort;
 
-// const arr = [5, 1, 4, 2, 8, 9];
-// bubbleSort(arr);
-// console.log(arr);
+const arr = [5, 1, 4, 2, 8, 9];
+console.log(bubbleSort(arr));
