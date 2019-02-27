@@ -11,7 +11,46 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  const xy = str.match(/\w/g);
+  const x = parseInt(xy[0], 10);
+  const y = parseInt(xy[1], 10);
+  let count = 0;
 
+  if (x + 2 <= 8) {
+    if (y + 1 <= 8) {
+      count += 1;
+    }
+    if (y - 1 >= 1) {
+      count += 1;
+    }
+  }
+  if (x - 2 >= 0) {
+    if (y + 1 <= 8) {
+      count += 1;
+    }
+    if (y - 1 >= 1) {
+      count += 1;
+    }
+  }
+  if (y + 2 <= 8) {
+    if (x + 1 <= 8) {
+      count += 1;
+    }
+    if (x - 1 >= 1) {
+      count += 1;
+    }
+  }
+  if (y - 2 >= 0) {
+    if (x + 1 <= 8) {
+      count += 1;
+    }
+    if (x - 1 >= 1) {
+      count += 1;
+    }
+  }
+  return count;
 }
 
 module.exports = knightjumps;
+
+console.log(knightjumps('(8 8)'));
