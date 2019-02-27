@@ -24,7 +24,7 @@ function knightjumps(str) {
       count += 1;
     }
   }
-  if (x - 2 >= 0) {
+  if (x - 2 >= 1) {
     if (y + 1 <= 8) {
       count += 1;
     }
@@ -40,7 +40,7 @@ function knightjumps(str) {
       count += 1;
     }
   }
-  if (y - 2 >= 0) {
+  if (y - 2 >= 1) {
     if (x + 1 <= 8) {
       count += 1;
     }
@@ -53,4 +53,4 @@ function knightjumps(str) {
 
 module.exports = knightjumps;
 
-console.log(knightjumps('(8 8)'));
+console.log(knightjumps('(2 1)'));
