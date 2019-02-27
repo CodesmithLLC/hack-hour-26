@@ -50,7 +50,7 @@ function newIntersections(x, y) {
       }
     });
   });
-  return count;
+  return intersections;
 }
 
 module.exports = newIntersections;
