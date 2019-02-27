@@ -43,10 +43,10 @@ function knightjumps(str) {
 
   return count;
 }
-console.log('');
-console.log(`8: ${knightjumps('(4, 5)')}`);
-console.log(`4: ${knightjumps('(1, 5)')}`);
-console.log(`2: ${knightjumps('(1, 1)')}`);
-console.log('');
+// console.log('');
+// console.log(`8: ${knightjumps('(4, 5)')}`);
+// console.log(`4: ${knightjumps('(1, 5)')}`);
+// console.log(`2: ${knightjumps('(1, 1)')}`);
+// console.log('');
 
 module.exports = knightjumps;
