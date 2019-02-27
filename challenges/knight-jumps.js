@@ -11,7 +11,25 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+    let moves = 0;
+    let x = parseInt(str.charAt(1));
+    let y = parseInt(str.charAt(3));
 
+    function checkValidMove(x, y){
+      if(x <= 8 && x >= 1 && y <= 8 && y >= 1){
+        moves += 1;
+      }
+    }
+    
+    checkValidMove(x+1, y+2);
+    checkValidMove(x-1, y+2);
+    checkValidMove(x+1, y-2);
+    checkValidMove(x-1, y-2);
+    checkValidMove(x+2, y+1);
+    checkValidMove(x-2, y+1);
+    checkValidMove(x+2, y-1);
+    checkValidMove(x-2, y-1);
+   return moves;
 }
 
 module.exports = knightjumps;
