@@ -9,9 +9,44 @@
 // from position x = 4 and y = 5.
 //  example input:
 // var str = "(4 5)"
+function onBoard(number) {
+  return (number > 0 && number < 9);
+}
+
 
 function knightjumps(str) {
+  let count = 0;
+  const chars = str.split('');
+  const coords = [];
 
+  chars.forEach((char) => {
+    const n = parseInt(char, 10);
+    if (Number.isNaN(n) === false) coords.push(n);
+  });
+
+  const moves = [
+    [2, 1],
+    [2, -1],
+    [-2, 1],
+    [-2, -1],
+    [1, 2],
+    [1, -2],
+    [-1, 2],
+    [-1, -2],
+  ];
+
+  const spaces = moves.map(move => [coords[0] + move[0], coords[1] + move[1]]);
+
+  spaces.forEach(([x, y]) => {
+    if (onBoard(x) && onBoard(y)) count += 1;
+  });
+
+  return count;
 }
+console.log('');
+console.log(`8: ${knightjumps('(4, 5)')}`);
+console.log(`4: ${knightjumps('(1, 5)')}`);
+console.log(`2: ${knightjumps('(1, 1)')}`);
+console.log('');
 
 module.exports = knightjumps;
