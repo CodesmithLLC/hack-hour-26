@@ -33,7 +33,32 @@
 */
 
 function pascalTriangle(numRows) {
-
+  if (numRows < 0) return [];
+  if (typeof numRows !== 'number' || Number.isNaN(numRows)) return 'Please input a number!'
+  if (!Number.isInteger(numRows)) return 'Please input an integer!'
+  const result = [];
+  // Create a loop that will iterate from 0 to num rows
+  for (let i = 0; i < numRows; i += 1) {
+    // if first row then push first array in with an element with the number 1
+    if (i === 0) result.push([1]);
+    else {
+      const newRow = [];
+      // iterate from zero to the current row number
+      for (let j = 0; j < i + 1; j += 1) {
+        // put one in the beginning and end of the new row
+        if (j === 0) newRow.push(1);
+        else if (j === i) newRow.push(1);
+        // otherwise add the elements from the last row together (currentIndex and currentIndex - 1)
+        else {
+          const lastRow = result[i - 1];
+          newRow.push(lastRow[j] + lastRow[j - 1]);
+        }
+      }
+      result.push(newRow);
+    }
+  }
+  // return result
+  return result;
 }
 
 module.exports = pascalTriangle;
