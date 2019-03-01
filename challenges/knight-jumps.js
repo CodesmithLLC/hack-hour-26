@@ -12,6 +12,21 @@
 
 function knightjumps(str) {
 
+  //start with numOfSpaces = 8
+  let numOfSpaces = 8;
+    //handle the cases from worst to best (losing 6 to losing 2 moves)
+    if ((x === 8 || x === 1) && (y === 8 || y === 8)) {
+    //if statements, subtracting value from numOfSpaces 
+      numOfSpaces - 6;
+    };
+    if (())
+
+
+
+
+
+
+
 }
 
 module.exports = knightjumps;
