@@ -44,7 +44,46 @@ expectations = {
 
 function getPINs(observed) {
 
+  //turn observed into an array of numbers
+  const observedArr = observed.split('');
+  const comboArr = [];
+  //loop over array
+  observedArr.forEach((e) => {
+    //for each number get all variations and push to new array - now we have array.length amount of arrays of combos
+    const num = Number(e);
+    const arr = [e];
+    if (num - 3 > 0) arr.push(String(num - 3));
+    if (num - 1 > 0 && num !== 4 && num !== 7) arr.push(String(num - 1));
+    if (num + 1 < 10 && num !== 3 && num !== 6) arr.push(String(num + 1));
+    if (num + 3 < 10) arr.push(String(num + 3));
+    if (num === 8) arr.push('0');
+    comboArr.push(arr);
+  });
+
+  const result = []
+
+  if (comboArr.length === 1) { result.push(...comboArr[0]); }
+  else {
+    //if array of arrays length is longer than one - loop over array of arrays
+    for (let i = 0; i < comboArr.length; i++) {
+      let checker = 0;
+      //loop against other array
+      while (comboArr[i + 1]) {
+
+        //concat combos and push result array
+        if (comboArr[checker + 1]) {
+          console.log(comboArr[i], comboArr[checker + 1])
+          result.push(comboArr[i] + comboArr[checker + 1]);
+        }
+
+        checker++;
+      }
+    }
+  }
+  return result
+
 }
 
+console.log(getPINs('8'));
 
 module.exports = getPINs
