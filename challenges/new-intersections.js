@@ -24,10 +24,11 @@ function newIntersections(x, y) {
 
   // collect all vertical and horizontal lines
   for (let i = 0; i < x.length; i += 1) {
-    for (let j = 0; j < x.length; i += 1) {
+    for (let j = 0; j < x.length; j += 1) {
       const a = [x[i], y[i]];
       const b = [x[j], y[j]];
-      const line = [a, b].sort();
+      let line = [a, b];
+      if (x[j] < x[i]) line = [b, a];
 
       if (a[0] !== b[0] && a[1] === b[1]) horizontal.add(line);
 
@@ -36,21 +37,33 @@ function newIntersections(x, y) {
   }
   // line = [[x1, y1], [x2, y2]]
   // for each horizontal line
+  console.log('got lines, gonna loop');
+
   horizontal.forEach((h) => {
+    // [a0, a1, b0, b1]
     // loop through vertical lines
-    const [a, b] = h;
+    // const [a, b] = h;
+    console.log(`horizontal: ${h}`);
     vertical.forEach((v) => {
-      const [c, d] = v;
+      // [c0, c1, d0, d1]
+      console.log(`v: ${vertical}`);
+
+      // const [c, d] = v;
       // is vertical's x between horizontal's x's?
-      if (a[0] <= c[0] && c[0] <= b[0]) {
+      if (h[0] <= v[0] && v[0] <= h[2]) {
         // AND is horizontal's y between vertical's y's?
         // we don't know what order the y's are in, need to check for both cases
         // Yes? -> chalk it up!
-        if ((c[1] <= a[1] && a[1] <= d[1]) || (c[1] >= a[1] && a[1] >= d[1])) intersections += 1;
+        if ((v[1] <= h[1] && h[1] <= v[3]) || (v[1] >= h[1] && h[1] >= v[3])) intersections += 1;
       }
     });
   });
   return intersections;
 }
+
+const x = [1, 2, 2, 2, 3, 4, 5, 6];
+const y = [4, 1, 3, 5, 4, 3, 2, 4];
+
+console.log(newIntersections(x, y));
 
 module.exports = newIntersections;
