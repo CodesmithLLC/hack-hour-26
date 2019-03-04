@@ -33,7 +33,28 @@
 */
 
 function pascalTriangle(numRows) {
+  const triangle = [];
 
+  // build a pyramid
+  for (let n = 1; n <= numRows; n += 1) {
+    const row = new Array(n).fill(1);
+    triangle.push(row);
+  }
+  console.log(triangle);
+
+  for (let row = 1; row < numRows; row += 1) {
+    const thisRow = triangle[row];
+    const nextRow = triangle[row + 1];
+    console.log(`next row: ${nextRow}`);
+    for (let i = 0; i < row - 1; i += 1) {
+      const newValue = thisRow[i] + thisRow[i + 1];
+      nextRow[i + 1] = newValue;
+    }
+  }
+
+  console.log(triangle);
 }
+
+pascalTriangle(5);
 
 module.exports = pascalTriangle;
