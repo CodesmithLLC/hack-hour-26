@@ -19,8 +19,23 @@
  * BONUS: Account for suits and add in Flush & Straight Flush/Royal Flush.
  * BONUS2: Create a deck of cards function that generates two random hands for you.
  */
+
+
 function poker(hand1, hand2) {
 
+    const player1 = Object.values(hand1.reduce((obj, card) => {
+        obj[card] ? obj[card] += 1 : obj[card] = 1;
+        return obj;
+    }, {}));
+    const player2 = Object.values(hand2.reduce((obj, card) => {
+        obj[card] ? obj[card] += 1 : obj[card] = 1;
+        return obj;
+    }, {}));
+
+    console.log(player1, player2);
+
 }
+
+console.log(poker([3, 3, 2, 9, 10], [8, 7, 3, 7, 10]));
 
 module.exports = poker;
