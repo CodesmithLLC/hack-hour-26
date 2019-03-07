@@ -11,7 +11,9 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-
+  // * CHECK FOR VALID INPUT
+  // * CHECK HOW MANY JUMPS LIE WITHIN THE BOUNDS OF BOARD
+  // * INCREMENT JUMP COUNT
 }
 
 module.exports = knightjumps;

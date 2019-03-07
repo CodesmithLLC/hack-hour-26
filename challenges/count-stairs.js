@@ -15,7 +15,15 @@
  */
 
 function countStairs(n) {
-
+  // * Check for valid input
+  if (n === 0 || typeof n !== 'number') return 0;
+  const one = 1;
+  const two = 2;
+  let counter = 0;
+  // * Subtract ones and twos from n until 0
+  
+  // * Increment counter for each unique set steps
+  // * return counter
 }
 
 module.exports = countStairs;

@@ -15,12 +15,49 @@
  *
  * Clearly real-world poker has more complex rules for tied ranks, but we want you
  * to focus on overall architecture rather than edge cases. Have fun!
- * 
+ *
  * BONUS: Account for suits and add in Flush & Straight Flush/Royal Flush.
  * BONUS2: Create a deck of cards function that generates two random hands for you.
+ *
+ *
+ *
  */
-function poker(hand1, hand2) {
 
+function scoreHand(cards) {
+  // * Create object to score hands
+  const scores = {
+      fourOfAKind = 1000,
+      fullHouse = 800,
+      staight = 600,
+      threeOfAKind = 400,
+      twoPair = 200,
+      onePair = 100,
+      
+  };
+}
+
+function poker(hand1, hand2) {
+  // * Sort hands in ascending order
+  const playerOneCards = {};
+  const playerTwoCards = {};
+  // * Iterate over each hand adding cards to object
+  for (let i = 0; i < hand1.length; i++) {
+    if (!playerOneCards[hand1[i]]) playerOneCards[hand1[i]] = 1;
+    else playerOneCards[hand1[i]] += 1;
+  }
+  for (let i = 0; i < hand2.length; i++) {
+    if (!playerTwoCards[hand2[i]]) playerTwoCards[hand2[i]] = 1;
+    else playerTwoCards[hand2[i]] += 1;
+  }
+  // * Loop over objects to check for winning hands
+  const playerOne = Object.values(playerOneCards);
+  const playerTwo = Object.values(playerTwoCards);
+
+  let playerOneHand;
+  let playerTwoHand;
+
+  if (playerOne.includes(4)) playerOneHand = '4-of-a-kind';
+  if (playerTwo.includes(4)) plauerTwoHand = '4-of-a-kind';
 }
 
 module.exports = poker;
