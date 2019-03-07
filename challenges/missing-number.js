@@ -38,7 +38,7 @@ function missingNum(array) {
   for (let j = min; j <= max; j++) {
     correctSum += j;
   }
-  const missingNumber = correctSum - arraySum;
+  const missingNumber = Math.floor(correctSum - arraySum);
   return missingNumber;
 }
 
