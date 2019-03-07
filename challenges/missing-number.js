@@ -38,8 +38,8 @@ function missingNum(array) {
   for (let j = min; j <= max; j++) {
     correctSum += j;
   }
-
-  return correctSum - arraySum;
+  const missingNumber = correctSum - arraySum;
+  return missingNumber;
 }
 
 console.log(missingNum([1, 2, 3, 5]));
