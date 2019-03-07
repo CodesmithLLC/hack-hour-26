@@ -32,13 +32,13 @@ function newIntersections(x, y){
     }
   }
 
-  // console.log(counter);
+  console.log(counter);
   return counter;
 
 }
 
-const x = [-2,0,0,2]
-const y = [0,2,-2,2];
+const x = [0,0]
+const y = [0,5];
 newIntersections(x,y);
 
 module.exports = newIntersections;
