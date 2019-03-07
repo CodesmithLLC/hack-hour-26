@@ -17,21 +17,20 @@ function Node(val) {
 Adds a node to the end of the list
  */
 LinkedList.prototype.add = function(val) {
-  // * Check for head
+  const newNode = new Node(val);
+
+  // * If no head, assign newNode as head
   if (this.head === null) {
-    this.head = new Node(val);
-    this.tail = this.head;
+    this.head = newNode;
+    this.tail = newNode;
     return this.head;
   }
-  // * Assign pointer to tail
+
+  // * Add newNode to tail
   let pointer = this.tail;
-  // * Assign tail.next to new node
-  this.tail.next = new Node(val);
-  // * Assign tail to new node
+  this.tail.next = newNode;
   this.tail = this.tail.next;
-  // * Assign tail.prev to pointer
   this.tail.prev = pointer;
-  // * Return head
   return this.head;
 };
 
@@ -58,12 +57,10 @@ LinkedList.prototype.remove = function(val) {
   currNode = currNode.next;
 
   // * Loop through LL until val is found and remove it
-  while (currNode !== null) {
-    if (currNode.val === val) {
-      break;
-    }
+  while (currNode !== null && currNode.val !== val) {
     currNode = currNode.next;
   }
+  
   // * Check if tail is target val
   if (this.tail.val === val) {
     currNode = this.tail;
@@ -73,7 +70,7 @@ LinkedList.prototype.remove = function(val) {
     return currNode;
   }
 
-  if ((currNode.val = val)) {
+  if (currNode.val === val) {
     currNode.prev.next = currNode.next;
     currNode.next.prev = currNode.prev;
     return currNode;
