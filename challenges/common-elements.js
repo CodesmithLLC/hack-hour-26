@@ -19,25 +19,14 @@ function commonElements(array1, array2, array3, array4){
   let set3 = new Set(array3);
   let set4 = new Set(array4);
 
-  let checkArray = [...set1, ...set2, ...set3, ...set4];
-
-  let comElObjs = {};
-
-  for(let i = 0; i < checkArray.length; i++){
-    comElObjs[checkArray[i]] = (comElObjs[checkArray[i]]) ? comElObjs[checkArray[i]] +=1 : 1;
+  let checkArray = [...set1];
+  function inSets(val){
+    return (set1.has(val) && set2.has(val) && set3.has(val) && set4.has(val))
   }
-
-  let retArr = [];
-
-  let countArray = Object.entries(comElObjs);
-
-  for(let i = 0; i < countArray.length; i++){
-    if(countArray[i][1] === 4){
-      retArr.push(countArray[i][0]);
-    }
-  }
-  return retArr;
   
+  return (checkArray.filter(inSets).length > 0) ? checkArray.filter(inSets) : "Nothing in Common!";
+
 
 }
+
 module.exports = commonElements;
