@@ -15,7 +15,7 @@
 function commonElements(array1, array2, array3, array4) {
   const arrays = [array1, array2, array3, array4];
   const arrObj = arrays.reduce((result, arr) => {
-    new Set(arr).forEach((e, i) => {
+    new Set(arr).forEach((e) => {
       result[e] ? result[e] += 1 : result[e] = 1;
     });
     return result;
@@ -23,9 +23,10 @@ function commonElements(array1, array2, array3, array4) {
 
   Object.keys(arrObj).forEach(e => {
     arrObj[e] !== 4 && delete arrObj[e];
-  })
+  });
 
-  return Object.keys(arrObj);
+  const final = Object.keys(arrObj);
+  return final.length ? final : 'Nothing in Common!';
 
 }
 
