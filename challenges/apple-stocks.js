@@ -14,6 +14,8 @@
 
 function bestProfit(stock_prices_yesterday) {
 
+    if (!Array.isArray(stock_prices_yesterday)) return 0;
+
     let min = Infinity;
     let bestProfit = 0;
     let tracker;
@@ -24,7 +26,8 @@ function bestProfit(stock_prices_yesterday) {
         if (tracker > bestProfit) bestProfit = tracker;
         console.log(price, min, tracker, bestProfit);
     });
-    return bestProfit;
+
+    return bestProfit < 0 ? 0 : bestProfit;
 
 }
 
