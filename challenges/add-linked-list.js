@@ -37,7 +37,7 @@ function addLinkedList(l1, l2) {
   let l1String = '';
   let l2String = '';
 
-  while (curL1 && curL2) {
+  while (curL1 || curL2) {
     l1String += curL1.value.toString();
     l2String += curL2.value.toString();
     curL1 = curL1.next;
