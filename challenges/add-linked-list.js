@@ -12,44 +12,140 @@
  *
  */
 
-function Node(val) {
-  this.value = val;
-  this.next = null;
+class Node {
+  constructor(val) {
+    this.value = val;
+    this.next = null;
+  }
+  add(val) {
+    this.next ? this.next.add(val) : this.next = new Node(val);
+  }
 }
 
+
+
+const l1 = new Node(6);
+l1.add(7);
+
+const l2 = new Node(5);
+l2.add(1);
+
+//Brute Force
 function addLinkedList(l1, l2) {
-  let oneCurNode = l1;
-  let twoCurNode = l2;
-  const oneArr = [];
-  const twoArr = [];
-  while(oneCurNode || twoCurNode) {
-    if(oneCurNode.next){
-      oneArr.push(oneCurNode.value);
-    }else if(twoCurNode.next){
-      twoArr.push(twoCurNode.value);
-    }
-    oneCurNode = oneCurNode.next;
-    twoCurNode = twoCurNode.next;
+  let curL1 = l1;
+  let curL2 = l2;
+  let l1String = '';
+  let l2String = '';
+
+  while (curL1 && curL2) {
+    l1String += curL1.value.toString();
+    l2String += curL2.value.toString();
+    curL1 = curL1.next;
+    curL2 = curL2.next;
   }
 
-  const oneNum = Number(oneArr.reverse().join(''));
-  const twoNum = Number(twoArr.reverse().join(''));
-  const newNum = oneNum + twoNum;
+  l3Total = Number(l1String) + Number(l2String);
 
-  newNum.split('').reverse();
+  let l3 = null;
 
-  
+  l3Total.toString().split('').forEach(num => {
+    if (!l3) {
+      l3 = new Node(num);
+    } else {
+      l3.add(num);
+    }
+  });
 
-  return newLL;
+  return l3;
+
 }
 
-ll1 = new Node(2);
-ll1.next = new Node(1);
-ll1.next.next = new Node(5);
-ll2 = new Node(5);
-ll2.next = new Node(9);
-ll2.next.next = new Node(2);
+console.log(addLinkedList(l1, l2));
 
-console.log(addLinkedList(ll1, ll2));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function Node(val) {
+//   this.value = val;
+//   this.next = null;
+// }
+
+// function addLinkedList(l1, l2) { 
+//   let oneCurNode = l1;
+//   let twoCurNode = l2;
+//   const oneArr = [];
+//   const twoArr = [];
+//   while(oneCurNode || twoCurNode) {
+//     if(oneCurNode.next){
+//       oneArr.push(oneCurNode.value);
+//     }else if(twoCurNode.next){
+//       twoArr.push(twoCurNode.value);
+//     }
+//     oneCurNode = oneCurNode.next;
+//     twoCurNode = twoCurNode.next;
+//   }
+
+//   const oneNum = Number(oneArr.reverse().join(''));
+//   const twoNum = Number(twoArr.reverse().join(''));
+//   const newNum = oneNum + twoNum;
+
+//   newNum.split('').reverse();
+
+
+
+//   return newLL;
+// }
+
+// ll1 = new Node(2);
+// ll1.next = new Node(1);
+// ll1.next.next = new Node(5);
+// ll2 = new Node(5);
+// ll2.next = new Node(9);
+// ll2.next.next = new Node(2);
+
+// console.log(addLinkedList(ll1, ll2));
 
 module.exports = { Node: Node, addLinkedList: addLinkedList };
