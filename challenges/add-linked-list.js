@@ -24,11 +24,12 @@ class Node {
 
 
 
-const l1 = new Node(6);
-l1.add(7);
+const l1 = new Node(2);
+l1.add(0);
 
 const l2 = new Node(5);
 l2.add(1);
+l2.add(4)
 
 //Brute Force
 function addLinkedList(l1, l2) {
@@ -38,10 +39,14 @@ function addLinkedList(l1, l2) {
   let l2String = '';
 
   while (curL1 || curL2) {
-    l1String += curL1.value.toString();
-    l2String += curL2.value.toString();
-    curL1 = curL1.next;
-    curL2 = curL2.next;
+    if (curL1) {
+      l1String += curL1.value.toString();
+      curL1 = curL1.next;
+    }
+    if (curL2) {
+      l2String += curL2.value.toString();
+      curL2 = curL2.next;
+    }
   }
 
   l3Total = Number(l1String) + Number(l2String);
@@ -49,11 +54,7 @@ function addLinkedList(l1, l2) {
   let l3 = null;
 
   l3Total.toString().split('').forEach(num => {
-    if (!l3) {
-      l3 = new Node(num);
-    } else {
-      l3.add(num);
-    }
+    l3 ? l3.add(num) : l3 = new Node(num);
   });
 
   return l3;
