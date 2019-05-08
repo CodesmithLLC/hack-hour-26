@@ -12,6 +12,8 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
+// DONE
+
 function bestProfit(stock_prices_yesterday) {
   let currentHighest = 0;
   if (!Array.isArray(stock_prices_yesterday)) return 0;
@@ -26,6 +28,5 @@ function bestProfit(stock_prices_yesterday) {
 }
 
 console.log(bestProfit(10));
-
 
 module.exports = bestProfit;

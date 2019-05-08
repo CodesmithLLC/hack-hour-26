@@ -33,7 +33,12 @@
 */
 
 function pascalTriangle(numRows) {
-
+/**
+ * 1. For loop for creating rows up to numRows
+ * 2. While loop for creating each element of the array
+ * 3. Conditional statement to check to see if at the beginning or end of the array, set 1 and continue
+ * 4. Calculate value of element by adding value of element of last row at current i and last row and i-1
+ */
 }
 
 module.exports = pascalTriangle;

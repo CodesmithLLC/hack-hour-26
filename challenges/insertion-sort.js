@@ -29,4 +29,6 @@ function insertionSort(array) {
   return array;
 }
 
+console.log(insertionSort([9, 7, 8, 7, 8, 0, 2]));
+
 module.exports = insertionSort;

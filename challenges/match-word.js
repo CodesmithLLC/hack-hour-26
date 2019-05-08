@@ -11,20 +11,24 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-  let remainingString = str.slice();
-  let matchString = '';
+  let remainingString = str.split();
+  let matchString = [];
   // get string and push each character of string onto new string using splice until the first repeated character.
-  while (matchString.charAt(matchString.length - 1) !== remainingString.charAt(0)) {
-    matchString += remainingString.splice(0, 1);
+  while (matchString[matchString.length - 1] !== remainingString[0] && matchString.length !== 0) {
+    matchString.push(remainingString.splice(0, 1));
   }
+  matchString.join();
+  remainingString.join();
   // take first string and drop all special characters using regex
   matchString.replace(new RegExp('[^sw]', 'g'), '');
   // take the remainder of the original string and drop the special characters using regex
   remainingString.replace(new RegExp('[^sw]', 'g'), '');
   // reverse the string and compare values
-  matchString.split().reverse().join();
+  matchString.reverse()
   if (matchString === remainingString) return true;
   return false;
 }
+
+console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
 
 module.exports = matchWord;

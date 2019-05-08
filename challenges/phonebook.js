@@ -18,25 +18,46 @@
 *
 * How efficient can you make this?
 
-* Part 2: 
+* Part 2:
 * Why are we storing names and phone numbers in an array?
-* develop a function that takes in the poorly constructed jazbook and returns a proper phonebook 
+* develop a function that takes in the poorly constructed jazbook and returns a proper phonebook
 * complete with methods to add new names and look up and remove existing entries
 */
 
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
-
+  // eslint-disable-next-line no-restricted-syntax
+  for (let i in jazbook) {
+    if (jazbook[i][0] === name) return jazbook[i][1];
+  }
+  return false;
 }
 
 // return an object literal representing the jazbook
-function makePhoneBookObject(jazbook){
-
+function makePhoneBookObject(jazbook) {
+  this.phonebook = {};
+  jazbook.forEach((val) => {
+    this.phonebook[val[0]] = val[1];
+  });
+  return this.phonebook;
 }
+
+makePhoneBookObject.prototype.addNew = (name, number) => {
+  (!name || !number) ? undefined : {
+
+  this.phonebook[name] = number}
+};
+
+makePhoneBookObject.prototype.lookup = name => this.phonebook[name];
+
+makePhoneBookObject.prototype.delete = name => delete this.phonebook[name];
 
 const objectToExport = {
   findName,
   makePhoneBookObject,
 };
+
+console.log(findName([['harmon', '16266795930']], 'harmon'));
+console.log(makePhoneBookObject([['harmon', '16266795930']]));
 
 module.exports = objectToExport;

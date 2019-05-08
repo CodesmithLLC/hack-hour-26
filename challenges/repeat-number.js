@@ -11,7 +11,8 @@
  */
 
 function repeatNumbers(array) {
-
+  const set = new Set();
+  for (let i )
 }
 
 module.exports = repeatNumbers;

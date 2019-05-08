@@ -9,6 +9,8 @@
  * Complete the challenge in O(1) space
  *
  */
+// DONE BUT NEEDS IMPROVEMENT
+
 function uniqueNumber(array) {
   const unique = new Set();
   for (let i in array) {

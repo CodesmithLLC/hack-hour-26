@@ -12,4 +12,6 @@ function highestProduct(array) {
   return (newArray[0] * newArray[1] * newArray[2]);
 }
 
+console.log(highestProduct[-1, -2, -3])
+
 module.exports = highestProduct;

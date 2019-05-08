@@ -13,6 +13,25 @@
  */
 
 function numToWords(num) {
+  const numbers = {
+    1: 'One',
+    2: 'Two',
+    3: 'Three',
+    4: 'Four',
+    5: 'Five',
+    6: 'Six',
+    7: 'Seven',
+    8: 'Eight',
+    9: 'Nine',
+    10: 'Ten',
+    100: 'Hundred',
+    1000: 'Thousand',
+    1000000: 'Million',
+    1000000000: 'Billion',
+    1000000000000: 'Trillion'
+  }
+
+
 
 }
 
