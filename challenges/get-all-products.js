@@ -9,6 +9,7 @@
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
 /* eslint-disable */
+/* ---- DONE ---- */
 function getAllProducts(array) {
   const result = [];
   if (!array.length) return [0];

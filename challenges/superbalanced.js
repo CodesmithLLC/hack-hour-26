@@ -7,26 +7,30 @@
 example: http://www.geeksforgeeks.org/wp-content/uploads/balanced_tree.GIF
  */
 
-function BinaryTree(value) {
+function BinaryTree(value, left = null, right = null) {
   this.value = value;
-  this.left = null;
-  this.right = null;
+  this.left = left;
+  this.right = right;
 }
 
 function superbalanced(tree) {
-  // have a left max depth counter
-  // have a right max depth counter
-  // have a current depth counter that will increment or decrement as it is going up and down the tree
-  // create one function that will traverse the tree and call it twice storing each result in left or right tree depth variable
-  if (!tree.left && !tree.right) return true;
-  function howDeep(branch, currentDepth = 1, maxDepth = 0) {
-    if (currentDepth > maxDepth) maxDepth = currentDepth;
-    if (!branch.left && !branch.right) return maxDepth;
-    if (branch.left) maxDepth = howDeep(branch.left, (currentDepth += 1), maxDepth);
-    if (branch.right) maxDepth = howDeep(branch.right, (currentDepth += 1), maxDepth);
-    return maxDepth;
+  // keep count of levels deep to be returned at the end
+  // if left exists, get return of recursive call from superbalanced and store in count
+  // if right exists, get reutrn of recursive call from superbalanced and store in count
+  // how to keep track most top level bst
+  // Keep track of difference between return of left and right tree
+  let depth = 0;
+  if (!this.left && !this.right) {
+    return 1;
   }
-  return Math.abs(howDeep(tree.left) - howDeep(tree.right)) <= 1;
+  if (this.left) {
+    depth += superbalanced(this.left);
+  }
+  if (this.right) {
+    depth += superbalanced(this.right);
+  }
+  return depth;
 }
+
 
 module.exports = { BinaryTree, superbalanced };

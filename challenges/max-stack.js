@@ -6,6 +6,8 @@
  * BONUS: The getMax method should retrieve the maximum value from the stack in O(1) time.
  */
 
+// Done
+
 function Stack() {
   // body...
   const stack = [];
@@ -14,23 +16,20 @@ function Stack() {
     if (value > maxValue || maxValue === undefined) maxValue = value;
     stack[stack.length] = value;
     return stack.length;
-  }
+  };
   Stack.prototype.pop = function () {
     const poppedOff = stack[stack.length - 1];
     if (stack[stack.length - 1] === maxValue) {
-      stack.length = stack.length - 1;
+      stack.length -= 1;
       const sortStack = stack.slice();
-      sortStack.sort((a, b) => {
-        return b - a;
-      })
+      sortStack.sort((a, b) => b - a);
       maxValue = sortStack[0];
     }
     return poppedOff;
-  }
+  };
   Stack.prototype.getMax = function () {
     return maxValue;
-  }
-
+  };
 }
 
 const myStack = new Stack();

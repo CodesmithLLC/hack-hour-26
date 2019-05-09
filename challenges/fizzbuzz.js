@@ -16,6 +16,8 @@
 //                     'fizzbuzz',
 //                     16 ]
 
+// Done
+
 function fizzbuzz(num) {
   const returnArray = [];
   for (let i = 1; i <= num; i += 1) {

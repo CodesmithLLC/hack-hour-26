@@ -8,12 +8,13 @@
 // countTwos(1000);  -> 300
 // countTwos(11420);  -> 4483
 
+// DONE
+
 function countTwos(num) {
   let counter = 0;
   for (let i = 0; i < num + 1; i += 1) {
     let twos = i.toString();
     twos = twos.match(/(2)/g);
-    console.log(twos);
     if (twos) counter += twos.length;
   }
   return counter;

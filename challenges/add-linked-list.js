@@ -18,7 +18,43 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  // Handle edge case
+  if (!l1 || !l2) {
+    return l1 || l2;
+  }
 
+  let res = new Node((l1.val + l2.val) % 10);
+  const resHead = res;
+  let carry = Math.floor((l1.val + l2.val) / 10);
+  let n1 = l1.next;
+  let n2 = l2.next;
+
+  while (n1 || n2) {
+    if (!n1 && n2) {
+      const sum = n2.val + carry;
+      res.next = new Node(sum % 10);
+      carry = Math.floor(sum / 10);
+      res = res.next;
+      n2 = n2.next;
+    }
+    if (!n2 && n1) {
+      const sum = n1.val + carry;
+      res.next = new Node(sum % 10);
+      carry = Math.floor(sum / 10);
+      res = res.next;
+      n1 = n1.next;
+    }
+    if (n1 && n2) {
+      const sum = n1.val + n2.val + carry;
+      res.next = new Node(sum % 10);
+      carry = Math.floor(sum / 10);
+      res = res.next;
+      n2 = n2.next;
+      n1 = n1.next;
+    }
+  }
+  if (carry) res.next = new Node(carry);
+  return resHead;
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+module.exports = { Node, addLinkedList };
